@@ -1,49 +1,12 @@
---------------- Build Started: 04/09/2014 09:18:26 Project: LEDPong, Configuration: ARM GCC 4.4.1 Debug ---------------
-cydsfit.exe "-.appdatapath" "C:\Users\milesh\AppData\Local\Cypress Semiconductor\PSoC Creator\2.2" "-.fdsnotice" "-.fdswarpdepfile=warp_dependencies.txt" "-.fdselabdepfile=elab_dependencies.txt" "-.fdsbldfile=generated_files.txt" "-p" "\\filer.cs.tamu.edu\milesh\ms_windows\cpsc_redirected\My Documents\GitHub\LEDPong\LEDPong\LEDPong.cydsn\LEDPong.cyprj" "-d" "CY8C5568AXI-060" "-s" "\\filer.cs.tamu.edu\milesh\ms_windows\cpsc_redirected\My Documents\GitHub\LEDPong\LEDPong\LEDPong.cydsn\Generated_Source\PSoC5" "--" "-yv2" "-v3" "-ygs" "-q10" "-o2" "-.fftcfgtype=LE"
-Elaborating Design...
-ADD: prj.M0246: information: PSoC 5LP provides many improvements over PSoC 5. Learn more about migrating to PSoC 5LP at www.cypress.com/go/PSoC5LP
- * LEDPong ()
-ADD: pft.M0028: warning: Clock Warning: (PlayerBT1_IntClock's accuracy range '461.538 kHz ñ 5.000%, (438.462 kHz - 484.615 kHz)' is not within the specified tolerance range '460.800 kHz ñ 2.000%, (451.584 kHz - 470.016 kHz)'.).
- * C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\UART_v2_30\UART_v2_30.cysch (Instance: IntClock)
- * \\filer.cs.tamu.edu\milesh\ms_windows\cpsc_redirected\My Documents\GitHub\LEDPong\LEDPong\LEDPong.cydsn\LEDPong.cydwr (PlayerBT1_IntClock)
-HDL Generation ...
-Synthesis ...
-Place and Route ...
-Tech mapping ...
-Info: mpr.M0037: Unused pieces of the design have been optimized out. See the Tech mapping section of the report file for details. (App=cydsfit)
-Analog Placement ...
-Analog Routing ...
-Analog Code Generation ...
-Digital Placement ...
-Digital Routing ...
-Bitstream Generation ...
-Static timing analysis ...
-API Generation ...
-Dependency Generation ...
-Clean Temporary Files ...
+--------------- Build Started: 04/09/2014 10:50:50 Project: LEDPong, Configuration: ARM GCC 4.4.1 Debug ---------------
+The code generation step is up to date.
 arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\main.lst -ffunction-sections -c .\main.c -o .\CortexM3\ARM_GCC_441\Debug\main.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\PlayerBT1.lst -ffunction-sections -c .\Generated_Source\PSoC5\PlayerBT1.c -o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\PlayerBT1_PM.lst -ffunction-sections -c .\Generated_Source\PSoC5\PlayerBT1_PM.c -o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_PM.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\PlayerBT1_INT.lst -ffunction-sections -c .\Generated_Source\PSoC5\PlayerBT1_INT.c -o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_INT.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\PlayerBT1_BOOT.lst -ffunction-sections -c .\Generated_Source\PSoC5\PlayerBT1_BOOT.c -o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_BOOT.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\Player1_Tx.lst -ffunction-sections -c .\Generated_Source\PSoC5\Player1_Tx.c -o .\CortexM3\ARM_GCC_441\Debug\Player1_Tx.o
 arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\Player1_Rx.lst -ffunction-sections -c .\Generated_Source\PSoC5\Player1_Rx.c -o .\CortexM3\ARM_GCC_441\Debug\Player1_Rx.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\PlayerBT1_IntClock.lst -ffunction-sections -c .\Generated_Source\PSoC5\PlayerBT1_IntClock.c -o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_IntClock.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\Cm3Start.lst -ffunction-sections -c .\Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_441\Debug\Cm3Start.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\core_cm3.lst -ffunction-sections -c .\Generated_Source\PSoC5\core_cm3.c -o .\CortexM3\ARM_GCC_441\Debug\core_cm3.o
-arm-none-eabi-as.exe -I. -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -g -alh=.\CortexM3\ARM_GCC_441\Debug/CyBootAsmGnu.lst -o .\CortexM3\ARM_GCC_441\Debug\CyBootAsmGnu.o .\Generated_Source\PSoC5\CyBootAsmGnu.s
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\CyDmac.lst -ffunction-sections -c .\Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_441\Debug\CyDmac.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\CyFlash.lst -ffunction-sections -c .\Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_441\Debug\CyFlash.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\CyLib.lst -ffunction-sections -c .\Generated_Source\PSoC5\CyLib.c -o .\CortexM3\ARM_GCC_441\Debug\CyLib.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\cyPm.lst -ffunction-sections -c .\Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_441\Debug\cyPm.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\CySpc.lst -ffunction-sections -c .\Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_441\Debug\CySpc.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\cyutils.lst -ffunction-sections -c .\Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_441\Debug\cyutils.o
-arm-none-eabi-gcc.exe -I. -Wno-main -I./Generated_Source/PSoC5 -mcpu=cortex-m3 -mthumb -Wall -g -D DEBUG -Wa,-alh=.\CortexM3\ARM_GCC_441\Debug\cyfitter_cfg.lst -ffunction-sections -c .\Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_441\Debug\cyfitter_cfg.o
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_441\Debug\LEDPong.a .\CortexM3\ARM_GCC_441\Debug\PlayerBT1.o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_PM.o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_INT.o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_BOOT.o .\CortexM3\ARM_GCC_441\Debug\Player1_Tx.o .\CortexM3\ARM_GCC_441\Debug\Player1_Rx.o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_IntClock.o .\CortexM3\ARM_GCC_441\Debug\core_cm3.o .\CortexM3\ARM_GCC_441\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_441\Debug\CyDmac.o .\CortexM3\ARM_GCC_441\Debug\CyFlash.o .\CortexM3\ARM_GCC_441\Debug\CyLib.o .\CortexM3\ARM_GCC_441\Debug\cyPm.o .\CortexM3\ARM_GCC_441\Debug\CySpc.o .\CortexM3\ARM_GCC_441\Debug\cyutils.o .\CortexM3\ARM_GCC_441\Debug\cyfitter_cfg.o
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_441\Debug\LEDPong.a .\CortexM3\ARM_GCC_441\Debug\PlayerBT1.o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_PM.o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_INT.o .\CortexM3\ARM_GCC_441\Debug\PlayerBT1_BOOT.o .\CortexM3\ARM_GCC_441\Debug\Player1_Tx.o .\CortexM3\ARM_GCC_441\Debug\Player1_Rx.o .\CortexM3\ARM_GCC_441\Debug\core_cm3.o .\CortexM3\ARM_GCC_441\Debug\CyBootAsmGnu.o .\CortexM3\ARM_GCC_441\Debug\CyDmac.o .\CortexM3\ARM_GCC_441\Debug\CyFlash.o .\CortexM3\ARM_GCC_441\Debug\CyLib.o .\CortexM3\ARM_GCC_441\Debug\cyPm.o .\CortexM3\ARM_GCC_441\Debug\CySpc.o .\CortexM3\ARM_GCC_441\Debug\cyutils.o .\CortexM3\ARM_GCC_441\Debug\LCD.o .\CortexM3\ARM_GCC_441\Debug\LCD_PM.o .\CortexM3\ARM_GCC_441\Debug\LCD_LCDPort.o .\CortexM3\ARM_GCC_441\Debug\Clock_1.o .\CortexM3\ARM_GCC_441\Debug\cyfitter_cfg.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_441\Debug\LEDPong.a
 arm-none-eabi-gcc.exe -mthumb -march=armv7-m -mfix-cortex-m3-ldrd -T .\Generated_Source\PSoC5\cm3gcc.ld -g -Wl,-Map,.\CortexM3\ARM_GCC_441\Debug\LEDPong.map -Wl,--gc-sections -Wl,--start-group -o .\CortexM3\ARM_GCC_441\Debug\LEDPong.elf .\CortexM3\ARM_GCC_441\Debug\main.o .\CortexM3\ARM_GCC_441\Debug\Cm3Start.o .\CortexM3\ARM_GCC_441\Debug\LEDPong.a "C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_441\Debug\CyComponentLibrary.a" -Wl,--end-group
 arm-none-eabi-objcopy.exe -O ihex .\CortexM3\ARM_GCC_441\Debug\LEDPong.elf .\CortexM3\ARM_GCC_441\Debug\LEDPong.ihx
 cyhextool -o .\CortexM3\ARM_GCC_441\Debug\LEDPong.hex -f .\CortexM3\ARM_GCC_441\Debug\LEDPong.ihx -prot .\Generated_Source\PSoC5\protect.hex -id E13C069 -a EEPROM=90200000:800,PROGRAM=00000000:40000,CONFIG=80000000:8000,PROTECT=90400000:100 -meta 0101 -cunv 00000006 -wonv BC90ACAF -ecc .\Generated_Source\PSoC5\config.hex
-Flash used: 2792 of 262144 bytes (1.1 %).
-SRAM used: 276 of 65536 bytes (0.4 %).
---------------- Build Failed: 04/09/2014 09:18:48 ---------------
+Flash used: 5024 of 262144 bytes (1.9 %).
+SRAM used: 292 of 65536 bytes (0.4 %).
+--------------- Build Succeeded: 04/09/2014 10:50:51 ---------------

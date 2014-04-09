@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="LEDPong\LEDPong\Generated_Source\PSoC5\cy_boot">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="LEDPong\LEDPong\Generated_Source\PSoC5\Player1_Rx\Player1_Rx.h">
 <ExpandedNodeIds>
 <v>LEDPong</v>
 <v>LEDPong\LEDPong</v>
@@ -25,6 +25,9 @@
 <v>LEDPong\LEDPong\Source Files\main.c</v>
 <v>LEDPong\LEDPong\Generated_Source</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\Clock_1</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\Clock_1\Clock_1.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\Clock_1\Clock_1.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
@@ -46,6 +49,14 @@
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD\LCD.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD\LCD.h</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD\LCD_PM.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD_LCDPort</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.h</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort_aliases.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\Player1_Rx</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\Player1_Rx\Player1_Rx.c</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\Player1_Rx\Player1_Rx.h</v>
@@ -58,9 +69,6 @@
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1\PlayerBT1_BOOT.c</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1\PlayerBT1_INT.c</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1\PlayerBT1_PM.c</v>
-<v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1_IntClock</v>
-<v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1_IntClock\PlayerBT1_IntClock.c</v>
-<v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1_IntClock\PlayerBT1_IntClock.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cydevice.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cydevice_trm.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cydevicegnu.inc</v>
@@ -85,7 +93,18 @@
 <v>LEDPong\LEDPong\Source Files\main.c</v>
 <v>LEDPong\LEDPong\Generated_Source</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\Clock_1</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\Clock_1\Clock_1.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\Clock_1\Clock_1.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cy_boot</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD\LCD.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD\LCD.h</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD\LCD_PM.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD_LCDPort</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.c</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.h</v>
+<v>LEDPong\LEDPong\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort_aliases.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\Player1_Rx</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\Player1_Rx\Player1_Rx.c</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\Player1_Rx\Player1_Rx.h</v>
@@ -98,9 +117,6 @@
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1\PlayerBT1_BOOT.c</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1\PlayerBT1_INT.c</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1\PlayerBT1_PM.c</v>
-<v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1_IntClock</v>
-<v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1_IntClock\PlayerBT1_IntClock.c</v>
-<v>LEDPong\LEDPong\Generated_Source\PSoC5\PlayerBT1_IntClock\PlayerBT1_IntClock.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cydevice.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cydevice_trm.h</v>
 <v>LEDPong\LEDPong\Generated_Source\PSoC5\cydevicegnu.inc</v>
@@ -137,6 +153,7 @@
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files</v>
+<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\Clock_1.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\Cm3Start.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\core_cm3.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\CyBootAsmGnu.lst</v>
@@ -147,13 +164,15 @@
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\cyPm.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\CySpc.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\cyutils.lst</v>
+<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\LCD.lst</v>
+<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\LCD_PM.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\main.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\Player1_Rx.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\Player1_Tx.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1_BOOT.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1_INT.lst</v>
-<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1_IntClock.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1_PM.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\LEDPong.elf</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\LEDPong.hex</v>
@@ -168,6 +187,7 @@
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files</v>
+<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\Clock_1.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\Cm3Start.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\core_cm3.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\CyBootAsmGnu.lst</v>
@@ -178,13 +198,15 @@
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\cyPm.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\CySpc.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\cyutils.lst</v>
+<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\LCD.lst</v>
+<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\LCD_PM.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\main.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\Player1_Rx.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\Player1_Tx.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1_BOOT.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1_INT.lst</v>
-<v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1_IntClock.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\Listing Files\PlayerBT1_PM.lst</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\LEDPong.elf</v>
 <v>LEDPong\LEDPong\CortexM3\ARM_GCC_441\Debug\LEDPong.hex</v>
@@ -205,6 +227,8 @@
 <v>LEDPong\LEDPong\PSoC 5 Architecture TRM</v>
 <v>LEDPong\LEDPong\CY8C55 Family Datasheet</v>
 <v>LEDPong\LEDPong\System Reference Guide v3_40</v>
+<v>LEDPong\LEDPong\CharLCD_v1_90</v>
+<v>LEDPong\LEDPong\cy_clock_v2_0</v>
 <v>LEDPong\LEDPong\cy_isr_v1_70</v>
 <v>LEDPong\LEDPong\cy_pins_v1_90</v>
 <v>LEDPong\LEDPong\UART_v2_30</v>
@@ -215,6 +239,8 @@
 <v>LEDPong\LEDPong\PSoC 5 Architecture TRM</v>
 <v>LEDPong\LEDPong\CY8C55 Family Datasheet</v>
 <v>LEDPong\LEDPong\System Reference Guide v3_40</v>
+<v>LEDPong\LEDPong\CharLCD_v1_90</v>
+<v>LEDPong\LEDPong\cy_clock_v2_0</v>
 <v>LEDPong\LEDPong\cy_isr_v1_70</v>
 <v>LEDPong\LEDPong\cy_pins_v1_90</v>
 <v>LEDPong\LEDPong\UART_v2_30</v>
@@ -230,6 +256,8 @@
 <name v=".\LEDPong.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\LEDPong.cydsn\LEDPong.cydwr" />
 <name v=".\LEDPong.cydsn\main.c" />
+<name v=".\LEDPong.cydsn\Generated_Source\PSoC5\Player1_Rx.c" />
+<name v=".\LEDPong.cydsn\Generated_Source\PSoC5\Player1_Rx.h" />
 </OpenDocs>
 <config v="" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

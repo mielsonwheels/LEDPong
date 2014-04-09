@@ -26,7 +26,8 @@
 *  Place your includes, defines and code here 
 ********************************************************************************/
 /* `#START Player1_Rx_intc` */
-
+uint8 Player1_Rx = 0;
+uint8 Player1_Rx_flag = 0;
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -143,7 +144,8 @@ CY_ISR(Player1_Rx_Interrupt)
 {
     /*  Place your Interrupt code here. */
     /* `#START Player1_Rx_Interrupt` */
-
+    Player1_Rx = PlayerBT1_ReadRxData();
+    Player1_Rx_flag = 1;
     /* `#END` */
 }
 

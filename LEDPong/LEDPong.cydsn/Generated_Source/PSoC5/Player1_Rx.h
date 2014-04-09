@@ -18,6 +18,7 @@
 
 #include <cytypes.h>
 #include <cyfitter.h>
+#include <PlayerBT1.h>
 
 /* Interrupt Controller API. */
 void Player1_Rx_Start(void);

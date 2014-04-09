@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_proj.xsd">
-
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_proj.xsd">
   <SchemaVersion>1.1</SchemaVersion>
-
   <Header>### uVision Project, (C) Keil Software</Header>
-
   <Targets>
     <Target>
       <TargetName>Debug</TargetName>
@@ -12,9 +8,9 @@
       <ToolsetName>ARM-GNU</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>Cortex-M3</Device>
+          <Device>CY8C5568AXI-060</Device>
           <Vendor>Cypress</Vendor>
-          <Cpu>CLOCK(12000000) CPUTYPE("Cortex-M3") ESEL ELITTLE</Cpu>
+          <Cpu>"IRAM(0x1FFF8000-0x20007FFF)IROM(0x0-0x3FFFF)CLOCK(67000000)CPUTYPE( "Cortex-M3") ESEL ELITTLE"</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
           <FlashDriverDll></FlashDriverDll>
@@ -44,7 +40,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\ARM-GNU\Debug\</OutputDirectory>
-          <OutputName>ProjectName</OutputName>
+          <OutputName>LEDPong_PSoC5lib</OutputName>
           <CreateExecutable>0</CreateExecutable>
           <CreateLib>1</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -297,9 +293,244 @@
           <GroupName>Source Files</GroupName>
           <Files>
             <File>
-              <FileName></FileName>
-              <FileType>0</FileType>
-              <FilePath></FilePath>
+              <FileName>cyfitter_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfitter_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>cyfitter_cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfitter_cfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>cydevice.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevice.h</FilePath>
+            </File>
+            <File>
+              <FileName>cydevicegnu.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevicegnu.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cydevicerv.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevicerv.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cydevice_trm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevice_trm.h</FilePath>
+            </File>
+            <File>
+              <FileName>cydevicegnu_trm.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevicegnu_trm.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cydevicerv_trm.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevicerv_trm.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cyfittergnu.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfittergnu.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cyfitterrv.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfitterrv.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cyfitter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfitter.h</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1.c</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1.h</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1_PM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_PM.c</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1_INT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_INT.c</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1_BOOT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_BOOT.c</FilePath>
+            </File>
+            <File>
+              <FileName>Player1_Tx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Player1_Tx.c</FilePath>
+            </File>
+            <File>
+              <FileName>Player1_Tx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Player1_Tx.h</FilePath>
+            </File>
+            <File>
+              <FileName>Player1_Rx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Player1_Rx.c</FilePath>
+            </File>
+            <File>
+              <FileName>Player1_Rx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Player1_Rx.h</FilePath>
+            </File>
+            <File>
+              <FileName>cm3gcc.ld</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cm3gcc.ld</FilePath>
+            </File>
+            <File>
+              <FileName>Cm3RealView.scat</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Cm3RealView.scat</FilePath>
+            </File>
+            <File>
+              <FileName>core_cm3_psoc5.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\core_cm3_psoc5.h</FilePath>
+            </File>
+            <File>
+              <FileName>core_cm3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\core_cm3.c</FilePath>
+            </File>
+            <File>
+              <FileName>core_cm3.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\core_cm3.h</FilePath>
+            </File>
+            <File>
+              <FileName>CyBootAsmGnu.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyBootAsmGnu.s</FilePath>
+            </File>
+            <File>
+              <FileName>CyDmac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyDmac.c</FilePath>
+            </File>
+            <File>
+              <FileName>CyDmac.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyDmac.h</FilePath>
+            </File>
+            <File>
+              <FileName>CyFlash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>CyFlash.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyFlash.h</FilePath>
+            </File>
+            <File>
+              <FileName>CyLib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyLib.c</FilePath>
+            </File>
+            <File>
+              <FileName>CyLib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyLib.h</FilePath>
+            </File>
+            <File>
+              <FileName>cypins.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cypins.h</FilePath>
+            </File>
+            <File>
+              <FileName>cyPm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyPm.c</FilePath>
+            </File>
+            <File>
+              <FileName>cyPm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyPm.h</FilePath>
+            </File>
+            <File>
+              <FileName>CySpc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CySpc.c</FilePath>
+            </File>
+            <File>
+              <FileName>CySpc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CySpc.h</FilePath>
+            </File>
+            <File>
+              <FileName>cytypes.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cytypes.h</FilePath>
+            </File>
+            <File>
+              <FileName>cyutils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyutils.c</FilePath>
+            </File>
+            <File>
+              <FileName>project.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\project.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_PM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD_PM.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_LCDPort_aliases.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort_aliases.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_LCDPort.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_LCDPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>Clock_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Clock_1.c</FilePath>
+            </File>
+            <File>
+              <FileName>Clock_1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Clock_1.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -311,9 +542,9 @@
       <ToolsetName>ARM-GNU</ToolsetName>
       <TargetOption>
         <TargetCommonOption>
-          <Device>Cortex-M3</Device>
+          <Device>CY8C5568AXI-060</Device>
           <Vendor>Cypress</Vendor>
-          <Cpu>CLOCK(12000000) CPUTYPE("Cortex-M3") ESEL ELITTLE</Cpu>
+          <Cpu>"IRAM(0x1FFF8000-0x20007FFF)IROM(0x0-0x3FFFF)CLOCK(67000000)CPUTYPE( "Cortex-M3") ESEL ELITTLE"</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
           <FlashDriverDll></FlashDriverDll>
@@ -343,7 +574,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\ARM-GNU\Release\</OutputDirectory>
-          <OutputName>ProjectName</OutputName>
+          <OutputName>LEDPong_PSoC5lib</OutputName>
           <CreateExecutable>0</CreateExecutable>
           <CreateLib>1</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -596,14 +827,248 @@
           <GroupName>Source Files</GroupName>
           <Files>
             <File>
-              <FileName></FileName>
-              <FileType>0</FileType>
-              <FilePath></FilePath>
+              <FileName>cyfitter_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfitter_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>cyfitter_cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfitter_cfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>cydevice.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevice.h</FilePath>
+            </File>
+            <File>
+              <FileName>cydevicegnu.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevicegnu.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cydevicerv.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevicerv.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cydevice_trm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevice_trm.h</FilePath>
+            </File>
+            <File>
+              <FileName>cydevicegnu_trm.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevicegnu_trm.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cydevicerv_trm.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cydevicerv_trm.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cyfittergnu.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfittergnu.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cyfitterrv.inc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfitterrv.inc</FilePath>
+            </File>
+            <File>
+              <FileName>cyfitter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyfitter.h</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1.c</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1.h</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1_PM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_PM.c</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1_INT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_INT.c</FilePath>
+            </File>
+            <File>
+              <FileName>PlayerBT1_BOOT.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_BOOT.c</FilePath>
+            </File>
+            <File>
+              <FileName>Player1_Tx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Player1_Tx.c</FilePath>
+            </File>
+            <File>
+              <FileName>Player1_Tx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Player1_Tx.h</FilePath>
+            </File>
+            <File>
+              <FileName>Player1_Rx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Player1_Rx.c</FilePath>
+            </File>
+            <File>
+              <FileName>Player1_Rx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Player1_Rx.h</FilePath>
+            </File>
+            <File>
+              <FileName>cm3gcc.ld</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cm3gcc.ld</FilePath>
+            </File>
+            <File>
+              <FileName>Cm3RealView.scat</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Cm3RealView.scat</FilePath>
+            </File>
+            <File>
+              <FileName>core_cm3_psoc5.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\core_cm3_psoc5.h</FilePath>
+            </File>
+            <File>
+              <FileName>core_cm3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\core_cm3.c</FilePath>
+            </File>
+            <File>
+              <FileName>core_cm3.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\core_cm3.h</FilePath>
+            </File>
+            <File>
+              <FileName>CyBootAsmGnu.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyBootAsmGnu.s</FilePath>
+            </File>
+            <File>
+              <FileName>CyDmac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyDmac.c</FilePath>
+            </File>
+            <File>
+              <FileName>CyDmac.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyDmac.h</FilePath>
+            </File>
+            <File>
+              <FileName>CyFlash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyFlash.c</FilePath>
+            </File>
+            <File>
+              <FileName>CyFlash.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyFlash.h</FilePath>
+            </File>
+            <File>
+              <FileName>CyLib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyLib.c</FilePath>
+            </File>
+            <File>
+              <FileName>CyLib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CyLib.h</FilePath>
+            </File>
+            <File>
+              <FileName>cypins.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cypins.h</FilePath>
+            </File>
+            <File>
+              <FileName>cyPm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyPm.c</FilePath>
+            </File>
+            <File>
+              <FileName>cyPm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyPm.h</FilePath>
+            </File>
+            <File>
+              <FileName>CySpc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CySpc.c</FilePath>
+            </File>
+            <File>
+              <FileName>CySpc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\CySpc.h</FilePath>
+            </File>
+            <File>
+              <FileName>cytypes.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cytypes.h</FilePath>
+            </File>
+            <File>
+              <FileName>cyutils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\cyutils.c</FilePath>
+            </File>
+            <File>
+              <FileName>project.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\project.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_PM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD_PM.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_LCDPort_aliases.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort_aliases.h</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_LCDPort.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD_LCDPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>Clock_1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Clock_1.c</FilePath>
+            </File>
+            <File>
+              <FileName>Clock_1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Generated_Source\PSoC5\Clock_1.h</FilePath>
             </File>
           </Files>
         </Group>
       </Groups>
     </Target>
   </Targets>
-
 </Project>

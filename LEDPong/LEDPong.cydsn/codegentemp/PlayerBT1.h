@@ -33,7 +33,7 @@
 #define PlayerBT1_HD_ENABLED                     (0u)
 #define PlayerBT1_RX_INTERRUPT_ENABLED           (0u)
 #define PlayerBT1_TX_INTERRUPT_ENABLED           (0u)
-#define PlayerBT1_INTERNAL_CLOCK_USED            (1u)
+#define PlayerBT1_INTERNAL_CLOCK_USED            (0u)
 #define PlayerBT1_RXHW_ADDRESS_ENABLED           (0u)
 #define PlayerBT1_OVER_SAMPLE_COUNT              (8u)
 #define PlayerBT1_PARITY_TYPE                    (0u)
