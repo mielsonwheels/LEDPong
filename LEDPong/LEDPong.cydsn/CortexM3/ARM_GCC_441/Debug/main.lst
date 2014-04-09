@@ -1,0 +1,417 @@
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoXufTl.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 18, 4
+  12              		.thumb
+  13              		.file	"main.c"
+  14              		.section	.debug_abbrev,"",%progbits
+  15              	.Ldebug_abbrev0:
+  16              		.section	.debug_info,"",%progbits
+  17              	.Ldebug_info0:
+  18              		.section	.debug_line,"",%progbits
+  19              	.Ldebug_line0:
+  20 0000 5C000000 		.text
+  20      02004600 
+  20      00000201 
+  20      FB0E0D00 
+  20      01010101 
+  21              	.Ltext0:
+  22              		.cfi_sections	.debug_frame
+  23              		.section	.text.main,"ax",%progbits
+  24              		.align	2
+  25              		.global	main
+  26              		.thumb
+  27              		.thumb_func
+  28              		.type	main, %function
+  29              	main:
+  30              	.LFB29:
+  31              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <device.h>
+  13:.\main.c      **** 
+  14:.\main.c      **** void main()
+  15:.\main.c      **** {
+  32              		.loc 1 15 0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 1, uses_anonymous_args = 0
+  36              		@ link register save eliminated.
+  37 0000 80B4     		push	{r7}
+  38              	.LCFI0:
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoXufTl.s 			page 2
+
+
+  39              		.cfi_def_cfa_offset 4
+  40 0002 00AF     		add	r7, sp, #0
+  41              		.cfi_offset 7, -4
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_register 7
+  44              	.L2:
+  16:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  17:.\main.c      **** 
+  18:.\main.c      ****     /* CyGlobalIntEnable; */ /* Uncomment this line to enable global interrupts. */
+  19:.\main.c      ****     for(;;)
+  20:.\main.c      ****     {
+  21:.\main.c      ****         /* Place your application code here. */
+  22:.\main.c      ****     }
+  45              		.loc 1 22 0
+  46 0004 FEE7     		b	.L2
+  47              		.cfi_endproc
+  48              	.LFE29:
+  49              		.size	main, .-main
+  50 0006 00BF     		.text
+  51              	.Letext0:
+  52              		.section	.debug_loc,"",%progbits
+  53              	.Ldebug_loc0:
+  54              	.LLST0:
+  55 0000 00000000 		.4byte	.LFB29
+  56 0004 02000000 		.4byte	.LCFI0
+  57 0008 0100     		.2byte	0x1
+  58 000a 5D       		.byte	0x5d
+  59 000b 02000000 		.4byte	.LCFI0
+  60 000f 04000000 		.4byte	.LCFI1
+  61 0013 0200     		.2byte	0x2
+  62 0015 7D       		.byte	0x7d
+  63 0016 04       		.sleb128 4
+  64 0017 04000000 		.4byte	.LCFI1
+  65 001b 06000000 		.4byte	.LFE29
+  66 001f 0200     		.2byte	0x2
+  67 0021 77       		.byte	0x77
+  68 0022 04       		.sleb128 4
+  69 0023 00000000 		.4byte	0x0
+  70 0027 00000000 		.4byte	0x0
+  71              		.file 2 "./Generated_Source/PSoC5/core_cm3.h"
+  72              		.section	.debug_info
+  73 0000 AB000000 		.4byte	0xab
+  74 0004 0200     		.2byte	0x2
+  75 0006 00000000 		.4byte	.Ldebug_abbrev0
+  76 000a 04       		.byte	0x4
+  77 000b 01       		.uleb128 0x1
+  78 000c A4000000 		.4byte	.LASF12
+  79 0010 01       		.byte	0x1
+  80 0011 0F010000 		.4byte	.LASF13
+  81 0015 0E000000 		.4byte	.LASF14
+  82 0019 00000000 		.4byte	0x0
+  83 001d 00000000 		.4byte	0x0
+  84 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
+  85 0025 00000000 		.4byte	.Ldebug_line0
+  86 0029 02       		.uleb128 0x2
+  87 002a 01       		.byte	0x1
+  88 002b 06       		.byte	0x6
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoXufTl.s 			page 3
+
+
+  89 002c FD000000 		.4byte	.LASF0
+  90 0030 02       		.uleb128 0x2
+  91 0031 01       		.byte	0x1
+  92 0032 08       		.byte	0x8
+  93 0033 B0000000 		.4byte	.LASF1
+  94 0037 02       		.uleb128 0x2
+  95 0038 02       		.byte	0x2
+  96 0039 05       		.byte	0x5
+  97 003a D0000000 		.4byte	.LASF2
+  98 003e 02       		.uleb128 0x2
+  99 003f 02       		.byte	0x2
+ 100 0040 07       		.byte	0x7
+ 101 0041 EA000000 		.4byte	.LASF3
+ 102 0045 02       		.uleb128 0x2
+ 103 0046 04       		.byte	0x4
+ 104 0047 05       		.byte	0x5
+ 105 0048 E1000000 		.4byte	.LASF4
+ 106 004c 02       		.uleb128 0x2
+ 107 004d 04       		.byte	0x4
+ 108 004e 07       		.byte	0x7
+ 109 004f 7B000000 		.4byte	.LASF5
+ 110 0053 02       		.uleb128 0x2
+ 111 0054 08       		.byte	0x8
+ 112 0055 05       		.byte	0x5
+ 113 0056 00000000 		.4byte	.LASF6
+ 114 005a 02       		.uleb128 0x2
+ 115 005b 08       		.byte	0x8
+ 116 005c 07       		.byte	0x7
+ 117 005d 8D000000 		.4byte	.LASF7
+ 118 0061 03       		.uleb128 0x3
+ 119 0062 04       		.byte	0x4
+ 120 0063 05       		.byte	0x5
+ 121 0064 696E7400 		.ascii	"int\000"
+ 122 0068 02       		.uleb128 0x2
+ 123 0069 04       		.byte	0x4
+ 124 006a 07       		.byte	0x7
+ 125 006b 18010000 		.4byte	.LASF8
+ 126 006f 02       		.uleb128 0x2
+ 127 0070 04       		.byte	0x4
+ 128 0071 04       		.byte	0x4
+ 129 0072 09010000 		.4byte	.LASF9
+ 130 0076 02       		.uleb128 0x2
+ 131 0077 08       		.byte	0x8
+ 132 0078 04       		.byte	0x4
+ 133 0079 DA000000 		.4byte	.LASF10
+ 134 007d 02       		.uleb128 0x2
+ 135 007e 01       		.byte	0x1
+ 136 007f 08       		.byte	0x8
+ 137 0080 BE000000 		.4byte	.LASF11
+ 138 0084 04       		.uleb128 0x4
+ 139 0085 04       		.byte	0x4
+ 140 0086 07       		.byte	0x7
+ 141 0087 05       		.uleb128 0x5
+ 142 0088 01       		.byte	0x1
+ 143 0089 76000000 		.4byte	.LASF15
+ 144 008d 01       		.byte	0x1
+ 145 008e 0E       		.byte	0xe
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoXufTl.s 			page 4
+
+
+ 146 008f 00000000 		.4byte	.LFB29
+ 147 0093 06000000 		.4byte	.LFE29
+ 148 0097 00000000 		.4byte	.LLST0
+ 149 009b 06       		.uleb128 0x6
+ 150 009c C3000000 		.4byte	.LASF16
+ 151 00a0 02       		.byte	0x2
+ 152 00a1 CE06     		.2byte	0x6ce
+ 153 00a3 A9000000 		.4byte	0xa9
+ 154 00a7 01       		.byte	0x1
+ 155 00a8 01       		.byte	0x1
+ 156 00a9 07       		.uleb128 0x7
+ 157 00aa 61000000 		.4byte	0x61
+ 158 00ae 00       		.byte	0x0
+ 159              		.section	.debug_abbrev
+ 160 0000 01       		.uleb128 0x1
+ 161 0001 11       		.uleb128 0x11
+ 162 0002 01       		.byte	0x1
+ 163 0003 25       		.uleb128 0x25
+ 164 0004 0E       		.uleb128 0xe
+ 165 0005 13       		.uleb128 0x13
+ 166 0006 0B       		.uleb128 0xb
+ 167 0007 03       		.uleb128 0x3
+ 168 0008 0E       		.uleb128 0xe
+ 169 0009 1B       		.uleb128 0x1b
+ 170 000a 0E       		.uleb128 0xe
+ 171 000b 11       		.uleb128 0x11
+ 172 000c 01       		.uleb128 0x1
+ 173 000d 52       		.uleb128 0x52
+ 174 000e 01       		.uleb128 0x1
+ 175 000f 55       		.uleb128 0x55
+ 176 0010 06       		.uleb128 0x6
+ 177 0011 10       		.uleb128 0x10
+ 178 0012 06       		.uleb128 0x6
+ 179 0013 00       		.byte	0x0
+ 180 0014 00       		.byte	0x0
+ 181 0015 02       		.uleb128 0x2
+ 182 0016 24       		.uleb128 0x24
+ 183 0017 00       		.byte	0x0
+ 184 0018 0B       		.uleb128 0xb
+ 185 0019 0B       		.uleb128 0xb
+ 186 001a 3E       		.uleb128 0x3e
+ 187 001b 0B       		.uleb128 0xb
+ 188 001c 03       		.uleb128 0x3
+ 189 001d 0E       		.uleb128 0xe
+ 190 001e 00       		.byte	0x0
+ 191 001f 00       		.byte	0x0
+ 192 0020 03       		.uleb128 0x3
+ 193 0021 24       		.uleb128 0x24
+ 194 0022 00       		.byte	0x0
+ 195 0023 0B       		.uleb128 0xb
+ 196 0024 0B       		.uleb128 0xb
+ 197 0025 3E       		.uleb128 0x3e
+ 198 0026 0B       		.uleb128 0xb
+ 199 0027 03       		.uleb128 0x3
+ 200 0028 08       		.uleb128 0x8
+ 201 0029 00       		.byte	0x0
+ 202 002a 00       		.byte	0x0
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoXufTl.s 			page 5
+
+
+ 203 002b 04       		.uleb128 0x4
+ 204 002c 24       		.uleb128 0x24
+ 205 002d 00       		.byte	0x0
+ 206 002e 0B       		.uleb128 0xb
+ 207 002f 0B       		.uleb128 0xb
+ 208 0030 3E       		.uleb128 0x3e
+ 209 0031 0B       		.uleb128 0xb
+ 210 0032 00       		.byte	0x0
+ 211 0033 00       		.byte	0x0
+ 212 0034 05       		.uleb128 0x5
+ 213 0035 2E       		.uleb128 0x2e
+ 214 0036 00       		.byte	0x0
+ 215 0037 3F       		.uleb128 0x3f
+ 216 0038 0C       		.uleb128 0xc
+ 217 0039 03       		.uleb128 0x3
+ 218 003a 0E       		.uleb128 0xe
+ 219 003b 3A       		.uleb128 0x3a
+ 220 003c 0B       		.uleb128 0xb
+ 221 003d 3B       		.uleb128 0x3b
+ 222 003e 0B       		.uleb128 0xb
+ 223 003f 11       		.uleb128 0x11
+ 224 0040 01       		.uleb128 0x1
+ 225 0041 12       		.uleb128 0x12
+ 226 0042 01       		.uleb128 0x1
+ 227 0043 40       		.uleb128 0x40
+ 228 0044 06       		.uleb128 0x6
+ 229 0045 00       		.byte	0x0
+ 230 0046 00       		.byte	0x0
+ 231 0047 06       		.uleb128 0x6
+ 232 0048 34       		.uleb128 0x34
+ 233 0049 00       		.byte	0x0
+ 234 004a 03       		.uleb128 0x3
+ 235 004b 0E       		.uleb128 0xe
+ 236 004c 3A       		.uleb128 0x3a
+ 237 004d 0B       		.uleb128 0xb
+ 238 004e 3B       		.uleb128 0x3b
+ 239 004f 05       		.uleb128 0x5
+ 240 0050 49       		.uleb128 0x49
+ 241 0051 13       		.uleb128 0x13
+ 242 0052 3F       		.uleb128 0x3f
+ 243 0053 0C       		.uleb128 0xc
+ 244 0054 3C       		.uleb128 0x3c
+ 245 0055 0C       		.uleb128 0xc
+ 246 0056 00       		.byte	0x0
+ 247 0057 00       		.byte	0x0
+ 248 0058 07       		.uleb128 0x7
+ 249 0059 35       		.uleb128 0x35
+ 250 005a 00       		.byte	0x0
+ 251 005b 49       		.uleb128 0x49
+ 252 005c 13       		.uleb128 0x13
+ 253 005d 00       		.byte	0x0
+ 254 005e 00       		.byte	0x0
+ 255 005f 00       		.byte	0x0
+ 256              		.section	.debug_pubnames,"",%progbits
+ 257 0000 17000000 		.4byte	0x17
+ 258 0004 0200     		.2byte	0x2
+ 259 0006 00000000 		.4byte	.Ldebug_info0
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoXufTl.s 			page 6
+
+
+ 260 000a AF000000 		.4byte	0xaf
+ 261 000e 87000000 		.4byte	0x87
+ 262 0012 6D61696E 		.ascii	"main\000"
+ 262      00
+ 263 0017 00000000 		.4byte	0x0
+ 264              		.section	.debug_aranges,"",%progbits
+ 265 0000 1C000000 		.4byte	0x1c
+ 266 0004 0200     		.2byte	0x2
+ 267 0006 00000000 		.4byte	.Ldebug_info0
+ 268 000a 04       		.byte	0x4
+ 269 000b 00       		.byte	0x0
+ 270 000c 0000     		.2byte	0x0
+ 271 000e 0000     		.2byte	0x0
+ 272 0010 00000000 		.4byte	.LFB29
+ 273 0014 06000000 		.4byte	.LFE29-.LFB29
+ 274 0018 00000000 		.4byte	0x0
+ 275 001c 00000000 		.4byte	0x0
+ 276              		.section	.debug_ranges,"",%progbits
+ 277              	.Ldebug_ranges0:
+ 278 0000 00000000 		.4byte	.Ltext0
+ 279 0004 00000000 		.4byte	.Letext0
+ 280 0008 00000000 		.4byte	.LFB29
+ 281 000c 06000000 		.4byte	.LFE29
+ 282 0010 00000000 		.4byte	0x0
+ 283 0014 00000000 		.4byte	0x0
+ 284              		.section	.debug_str,"MS",%progbits,1
+ 285              	.LASF6:
+ 286 0000 6C6F6E67 		.ascii	"long long int\000"
+ 286      206C6F6E 
+ 286      6720696E 
+ 286      7400
+ 287              	.LASF14:
+ 288 000e 5C5C6669 		.ascii	"\\\\filer.cs.tamu.edu\\milesh\\ms_windows\\cpsc_red"
+ 288      6C65722E 
+ 288      63732E74 
+ 288      616D752E 
+ 288      6564755C 
+ 289 003c 69726563 		.ascii	"irected\\My Documents\\GitHub\\LEDPong\\LEDPong\\LE"
+ 289      7465645C 
+ 289      4D792044 
+ 289      6F63756D 
+ 289      656E7473 
+ 290 006a 44506F6E 		.ascii	"DPong.cydsn\000"
+ 290      672E6379 
+ 290      64736E00 
+ 291              	.LASF15:
+ 292 0076 6D61696E 		.ascii	"main\000"
+ 292      00
+ 293              	.LASF5:
+ 294 007b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 294      20756E73 
+ 294      69676E65 
+ 294      6420696E 
+ 294      7400
+ 295              	.LASF7:
+ 296 008d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 296      206C6F6E 
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoXufTl.s 			page 7
+
+
+ 296      6720756E 
+ 296      7369676E 
+ 296      65642069 
+ 297              	.LASF12:
+ 298 00a4 474E5520 		.ascii	"GNU C 4.4.1\000"
+ 298      4320342E 
+ 298      342E3100 
+ 299              	.LASF1:
+ 300 00b0 756E7369 		.ascii	"unsigned char\000"
+ 300      676E6564 
+ 300      20636861 
+ 300      7200
+ 301              	.LASF11:
+ 302 00be 63686172 		.ascii	"char\000"
+ 302      00
+ 303              	.LASF16:
+ 304 00c3 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 304      52784275 
+ 304      66666572 
+ 304      00
+ 305              	.LASF2:
+ 306 00d0 73686F72 		.ascii	"short int\000"
+ 306      7420696E 
+ 306      7400
+ 307              	.LASF10:
+ 308 00da 646F7562 		.ascii	"double\000"
+ 308      6C6500
+ 309              	.LASF4:
+ 310 00e1 6C6F6E67 		.ascii	"long int\000"
+ 310      20696E74 
+ 310      00
+ 311              	.LASF3:
+ 312 00ea 73686F72 		.ascii	"short unsigned int\000"
+ 312      7420756E 
+ 312      7369676E 
+ 312      65642069 
+ 312      6E7400
+ 313              	.LASF0:
+ 314 00fd 7369676E 		.ascii	"signed char\000"
+ 314      65642063 
+ 314      68617200 
+ 315              	.LASF9:
+ 316 0109 666C6F61 		.ascii	"float\000"
+ 316      7400
+ 317              	.LASF13:
+ 318 010f 2E5C6D61 		.ascii	".\\main.c\000"
+ 318      696E2E63 
+ 318      00
+ 319              	.LASF8:
+ 320 0118 756E7369 		.ascii	"unsigned int\000"
+ 320      676E6564 
+ 320      20696E74 
+ 320      00
+ 321              		.ident	"GCC: (Sourcery G++ Lite 2010q1-188) 4.4.1"
