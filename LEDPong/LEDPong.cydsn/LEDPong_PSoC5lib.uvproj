@@ -523,14 +523,14 @@
               <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort.h</FilePath>
             </File>
             <File>
-              <FileName>Clock_1.c</FileName>
+              <FileName>PlayerBT1_IntClock.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Clock_1.c</FilePath>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_IntClock.c</FilePath>
             </File>
             <File>
-              <FileName>Clock_1.h</FileName>
+              <FileName>PlayerBT1_IntClock.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Clock_1.h</FilePath>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_IntClock.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1057,14 +1057,14 @@
               <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort.h</FilePath>
             </File>
             <File>
-              <FileName>Clock_1.c</FileName>
+              <FileName>PlayerBT1_IntClock.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Clock_1.c</FilePath>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_IntClock.c</FilePath>
             </File>
             <File>
-              <FileName>Clock_1.h</FileName>
+              <FileName>PlayerBT1_IntClock.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Clock_1.h</FilePath>
+              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_IntClock.h</FilePath>
             </File>
           </Files>
         </Group>

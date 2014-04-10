@@ -539,7 +539,7 @@ function getElementsByClass(rootNode, elemName, className)
 <tr> <td class="prop"> Project :</td>
 <td class="proptext"> LEDPong</td></tr>
 <tr> <td class="prop"> Build Time :</td>
-<td class="proptext"> 04/09/14 10:49:01</td></tr>
+<td class="proptext"> 04/10/14 16:46:30</td></tr>
 <tr> <td class="prop"> Device :</td>
 <td class="proptext"> CY8C5568AXI-060</td></tr>
 <tr> <td class="prop"> Temperature :</td>
@@ -619,11 +619,11 @@ Clock Summary Section</span>
  <td class = "text_info"> </td>
 </tr>
 <tr> 
- <td class = "text_info">Clock_1</td>
+ <td class = "text_info">PlayerBT1_IntClock</td>
  <td class = "text_info">CyMASTER_CLK</td>
  <td class = "number">307.692&nbsp;kHz</td>
  <td class = "number">307.692&nbsp;kHz</td>
- <td class = "number">28.928&nbsp;MHz</td>
+ <td class = "number">28.222&nbsp;MHz</td>
  <td class = "text_info"></td>
 </tr>
 <tr> 
@@ -631,7 +631,7 @@ Clock Summary Section</span>
  <td class = "text_info">CyMASTER_CLK</td>
  <td class = "number">24.000&nbsp;MHz</td>
  <td class = "number">24.000&nbsp;MHz</td>
- <td class = "number">28.928&nbsp;MHz</td>
+ <td class = "number">28.222&nbsp;MHz</td>
  <td class = "text_info"></td>
 </tr>
 <tr> 
@@ -662,15 +662,16 @@ Setup Subsection</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Source Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)</span>
+Source Clock : CyBUS_CLK : Positive edge(Required Frequency 24&nbsp;MHz)</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec" >
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)</span>
+Destination Clock : PlayerBT1_IntClock : Positive edge(Required Frequency 307.692&nbsp;kHz)</span>
 </a>
-</div><div class="sta_secbody"><div class="sta_sec_desc">Path Delay Requirement : 3250ns(307.692&nbsp;kHz)</div>
+</div><div class="sta_secbody"><div class="sta_sec_desc">Path Delay Requirement : 41.6667ns(24&nbsp;MHz)</div>
+<div class="sta_sec_desc">Affects clock : CyMASTER_CLK</div>
 <table class="sta_tscs">
  <thead> 
 <tr> 
@@ -684,11 +685,11 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:tx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
- <td class = "number">42.438&nbsp;MHz</td>
- <td class = "number">23.564</td>
- <td class = "number">3226.436</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/route_si</td>
+ <td class = "number">28.222&nbsp;MHz</td>
+ <td class = "number">35.433</td>
+ <td class = "number">6.234</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -707,454 +708,49 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell22</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_2\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_2\/q</td>
- <td class = "number">1.250</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_2</td>
- <td class = "number">5.156</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/main_1</td>
+ <td class = "number">6.180</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell2</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_2</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
- <td class = "number">2.288</td>
-</tr>
-<tr> 
- <td class = "text_info">datapathcell3</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">11.520</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
- <td class = "number">42.801&nbsp;MHz</td>
- <td class = "number">23.364</td>
- <td class = "number">3226.636</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell21</td>
+ <td class = "text_info">macrocell10</td>
  <td class = "text_info">U(3,1)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_0</td>
- <td class = "number">4.956</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell2</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_0</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/main_1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/q</td>
  <td class = "number">3.350</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
- <td class = "number">2.288</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/route_si</td>
+ <td class = "number">2.289</td>
 </tr>
-<tr> 
- <td class = "text_info">datapathcell3</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">11.520</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
- <td class = "number">43.771&nbsp;MHz</td>
- <td class = "number">22.846</td>
- <td class = "number">3227.154</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell18</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_3</td>
- <td class = "number">4.438</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell2</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_3</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
- <td class = "number">2.288</td>
-</tr>
-<tr> 
- <td class = "text_info">datapathcell3</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">11.520</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
- <td class = "number">45.088&nbsp;MHz</td>
- <td class = "number">22.179</td>
- <td class = "number">3227.821</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell20</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_1</td>
- <td class = "number">3.771</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell2</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
- <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
- <td class = "number">2.288</td>
-</tr>
-<tr> 
- <td class = "text_info">datapathcell3</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">11.520</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cl0_comb</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\/cs_addr_0</td>
- <td class = "number">49.032&nbsp;MHz</td>
- <td class = "number">20.395</td>
- <td class = "number">3229.605</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">datapathcell3</td>
- <td class = "text_info">U(3,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/clock</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cl0_comb</td>
- <td class = "number">5.680</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_dp\</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cl0_comb</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\/main_0</td>
- <td class = "number">2.773</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell19</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\/main_0</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\</td>
- <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\/cs_addr_0</td>
- <td class = "number">2.302</td>
-</tr>
-<tr> 
- <td class = "text_info">datapathcell2</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">6.290</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/f0_blk_stat_comb</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\/status_4</td>
- <td class = "number">51.929&nbsp;MHz</td>
- <td class = "number">19.257</td>
- <td class = "number">3230.743</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
 <tr> 
  <td class = "text_info">datapathcell1</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">U(3,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/clock</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/f0_blk_stat_comb</td>
- <td class = "number">5.280</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_fifofull\</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/f0_blk_stat_comb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_4\/main_1</td>
- <td class = "number">2.878</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell16</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_4\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_4\/main_1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_4\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_4\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_4\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\/status_4</td>
- <td class = "number">6.179</td>
-</tr>
-<tr> 
- <td class = "text_info">statusicell1</td>
- <td class = "text_info">U(2,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
- <td class = "number">1.570</td>
+ <td class = "number">5.210</td>
 </tr>
 <tr> 
  <td class = "text_info">Clock</td>
@@ -1170,11 +766,11 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
- <td class = "number">52.040&nbsp;MHz</td>
- <td class = "number">19.216</td>
- <td class = "number">3230.784</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_8</td>
+ <td class = "number">34.637&nbsp;MHz</td>
+ <td class = "number">28.871</td>
+ <td class = "number">12.796</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1193,130 +789,31 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell5</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\/q</td>
- <td class = "number">1.250</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_0</td>
- <td class = "number">7.527</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_8</td>
+ <td class = "number">6.957</td>
 </tr>
-<tr> 
- <td class = "text_info">macrocell7</td>
- <td class = "text_info">U(2,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
- <td class = "number">2.869</td>
-</tr>
-<tr> 
- <td class = "text_info">count7cell</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">4.220</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
- <td class = "number">52.247&nbsp;MHz</td>
- <td class = "number">19.140</td>
- <td class = "number">3230.860</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
 <tr> 
  <td class = "text_info">macrocell12</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">U(3,2)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_3</td>
- <td class = "number">7.451</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell7</td>
- <td class = "text_info">U(2,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_3</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
- <td class = "number">2.869</td>
-</tr>
-<tr> 
- <td class = "text_info">count7cell</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
- <td class = "number">4.220</td>
+ <td class = "number">3.510</td>
 </tr>
 <tr> 
  <td class = "text_info">Clock</td>
@@ -1332,11 +829,11 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
- <td class = "number">52.438&nbsp;MHz</td>
- <td class = "number">19.070</td>
- <td class = "number">3230.930</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_9</td>
+ <td class = "number">35.234&nbsp;MHz</td>
+ <td class = "number">28.382</td>
+ <td class = "number">13.285</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1355,109 +852,280 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell11</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/q</td>
- <td class = "number">1.250</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_1</td>
- <td class = "number">7.381</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell7</td>
- <td class = "text_info">U(2,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
- <td class = "number">2.869</td>
-</tr>
-<tr> 
- <td class = "text_info">count7cell</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">4.220</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_4</td>
- <td class = "number">55.491&nbsp;MHz</td>
- <td class = "number">18.021</td>
- <td class = "number">3231.979</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell12</td>
- <td class = "text_info">U(3,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_4</td>
- <td class = "number">13.261</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_9</td>
+ <td class = "number">6.468</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell11</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">U(3,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:rx_state_0\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">3.510</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_3</td>
+ <td class = "number">36.296&nbsp;MHz</td>
+ <td class = "number">27.551</td>
+ <td class = "number">14.116</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_3</td>
+ <td class = "number">5.637</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell4</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">3.510</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_6</td>
+ <td class = "number">36.296&nbsp;MHz</td>
+ <td class = "number">27.551</td>
+ <td class = "number">14.116</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_6</td>
+ <td class = "number">5.637</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell15</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">3.510</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_2</td>
+ <td class = "number">36.308&nbsp;MHz</td>
+ <td class = "number">27.542</td>
+ <td class = "number">14.125</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_2</td>
+ <td class = "number">5.628</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell3</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_0\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">3.510</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_last\/main_0</td>
+ <td class = "number">36.308&nbsp;MHz</td>
+ <td class = "number">27.542</td>
+ <td class = "number">14.125</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_last\/main_0</td>
+ <td class = "number">5.628</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell8</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_last\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">3.510</td>
@@ -1485,16 +1153,15 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Source Clock : CyBUS_CLK : Positive edge(Required Frequency 24&nbsp;MHz)</span>
+Source Clock : PlayerBT1_IntClock : Positive edge(Required Frequency 307.692&nbsp;kHz)</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec" >
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)</span>
+Destination Clock : PlayerBT1_IntClock : Positive edge(Required Frequency 307.692&nbsp;kHz)</span>
 </a>
-</div><div class="sta_secbody"><div class="sta_sec_desc">Path Delay Requirement : 41.6667ns(24&nbsp;MHz)</div>
-<div class="sta_sec_desc">Affects clock : CyMASTER_CLK</div>
+</div><div class="sta_secbody"><div class="sta_sec_desc">Path Delay Requirement : 3250ns(307.692&nbsp;kHz)</div>
 <table class="sta_tscs">
  <thead> 
 <tr> 
@@ -1508,11 +1175,11 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/route_si</td>
- <td class = "number">28.928&nbsp;MHz</td>
- <td class = "number">34.568</td>
- <td class = "number">7.099</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_2\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
+ <td class = "number">42.882&nbsp;MHz</td>
+ <td class = "number">23.320</td>
+ <td class = "number">3226.680</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1531,175 +1198,373 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
+ <td class = "text_info">macrocell22</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_2\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_2\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_2\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/main_1</td>
- <td class = "number">5.456</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_2\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_2\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_2</td>
+ <td class = "number">4.959</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell10</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">macrocell2</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/main_1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_2</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
  <td class = "number">3.350</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/route_si</td>
- <td class = "number">2.291</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
+ <td class = "number">2.241</td>
 </tr>
 <tr> 
- <td class = "text_info">datapathcell1</td>
+ <td class = "text_info">datapathcell3</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">11.520</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
+ <td class = "number">45.817&nbsp;MHz</td>
+ <td class = "number">21.826</td>
+ <td class = "number">3228.174</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell18</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_3</td>
+ <td class = "number">3.465</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell2</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_3</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
+ <td class = "number">2.241</td>
+</tr>
+<tr> 
+ <td class = "text_info">datapathcell3</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">11.520</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
+ <td class = "number">47.868&nbsp;MHz</td>
+ <td class = "number">20.891</td>
+ <td class = "number">3229.109</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell20</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_1</td>
+ <td class = "number">2.530</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell2</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_1</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
+ <td class = "number">2.241</td>
+</tr>
+<tr> 
+ <td class = "text_info">datapathcell3</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">11.520</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
+ <td class = "number">47.884&nbsp;MHz</td>
+ <td class = "number">20.884</td>
+ <td class = "number">3229.116</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell21</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_0</td>
+ <td class = "number">2.523</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell2</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/main_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\</td>
+ <td class = "text_info">\PlayerBT1:BUART:counter_load_not\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cs_addr_0</td>
+ <td class = "number">2.241</td>
+</tr>
+<tr> 
+ <td class = "text_info">datapathcell3</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">11.520</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cl0_comb</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\/cs_addr_0</td>
+ <td class = "number">48.197&nbsp;MHz</td>
+ <td class = "number">20.748</td>
+ <td class = "number">3229.252</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">datapathcell3</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/clock</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cl0_comb</td>
+ <td class = "number">5.680</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_dp\</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\/cl0_comb</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\/main_0</td>
+ <td class = "number">3.119</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell19</td>
  <td class = "text_info">U(2,1)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">5.210</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_2</td>
- <td class = "number">35.544&nbsp;MHz</td>
- <td class = "number">28.134</td>
- <td class = "number">13.533</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
- <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\/main_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\/q</td>
+ <td class = "number">3.350</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_2</td>
- <td class = "number">6.363</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_bitclk_enable_pre\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\/cs_addr_0</td>
+ <td class = "number">2.309</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell3</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">3.510</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_3</td>
- <td class = "number">36.728&nbsp;MHz</td>
- <td class = "number">27.227</td>
- <td class = "number">14.440</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
- <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_3</td>
- <td class = "number">5.456</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell4</td>
+ <td class = "text_info">datapathcell2</td>
  <td class = "text_info">U(2,1)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
- <td class = "number">3.510</td>
+ <td class = "number">6.290</td>
 </tr>
 <tr> 
  <td class = "text_info">Clock</td>
@@ -1715,11 +1580,11 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </td>
 </tr>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_6</td>
- <td class = "number">36.728&nbsp;MHz</td>
- <td class = "number">27.227</td>
- <td class = "number">14.440</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
+ <td class = "number">51.948&nbsp;MHz</td>
+ <td class = "number">19.250</td>
+ <td class = "number">3230.750</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1737,158 +1602,50 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </tr>
 </thead> 
 <tbody>
-<tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
- <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_6</td>
- <td class = "number">5.456</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell15</td>
- <td class = "text_info">U(2,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">3.510</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\/main_0</td>
- <td class = "number">37.903&nbsp;MHz</td>
- <td class = "number">26.383</td>
- <td class = "number">15.284</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
- <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\/main_0</td>
- <td class = "number">4.612</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell8</td>
- <td class = "text_info">U(3,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">3.510</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_9</td>
- <td class = "number">37.903&nbsp;MHz</td>
- <td class = "number">26.383</td>
- <td class = "number">15.284</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
- <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_9</td>
- <td class = "number">4.612</td>
-</tr>
 <tr> 
  <td class = "text_info">macrocell11</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">U(3,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:rx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_1</td>
+ <td class = "number">6.818</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell7</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
+ <td class = "number">3.612</td>
+</tr>
+<tr> 
+ <td class = "text_info">count7cell</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
- <td class = "number">3.510</td>
+ <td class = "number">4.220</td>
 </tr>
 <tr> 
  <td class = "text_info">Clock</td>
@@ -1904,11 +1661,11 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </td>
 </tr>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_8</td>
- <td class = "number">37.903&nbsp;MHz</td>
- <td class = "number">26.383</td>
- <td class = "number">15.284</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
+ <td class = "number">53.450&nbsp;MHz</td>
+ <td class = "number">18.709</td>
+ <td class = "number">3231.291</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1927,31 +1684,292 @@ Destination Clock : Clock_1 : Positive edge(Required Frequency 307.692&nbsp;kHz)
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
+ <td class = "text_info">macrocell12</td>
+ <td class = "text_info">U(3,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_8</td>
- <td class = "number">4.612</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_3</td>
+ <td class = "number">6.277</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell12</td>
+ <td class = "text_info">macrocell7</td>
  <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_3</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
+ <td class = "number">3.612</td>
+</tr>
+<tr> 
+ <td class = "text_info">count7cell</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
- <td class = "number">3.510</td>
+ <td class = "number">4.220</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\/f0_blk_stat_comb</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxSts\/status_0</td>
+ <td class = "number">54.265&nbsp;MHz</td>
+ <td class = "number">18.428</td>
+ <td class = "number">3231.572</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">datapathcell2</td>
+ <td class = "text_info">U(2,1)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\/clock</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\/f0_blk_stat_comb</td>
+ <td class = "number">5.280</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_fifo_empty\</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxShifter:u0\/f0_blk_stat_comb</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_status_0\/main_2</td>
+ <td class = "number">5.966</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell23</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_status_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_status_0\/main_2</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_status_0\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_status_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_status_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxSts\/status_0</td>
+ <td class = "number">2.262</td>
+</tr>
+<tr> 
+ <td class = "text_info">statusicell2</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sTX:TxSts\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">1.570</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
+ <td class = "number">58.231&nbsp;MHz</td>
+ <td class = "number">17.173</td>
+ <td class = "number">3232.827</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_2</td>
+ <td class = "number">4.741</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell7</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_2</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
+ <td class = "number">3.612</td>
+</tr>
+<tr> 
+ <td class = "text_info">count7cell</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">4.220</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
+ <td class = "number">60.031&nbsp;MHz</td>
+ <td class = "number">16.658</td>
+ <td class = "number">3233.342</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell5</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_address_detected\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_0</td>
+ <td class = "number">4.226</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell7</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/main_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_counter_load\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/load</td>
+ <td class = "number">3.612</td>
+</tr>
+<tr> 
+ <td class = "text_info">count7cell</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">4.220</td>
 </tr>
 <tr> 
  <td class = "text_info">Clock</td>
@@ -1984,13 +2002,13 @@ Hold Subsection</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Source Clock : Clock_1 : Positive edge</span>
+Source Clock : CyBUS_CLK : Positive edge</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec" >
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Destination Clock : Clock_1 : Positive edge</span>
+Destination Clock : PlayerBT1_IntClock : Positive edge</span>
 </a>
 </div><div class="sta_secbody"><table class="sta_tscs">
  <thead> 
@@ -2003,9 +2021,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\/status_3</td>
- <td class = "number">1.563</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_2</td>
+ <td class = "number">24.032</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2024,31 +2042,31 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell15</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/q</td>
- <td class = "number">1.250</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\/status_3</td>
- <td class = "number">2.313</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_2</td>
+ <td class = "number">5.628</td>
 </tr>
 <tr> 
- <td class = "text_info">statusicell1</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">macrocell3</td>
+ <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_0\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
- <td class = "number">-2.000</td>
+ <td class = "number">0.000</td>
 </tr>
 <tr> 
  <td class = "text_info">Clock</td>
@@ -2064,9 +2082,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_last\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_9</td>
- <td class = "number">3.489</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_last\/main_0</td>
+ <td class = "number">24.032</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2084,29 +2102,90 @@ Destination Clock : Clock_1 : Positive edge</span>
 </tr>
 </thead> 
 <tbody>
+<tr> 
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_last\/main_0</td>
+ <td class = "number">5.628</td>
+</tr>
 <tr> 
  <td class = "text_info">macrocell8</td>
  <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:rx_last\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\/q</td>
- <td class = "number">1.250</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_3</td>
+ <td class = "number">24.041</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_9</td>
- <td class = "number">2.239</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_3</td>
+ <td class = "number">5.637</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell12</td>
+ <td class = "text_info">macrocell4</td>
  <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2125,9 +2204,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_3</td>
- <td class = "number">3.554</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_6</td>
+ <td class = "number">24.041</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2146,150 +2225,28 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell3</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/q</td>
- <td class = "number">1.250</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell3</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_3</td>
- <td class = "number">2.304</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_6</td>
+ <td class = "number">5.637</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell3</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:txn\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:txn\/main_0</td>
- <td class = "number">3.872</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell25</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:txn\</td>
- <td class = "text_info">\PlayerBT1:BUART:txn\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:txn\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell25</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:txn\</td>
- <td class = "text_info">\PlayerBT1:BUART:txn\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:txn\/main_0</td>
- <td class = "number">2.622</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell25</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:txn\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/main_4</td>
- <td class = "number">3.924</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell12</td>
+ <td class = "text_info">macrocell15</td>
  <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/main_4</td>
- <td class = "number">2.674</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell13</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2308,9 +2265,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_load_fifo\/main_4</td>
- <td class = "number">3.943</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_9</td>
+ <td class = "number">24.872</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2329,87 +2286,26 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell12</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "number">1.250</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_load_fifo\/main_4</td>
- <td class = "number">2.693</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell9</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_load_fifo\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_2</td>
- <td class = "number">4.114</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell6</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_2</td>
- <td class = "number">2.864</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_9</td>
+ <td class = "number">6.468</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell11</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">U(3,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:rx_state_0\</td>
  <td class = "text_info"> </td>
@@ -2430,9 +2326,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_2</td>
- <td class = "number">4.114</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_8</td>
+ <td class = "number">25.361</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2451,26 +2347,26 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell6</td>
- <td class = "text_info">U(2,0)</td>
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/q</td>
- <td class = "number">1.250</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_2</td>
- <td class = "number">2.864</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_8</td>
+ <td class = "number">6.957</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell12</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">U(3,2)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
  <td class = "text_info"> </td>
@@ -2491,9 +2387,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/main_3</td>
- <td class = "number">4.116</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/route_si</td>
+ <td class = "number">30.223</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2512,89 +2408,46 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell13</td>
- <td class = "text_info">U(2,0)</td>
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P1[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/clock_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
- <td class = "number">1.250</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell13</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/main_3</td>
- <td class = "number">2.866</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell13</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/count_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/main_2</td>
- <td class = "number">4.162</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">count7cell</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/clock</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/count_0</td>
- <td class = "number">1.920</td>
+ <td class = "text_info">PlayerBTRx1(0)</td>
+ <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "number">18.404</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_count_0\</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxBitCounter\/count_0</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\/main_2</td>
- <td class = "number">2.242</td>
+ <td class = "text_info">Net_7</td>
+ <td class = "text_info">PlayerBTRx1(0)/fb</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/main_1</td>
+ <td class = "number">6.180</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell6</td>
- <td class = "text_info">U(2,0)</td>
+ <td class = "text_info">macrocell10</td>
+ <td class = "text_info">U(3,1)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_bitclk_enable\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/main_1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/route_si</td>
+ <td class = "number">2.289</td>
+</tr>
+<tr> 
+ <td class = "text_info">datapathcell1</td>
+ <td class = "text_info">U(3,1)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2622,13 +2475,13 @@ Destination Clock : Clock_1 : Positive edge</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Source Clock : CyBUS_CLK : Positive edge</span>
+Source Clock : PlayerBT1_IntClock : Positive edge</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec" >
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Destination Clock : Clock_1 : Positive edge</span>
+Destination Clock : PlayerBT1_IntClock : Positive edge</span>
 </a>
 </div><div class="sta_secbody"><table class="sta_tscs">
  <thead> 
@@ -2641,9 +2494,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\/main_0</td>
- <td class = "number">22.873</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\/status_3</td>
+ <td class = "number">2.865</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2662,28 +2515,89 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
+ <td class = "text_info">macrocell15</td>
+ <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\/main_0</td>
- <td class = "number">4.612</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\/status_3</td>
+ <td class = "number">3.615</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell8</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">statusicell1</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_last\</td>
+ <td class = "text_info">\PlayerBT1:BUART:sRX:RxSts\</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">-2.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/main_0</td>
+ <td class = "number">3.773</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell21</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/main_0</td>
+ <td class = "number">2.523</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell20</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2702,9 +2616,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_9</td>
- <td class = "number">22.873</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/main_0</td>
+ <td class = "number">3.773</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2723,28 +2637,28 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
+ <td class = "text_info">macrocell21</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
+ <td class = "text_info">macrocell21</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\/main_9</td>
- <td class = "number">4.612</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/main_0</td>
+ <td class = "number">2.523</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell11</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">macrocell21</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2763,9 +2677,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_8</td>
- <td class = "number">22.873</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_2</td>
+ <td class = "number">3.775</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2784,87 +2698,26 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
- <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_8</td>
- <td class = "number">4.612</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell12</td>
+ <td class = "text_info">macrocell4</td>
  <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_3</td>
- <td class = "number">23.717</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
- <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_3</td>
- <td class = "number">5.456</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell4</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">U(3,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/main_2</td>
+ <td class = "number">2.525</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell4</td>
+ <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:pollcount_1\</td>
  <td class = "text_info"> </td>
@@ -2885,9 +2738,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_6</td>
- <td class = "number">23.717</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_5</td>
+ <td class = "number">3.775</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2906,26 +2759,26 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
+ <td class = "text_info">macrocell4</td>
+ <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_6</td>
- <td class = "number">5.456</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\</td>
+ <td class = "text_info">\PlayerBT1:BUART:pollcount_1\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_status_3\/main_5</td>
+ <td class = "number">2.525</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell15</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">U(3,0)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:rx_status_3\</td>
  <td class = "text_info"> </td>
@@ -2946,9 +2799,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_2</td>
- <td class = "number">24.624</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/main_1</td>
+ <td class = "number">3.780</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2967,28 +2820,28 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
+ <td class = "text_info">macrocell20</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
+ <td class = "text_info">macrocell20</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\/main_2</td>
- <td class = "number">6.363</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/main_1</td>
+ <td class = "number">2.530</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell3</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">macrocell20</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:pollcount_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -3007,9 +2860,9 @@ Destination Clock : Clock_1 : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/route_si</td>
- <td class = "number">29.358</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/main_1</td>
+ <td class = "number">3.780</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -3028,46 +2881,211 @@ Destination Clock : Clock_1 : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">iocell1</td>
- <td class = "text_info">P1[6]</td>
+ <td class = "text_info">macrocell20</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">PlayerBTRx1(0)</td>
- <td class = "text_info">PlayerBTRx1(0)/in_clock</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "number">18.261</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">Net_7</td>
- <td class = "text_info">PlayerBTRx1(0)/fb</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/main_1</td>
- <td class = "number">5.456</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_0\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\/main_1</td>
+ <td class = "number">2.530</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell10</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">macrocell21</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/main_1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/q</td>
- <td class = "number">3.350</td>
+ <td class = "text_info">\PlayerBT1:BUART:tx_state_1\</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/main_3</td>
+ <td class = "number">3.840</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/main_3</td>
+ <td class = "number">2.590</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_load_fifo\/main_3</td>
+ <td class = "number">3.846</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "number">1.250</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\</td>
- <td class = "text_info">\PlayerBT1:BUART:rx_postpoll\/q</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\/route_si</td>
- <td class = "number">2.291</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_load_fifo\/main_3</td>
+ <td class = "number">2.596</td>
 </tr>
 <tr> 
- <td class = "text_info">datapathcell1</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">macrocell9</td>
+ <td class = "text_info">U(3,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\PlayerBT1:BUART:sRX:RxShifter:u0\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_load_fifo\</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_3</td>
+ <td class = "number">3.846</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell13</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/clock_0</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "number">1.250</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_3\/q</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\/main_3</td>
+ <td class = "number">2.596</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell12</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\PlayerBT1:BUART:rx_state_2\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -3105,7 +3123,7 @@ Clock To Output Section</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Clock_1</span>
+PlayerBT1_IntClock</span>
 </a>
 </div><div class="sta_secbody"><table class="sta_tscs">
  <thead> 
@@ -3119,7 +3137,7 @@ Clock_1</span>
 <tr> 
  <td class = "text_info">\PlayerBT1:BUART:txn\/q</td>
  <td class = "text_info">PlayerBTTx1(0)_PAD</td>
- <td class = "number">31.311</td>
+ <td class = "number">33.582</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3138,7 +3156,7 @@ Clock_1</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell25</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">U(2,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">\PlayerBT1:BUART:txn\</td>
  <td class = "text_info">\PlayerBT1:BUART:txn\/clock_0</td>
@@ -3152,11 +3170,11 @@ Clock_1</span>
  <td class = "text_info">\PlayerBT1:BUART:txn\</td>
  <td class = "text_info">\PlayerBT1:BUART:txn\/q</td>
  <td class = "text_info">Net_2/main_0</td>
- <td class = "number">4.117</td>
+ <td class = "number">2.607</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(3,0)</td>
+ <td class = "text_info">U(3,1)</td>
  <td class = "number">1</td>
  <td class = "text_info">Net_2</td>
  <td class = "text_info">Net_2/main_0</td>
@@ -3170,16 +3188,16 @@ Clock_1</span>
  <td class = "text_info">Net_2</td>
  <td class = "text_info">Net_2/q</td>
  <td class = "text_info">PlayerBTTx1(0)/pin_input</td>
- <td class = "number">6.237</td>
+ <td class = "number">6.518</td>
 </tr>
 <tr> 
  <td class = "text_info">iocell2</td>
- <td class = "text_info">P1[7]</td>
+ <td class = "text_info">P1[6]</td>
  <td class = "number">1</td>
  <td class = "text_info">PlayerBTTx1(0)</td>
  <td class = "text_info">PlayerBTTx1(0)/pin_input</td>
  <td class = "text_info">PlayerBTTx1(0)/pad_out</td>
- <td class = "number">16.357</td>
+ <td class = "number">19.857</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>

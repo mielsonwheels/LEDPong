@@ -6,7 +6,7 @@
 
 #Build Date:         Mar 26 2013 11:48:29
 
-#File Generated:     Apr 9 2014 10:48:59
+#File Generated:     Apr 10 2014 16:46:28
 
 #Purpose:            
 
@@ -80,12 +80,12 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 6
-Clock: Clock_1              | Frequency:  27.9 MHz | Target:   0.3 MHz
-Clock: CyBUS_CLK            | Frequency:  27.9 MHz | Target:  24.0 MHz
+Clock: CyBUS_CLK            | Frequency:  27.3 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: PlayerBT1_IntClock   | Frequency:  27.3 MHz | Target:   0.3 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -98,17 +98,17 @@ Phase 7
                      Clock Summary 
 ======================================================================
 Number of clocks: 6
-Clock: Clock_1              | Frequency:   0.7 MHz | Target:   0.3 MHz
 Clock: CyBUS_CLK            | Frequency:   0.7 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: PlayerBT1_IntClock   | Frequency:   0.7 MHz | Target:   0.3 MHz
 
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.2 (sec)
+D2088: Phase 7, elapsed time : 0.1 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	9
@@ -139,12 +139,12 @@ analysis after routing.
                      Clock Summary 
 ======================================================================
 Number of clocks: 6
-Clock: Clock_1              | Frequency:   0.7 MHz | Target:   0.3 MHz
 Clock: CyBUS_CLK            | Frequency:   0.7 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
+Clock: PlayerBT1_IntClock   | Frequency:   0.7 MHz | Target:   0.3 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -155,5 +155,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 0.7 sec.
+I2076: Total run-time: 0.6 sec.
 

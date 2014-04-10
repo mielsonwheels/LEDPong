@@ -26,7 +26,7 @@
 *  Place your includes, defines and code here 
 ********************************************************************************/
 /* `#START Player1_Rx_intc` */
-uint8 Player1_Rx = 0;
+unsigned int Player1_Rx = 0;
 uint8 Player1_Rx_flag = 0;
 /* `#END` */
 

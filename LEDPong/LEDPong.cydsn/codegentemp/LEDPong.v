@@ -1,6 +1,6 @@
 // ======================================================================
 // LEDPong.v generated from TopDesign.cysch
-// 04/09/2014 at 10:48
+// 04/10/2014 at 16:46
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -73,7 +73,7 @@
 `include "C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_30\B_UART_v2_30.v"
 `endif
 
-// UART_v2_30(Address1=0, Address2=0, BaudRate=38400, BreakBitsRX=13, BreakBitsTX=13, BreakDetect=false, CRCoutputsEn=false, CtrlModeReplacementString=AsyncCtl, Enable_RX=1, Enable_RXIntInterrupt=0, Enable_TX=1, Enable_TXIntInterrupt=0, EnableHWAddress=0, EnIntRXInterrupt=false, EnIntTXInterrupt=false, FlowControl=0, HalfDuplexEn=false, HwTXEnSignal=false, InternalClock=false, InternalClockUsed=0, InterruptOnAddDetect=0, InterruptOnAddressMatch=0, InterruptOnBreak=0, InterruptOnByteRcvd=1, InterruptOnOverrunError=0, InterruptOnParityError=0, InterruptOnStopError=0, InterruptOnTXComplete=false, InterruptOnTXFifoEmpty=false, InterruptOnTXFifoFull=false, InterruptOnTXFifoNotFull=false, IntOnAddressDetect=false, IntOnAddressMatch=false, IntOnBreak=false, IntOnByteRcvd=true, IntOnOverrunError=false, IntOnParityError=false, IntOnStopError=false, NumDataBits=8, NumStopBits=1, OverSamplingRate=8, ParityType=0, ParityTypeSw=false, RequiredClock=307200, RXAddressMode=0, RXBufferSize=4, RxBuffRegSizeReplacementString=uint8, RXEnable=true, TXBitClkGenDP=true, TXBufferSize=4, TxBuffRegSizeReplacementString=uint8, TXEnable=true, Use23Polling=true, CY_COMPONENT_NAME=UART_v2_30, CY_CONTROL_FILE=<:default:>, CY_FITTER_NAME=PlayerBT1, CY_INSTANCE_SHORT_NAME=PlayerBT1, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=cydsfit No Version Information Found, INSTANCE_NAME=PlayerBT1, )
+// UART_v2_30(Address1=0, Address2=0, BaudRate=38400, BreakBitsRX=13, BreakBitsTX=13, BreakDetect=false, CRCoutputsEn=false, CtrlModeReplacementString=AsyncCtl, Enable_RX=1, Enable_RXIntInterrupt=0, Enable_TX=1, Enable_TXIntInterrupt=0, EnableHWAddress=0, EnIntRXInterrupt=false, EnIntTXInterrupt=false, FlowControl=0, HalfDuplexEn=false, HwTXEnSignal=false, InternalClock=true, InternalClockUsed=1, InterruptOnAddDetect=0, InterruptOnAddressMatch=0, InterruptOnBreak=0, InterruptOnByteRcvd=1, InterruptOnOverrunError=0, InterruptOnParityError=0, InterruptOnStopError=0, InterruptOnTXComplete=false, InterruptOnTXFifoEmpty=false, InterruptOnTXFifoFull=false, InterruptOnTXFifoNotFull=false, IntOnAddressDetect=false, IntOnAddressMatch=false, IntOnBreak=false, IntOnByteRcvd=true, IntOnOverrunError=false, IntOnParityError=false, IntOnStopError=false, NumDataBits=8, NumStopBits=1, OverSamplingRate=8, ParityType=0, ParityTypeSw=false, RequiredClock=307200, RXAddressMode=0, RXBufferSize=4, RxBuffRegSizeReplacementString=uint8, RXEnable=true, TXBitClkGenDP=true, TXBufferSize=4, TxBuffRegSizeReplacementString=uint8, TXEnable=true, Use23Polling=true, CY_COMPONENT_NAME=UART_v2_30, CY_CONTROL_FILE=<:default:>, CY_FITTER_NAME=PlayerBT1, CY_INSTANCE_SHORT_NAME=PlayerBT1, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=30, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=cydsfit No Version Information Found, INSTANCE_NAME=PlayerBT1, )
 module UART_v2_30_0 (
     rx_clk,
     rx_data,
@@ -119,8 +119,20 @@ module UART_v2_30_0 (
           wire  Net_61;
           wire  Net_9;
 
+
+	cy_clock_v1_0
+		#(.id("b0162966-0060-4af5-82d1-fcb491ad7619/be0a0e37-ad17-42ca-b5a1-1a654d736358"),
+		  .source_clock_id(""),
+		  .divisor(0),
+		  .period("3255208333.33333"),
+		  .is_direct(0),
+		  .is_digital(1))
+		IntClock
+		 (.clock_out(Net_9));
+
+
 	// VirtualMux_1 (cy_virtualmux_v1_0)
-	assign Net_61 = clock;
+	assign Net_61 = Net_9;
 
     B_UART_v2_30 BUART (
         .cts_n(cts_n),
@@ -242,18 +254,17 @@ endmodule
 // top
 module top ;
 
-          wire  Net_39;
           wire  Net_35;
           wire  Net_34;
           wire  Net_33;
           wire  Net_32;
           wire  Net_7;
+          wire  Net_42;
           wire  Net_27;
           wire  Net_26;
           wire  Net_2;
           wire  Net_25;
           wire  Net_29;
-          wire  Net_28;
           wire  Net_31;
           wire  Net_30;
 
@@ -262,7 +273,7 @@ module top ;
         .tx(Net_2),
         .rts_n(Net_26),
         .tx_en(Net_27),
-        .clock(Net_28),
+        .clock(1'b0),
         .reset(1'b0),
         .rx(Net_7),
         .tx_interrupt(Net_30),
@@ -436,18 +447,6 @@ module top ;
 
 
     CharLCD_v1_90_1 LCD ();
-
-
-	cy_clock_v1_0
-		#(.id("084db1d3-4a76-4f68-9ec5-8d9d0db16d16"),
-		  .source_clock_id(""),
-		  .divisor(0),
-		  .period("3257328990.22801"),
-		  .is_direct(0),
-		  .is_digital(1))
-		Clock_1
-		 (.clock_out(Net_28));
-
 
 
 

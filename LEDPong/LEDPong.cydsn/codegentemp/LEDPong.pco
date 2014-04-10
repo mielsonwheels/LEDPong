@@ -1,5 +1,5 @@
 # LEDPong
-# 2014-04-09 15:48:59Z
+# 2014-04-10 21:46:28Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -8,11 +8,11 @@ dont_use_io iocell 1 1
 # IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 3
 set_location "ClockBlock" clockblockcell -1 -1 0
-set_location "Net_2" 3 0 1 0
+set_location "Net_2" 3 1 1 0
 set_location "Player1_Rx" interrupt -1 -1 0
 set_location "Player1_Tx" interrupt -1 -1 1
-set_io "PlayerBTRx1(0)" iocell 1 6
-set_io "PlayerBTTx1(0)" iocell 1 7
+set_io "PlayerBTRx1(0)" iocell 1 7
+set_io "PlayerBTTx1(0)" iocell 1 6
 set_io "\LCD:LCDPort(0)\" iocell 2 0
 set_io "\LCD:LCDPort(1)\" iocell 2 1
 set_io "\LCD:LCDPort(2)\" iocell 2 2
@@ -20,33 +20,33 @@ set_io "\LCD:LCDPort(3)\" iocell 2 3
 set_io "\LCD:LCDPort(4)\" iocell 2 4
 set_io "\LCD:LCDPort(5)\" iocell 2 5
 set_io "\LCD:LCDPort(6)\" iocell 2 6
-set_location "\PlayerBT1:BUART:counter_load_not\" 3 2 1 1
-set_location "\PlayerBT1:BUART:pollcount_0\" 2 2 0 0
-set_location "\PlayerBT1:BUART:pollcount_1\" 2 1 0 1
-set_location "\PlayerBT1:BUART:rx_address_detected\" 2 1 0 3
-set_location "\PlayerBT1:BUART:rx_bitclk_enable\" 2 0 0 3
-set_location "\PlayerBT1:BUART:rx_counter_load\" 2 1 1 2
-set_location "\PlayerBT1:BUART:rx_last\" 3 0 0 1
-set_location "\PlayerBT1:BUART:rx_load_fifo\" 2 0 1 1
-set_location "\PlayerBT1:BUART:rx_postpoll\" 2 1 0 2
-set_location "\PlayerBT1:BUART:rx_state_0\" 3 0 0 0
-set_location "\PlayerBT1:BUART:rx_state_2\" 3 0 0 2
-set_location "\PlayerBT1:BUART:rx_state_3\" 2 0 0 2
-set_location "\PlayerBT1:BUART:rx_state_stop1_reg\" 3 1 1 0
-set_location "\PlayerBT1:BUART:rx_status_3\" 2 1 0 0
-set_location "\PlayerBT1:BUART:rx_status_4\" 2 0 1 2
-set_location "\PlayerBT1:BUART:rx_status_5\" 2 1 1 3
-set_location "\PlayerBT1:BUART:sRX:RxBitCounter\" 2 0 7
-set_location "\PlayerBT1:BUART:sRX:RxShifter:u0\" 2 1 2
-set_location "\PlayerBT1:BUART:sRX:RxSts\" 2 1 4
-set_location "\PlayerBT1:BUART:sTX:TxShifter:u0\" 2 2 2
-set_location "\PlayerBT1:BUART:sTX:TxSts\" 3 2 4
-set_location "\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\" 3 2 2
-set_location "\PlayerBT1:BUART:tx_bitclk\" 2 2 0 2
-set_location "\PlayerBT1:BUART:tx_bitclk_enable_pre\" 2 2 1 3
-set_location "\PlayerBT1:BUART:tx_state_0\" 2 2 0 1
-set_location "\PlayerBT1:BUART:tx_state_1\" 3 1 0 2
-set_location "\PlayerBT1:BUART:tx_state_2\" 2 1 1 0
-set_location "\PlayerBT1:BUART:tx_status_0\" 3 2 0 0
-set_location "\PlayerBT1:BUART:tx_status_2\" 3 2 0 1
-set_location "\PlayerBT1:BUART:txn\" 2 2 1 0
+set_location "\PlayerBT1:BUART:counter_load_not\" 2 0 1 1
+set_location "\PlayerBT1:BUART:pollcount_0\" 3 0 1 1
+set_location "\PlayerBT1:BUART:pollcount_1\" 3 0 0 1
+set_location "\PlayerBT1:BUART:rx_address_detected\" 3 0 0 2
+set_location "\PlayerBT1:BUART:rx_bitclk_enable\" 2 2 1 0
+set_location "\PlayerBT1:BUART:rx_counter_load\" 3 0 1 0
+set_location "\PlayerBT1:BUART:rx_last\" 3 0 1 3
+set_location "\PlayerBT1:BUART:rx_load_fifo\" 3 2 1 1
+set_location "\PlayerBT1:BUART:rx_postpoll\" 3 1 1 3
+set_location "\PlayerBT1:BUART:rx_state_0\" 3 1 0 0
+set_location "\PlayerBT1:BUART:rx_state_2\" 3 2 1 0
+set_location "\PlayerBT1:BUART:rx_state_3\" 3 2 0 2
+set_location "\PlayerBT1:BUART:rx_state_stop1_reg\" 3 1 1 1
+set_location "\PlayerBT1:BUART:rx_status_3\" 3 0 0 3
+set_location "\PlayerBT1:BUART:rx_status_4\" 3 2 1 2
+set_location "\PlayerBT1:BUART:rx_status_5\" 2 2 0 3
+set_location "\PlayerBT1:BUART:sRX:RxBitCounter\" 3 2 7
+set_location "\PlayerBT1:BUART:sRX:RxShifter:u0\" 3 1 2
+set_location "\PlayerBT1:BUART:sRX:RxSts\" 2 2 4
+set_location "\PlayerBT1:BUART:sTX:TxShifter:u0\" 2 1 2
+set_location "\PlayerBT1:BUART:sTX:TxSts\" 2 0 4
+set_location "\PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\" 2 0 2
+set_location "\PlayerBT1:BUART:tx_bitclk\" 2 0 0 2
+set_location "\PlayerBT1:BUART:tx_bitclk_enable_pre\" 2 1 0 1
+set_location "\PlayerBT1:BUART:tx_state_0\" 2 0 1 2
+set_location "\PlayerBT1:BUART:tx_state_1\" 2 0 1 0
+set_location "\PlayerBT1:BUART:tx_state_2\" 2 2 0 1
+set_location "\PlayerBT1:BUART:tx_status_0\" 2 0 0 0
+set_location "\PlayerBT1:BUART:tx_status_2\" 2 1 1 2
+set_location "\PlayerBT1:BUART:txn\" 2 1 0 0

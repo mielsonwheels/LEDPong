@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
    9:.\Generated_Source\PSoC5/Player1_Rx.c **** *  Note:
   10:.\Generated_Source\PSoC5/Player1_Rx.c **** *
   11:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 2
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 2
 
 
   12:.\Generated_Source\PSoC5/Player1_Rx.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
@@ -77,39 +77,40 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
   25:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
   26:.\Generated_Source\PSoC5/Player1_Rx.c **** *  Place your includes, defines and code here 
   27:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************/
-  28:.\Generated_Source\PSoC5/Player1_Rx.c **** /* `#START Player1_Rx_intc` */
-  29:.\Generated_Source\PSoC5/Player1_Rx.c **** uint8 Player1_Rx = 0;
-  30:.\Generated_Source\PSoC5/Player1_Rx.c **** uint8 Player1_Rx_flag = 0;
-  31:.\Generated_Source\PSoC5/Player1_Rx.c **** /* `#END` */
-  32:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  33:.\Generated_Source\PSoC5/Player1_Rx.c **** #ifndef CYINT_IRQ_BASE
-  34:.\Generated_Source\PSoC5/Player1_Rx.c **** #define CYINT_IRQ_BASE      16
-  35:.\Generated_Source\PSoC5/Player1_Rx.c **** #endif /* CYINT_IRQ_BASE */
-  36:.\Generated_Source\PSoC5/Player1_Rx.c **** #ifndef CYINT_VECT_TABLE
-  37:.\Generated_Source\PSoC5/Player1_Rx.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
-  38:.\Generated_Source\PSoC5/Player1_Rx.c **** #endif /* CYINT_VECT_TABLE */
-  39:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  40:.\Generated_Source\PSoC5/Player1_Rx.c **** /* Declared in startup, used to set unused interrupts to. */
-  41:.\Generated_Source\PSoC5/Player1_Rx.c **** CY_ISR_PROTO(IntDefaultHandler);
-  42:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  28:.\Generated_Source\PSoC5/Player1_Rx.c **** #include <PlayerBT1.H>
+  29:.\Generated_Source\PSoC5/Player1_Rx.c **** /* `#START Player1_Rx_intc` */
+  30:.\Generated_Source\PSoC5/Player1_Rx.c **** uint8 Player1_Rx = 0;
+  31:.\Generated_Source\PSoC5/Player1_Rx.c **** uint8 Player1_Rx_flag = 0;
+  32:.\Generated_Source\PSoC5/Player1_Rx.c **** /* `#END` */
+  33:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  34:.\Generated_Source\PSoC5/Player1_Rx.c **** #ifndef CYINT_IRQ_BASE
+  35:.\Generated_Source\PSoC5/Player1_Rx.c **** #define CYINT_IRQ_BASE      16
+  36:.\Generated_Source\PSoC5/Player1_Rx.c **** #endif /* CYINT_IRQ_BASE */
+  37:.\Generated_Source\PSoC5/Player1_Rx.c **** #ifndef CYINT_VECT_TABLE
+  38:.\Generated_Source\PSoC5/Player1_Rx.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+  39:.\Generated_Source\PSoC5/Player1_Rx.c **** #endif /* CYINT_VECT_TABLE */
+  40:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  41:.\Generated_Source\PSoC5/Player1_Rx.c **** /* Declared in startup, used to set unused interrupts to. */
+  42:.\Generated_Source\PSoC5/Player1_Rx.c **** CY_ISR_PROTO(IntDefaultHandler);
   43:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  44:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
-  45:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Start
-  46:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
-  47:.\Generated_Source\PSoC5/Player1_Rx.c **** *
-  48:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
-  49:.\Generated_Source\PSoC5/Player1_Rx.c **** *  Set up the interrupt and enable it.
-  50:.\Generated_Source\PSoC5/Player1_Rx.c **** *
-  51:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:  
-  52:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
-  53:.\Generated_Source\PSoC5/Player1_Rx.c **** *
-  54:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
-  55:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
-  56:.\Generated_Source\PSoC5/Player1_Rx.c **** *
-  57:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
-  58:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_Start(void)
-  59:.\Generated_Source\PSoC5/Player1_Rx.c **** {
-  43              		.loc 1 59 0
+  44:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  45:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+  46:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Start
+  47:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+  48:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+  49:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+  50:.\Generated_Source\PSoC5/Player1_Rx.c **** *  Set up the interrupt and enable it.
+  51:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+  52:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:  
+  53:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+  54:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+  55:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+  56:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+  57:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+  58:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+  59:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_Start(void)
+  60:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+  43              		.loc 1 60 0
   44              		.cfi_startproc
   45              		@ args = 0, pretend = 0, frame = 0
   46              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -117,37 +118,37 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
   48              	.LCFI0:
   49              		.cfi_def_cfa_offset 8
   50 0002 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 3
+
+
   51              		.cfi_offset 14, -4
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 3
-
-
   52              		.cfi_offset 7, -8
   53              	.LCFI1:
   54              		.cfi_def_cfa_register 7
-  60:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* For all we know the interrupt is active. */
-  61:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Disable();
-  55              		.loc 1 61 0
+  61:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* For all we know the interrupt is active. */
+  62:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Disable();
+  55              		.loc 1 62 0
   56 0004 FFF7FEFF 		bl	Player1_Rx_Disable
-  62:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  63:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the ISR to point to the Player1_Rx Interrupt. */
-  64:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetVector(&Player1_Rx_Interrupt);
-  57              		.loc 1 64 0
+  63:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  64:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the ISR to point to the Player1_Rx Interrupt. */
+  65:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetVector(&Player1_Rx_Interrupt);
+  57              		.loc 1 65 0
   58 0008 40F20000 		movw	r0, #:lower16:Player1_Rx_Interrupt
   59 000c C0F20000 		movt	r0, #:upper16:Player1_Rx_Interrupt
   60 0010 FFF7FEFF 		bl	Player1_Rx_SetVector
-  65:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  66:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the priority. */
-  67:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetPriority((uint8)Player1_Rx_INTC_PRIOR_NUMBER);
-  61              		.loc 1 67 0
+  66:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  67:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the priority. */
+  68:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetPriority((uint8)Player1_Rx_INTC_PRIOR_NUMBER);
+  61              		.loc 1 68 0
   62 0014 4FF00700 		mov	r0, #7
   63 0018 FFF7FEFF 		bl	Player1_Rx_SetPriority
-  68:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  69:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Enable it. */
-  70:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Enable();
-  64              		.loc 1 70 0
+  69:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  70:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Enable it. */
+  71:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Enable();
+  64              		.loc 1 71 0
   65 001c FFF7FEFF 		bl	Player1_Rx_Enable
-  71:.\Generated_Source\PSoC5/Player1_Rx.c **** }
-  66              		.loc 1 71 0
+  72:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+  66              		.loc 1 72 0
   67 0020 80BD     		pop	{r7, pc}
   68              		.cfi_endproc
   69              	.LFE0:
@@ -160,28 +161,28 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
   76              		.type	Player1_Rx_StartEx, %function
   77              	Player1_Rx_StartEx:
   78              	.LFB1:
-  72:.\Generated_Source\PSoC5/Player1_Rx.c **** 
   73:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  74:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
-  75:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_StartEx
-  76:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
-  77:.\Generated_Source\PSoC5/Player1_Rx.c **** *
-  78:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
-  79:.\Generated_Source\PSoC5/Player1_Rx.c **** *  Set up the interrupt and enable it.
-  80:.\Generated_Source\PSoC5/Player1_Rx.c **** *
-  81:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:  
-  82:.\Generated_Source\PSoC5/Player1_Rx.c **** *   address: Address of the ISR to set in the interrupt vector table.
-  83:.\Generated_Source\PSoC5/Player1_Rx.c **** *
-  84:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
-  85:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
-  86:.\Generated_Source\PSoC5/Player1_Rx.c **** *
-  87:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
-  88:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_StartEx(cyisraddress address)
-  89:.\Generated_Source\PSoC5/Player1_Rx.c **** {
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 4
+  74:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  75:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+  76:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_StartEx
+  77:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+  78:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+  79:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+  80:.\Generated_Source\PSoC5/Player1_Rx.c **** *  Set up the interrupt and enable it.
+  81:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+  82:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:  
+  83:.\Generated_Source\PSoC5/Player1_Rx.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  84:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+  85:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+  86:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+  87:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+  88:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+  89:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_StartEx(cyisraddress address)
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 4
 
 
-  79              		.loc 1 89 0
+  90:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+  79              		.loc 1 90 0
   80              		.cfi_startproc
   81              		@ args = 0, pretend = 0, frame = 8
   82              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -197,29 +198,29 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
   92              	.LCFI4:
   93              		.cfi_def_cfa_register 7
   94 0006 7860     		str	r0, [r7, #4]
-  90:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* For all we know the interrupt is active. */
-  91:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Disable();
-  95              		.loc 1 91 0
+  91:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* For all we know the interrupt is active. */
+  92:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Disable();
+  95              		.loc 1 92 0
   96 0008 FFF7FEFF 		bl	Player1_Rx_Disable
-  92:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  93:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the ISR to point to the Player1_Rx Interrupt. */
-  94:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetVector(address);
-  97              		.loc 1 94 0
+  93:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  94:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the ISR to point to the Player1_Rx Interrupt. */
+  95:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetVector(address);
+  97              		.loc 1 95 0
   98 000c 7868     		ldr	r0, [r7, #4]
   99 000e FFF7FEFF 		bl	Player1_Rx_SetVector
-  95:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  96:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the priority. */
-  97:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetPriority((uint8)Player1_Rx_INTC_PRIOR_NUMBER);
- 100              		.loc 1 97 0
+  96:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+  97:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the priority. */
+  98:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetPriority((uint8)Player1_Rx_INTC_PRIOR_NUMBER);
+ 100              		.loc 1 98 0
  101 0012 4FF00700 		mov	r0, #7
  102 0016 FFF7FEFF 		bl	Player1_Rx_SetPriority
-  98:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-  99:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Enable it. */
- 100:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Enable();
- 103              		.loc 1 100 0
+  99:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 100:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Enable it. */
+ 101:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Enable();
+ 103              		.loc 1 101 0
  104 001a FFF7FEFF 		bl	Player1_Rx_Enable
- 101:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 105              		.loc 1 101 0
+ 102:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 105              		.loc 1 102 0
  106 001e 07F10807 		add	r7, r7, #8
  107 0022 BD46     		mov	sp, r7
  108 0024 80BD     		pop	{r7, pc}
@@ -234,27 +235,27 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  117              		.type	Player1_Rx_Stop, %function
  118              	Player1_Rx_Stop:
  119              	.LFB2:
- 102:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  103:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 104:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 105:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Stop
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 5
+ 104:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 105:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 5
 
 
- 106:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 107:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 108:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 109:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Disables and removes the interrupt.
- 110:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 111:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:  
- 112:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 113:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 114:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 115:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 116:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 117:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_Stop(void)
- 118:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 120              		.loc 1 118 0
+ 106:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Stop
+ 107:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 108:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 109:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 110:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Disables and removes the interrupt.
+ 111:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 112:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:  
+ 113:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 114:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 115:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 116:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 117:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 118:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_Stop(void)
+ 119:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 120              		.loc 1 119 0
  121              		.cfi_startproc
  122              		@ args = 0, pretend = 0, frame = 0
  123              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -266,19 +267,19 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  129              		.cfi_offset 7, -8
  130              	.LCFI6:
  131              		.cfi_def_cfa_register 7
- 119:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Disable this interrupt. */
- 120:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Disable();
- 132              		.loc 1 120 0
+ 120:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Disable this interrupt. */
+ 121:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_Disable();
+ 132              		.loc 1 121 0
  133 0004 FFF7FEFF 		bl	Player1_Rx_Disable
- 121:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 122:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the ISR to point to the passive one. */
- 123:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetVector(&IntDefaultHandler);
- 134              		.loc 1 123 0
+ 122:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 123:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Set the ISR to point to the passive one. */
+ 124:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_SetVector(&IntDefaultHandler);
+ 134              		.loc 1 124 0
  135 0008 40F20000 		movw	r0, #:lower16:IntDefaultHandler
  136 000c C0F20000 		movt	r0, #:upper16:IntDefaultHandler
  137 0010 FFF7FEFF 		bl	Player1_Rx_SetVector
- 124:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 138              		.loc 1 124 0
+ 125:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 138              		.loc 1 125 0
  139 0014 80BD     		pop	{r7, pc}
  140              		.cfi_endproc
  141              	.LFE2:
@@ -291,30 +292,30 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  148              		.type	Player1_Rx_Interrupt, %function
  149              	Player1_Rx_Interrupt:
  150              	.LFB3:
- 125:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  126:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 127:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 128:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Interrupt
- 129:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 130:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 131:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 6
+ 127:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 128:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 129:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Interrupt
+ 130:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 131:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 6
 
 
- 132:.\Generated_Source\PSoC5/Player1_Rx.c **** *   The default Interrupt Service Routine for Player1_Rx.
- 133:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 134:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Add custom code between the coments to keep the next version of this file
- 135:.\Generated_Source\PSoC5/Player1_Rx.c **** *   from over writting your code.
- 136:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 137:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:  
- 138:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 139:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 140:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 141:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 142:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 143:.\Generated_Source\PSoC5/Player1_Rx.c **** CY_ISR(Player1_Rx_Interrupt)
- 144:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 151              		.loc 1 144 0
+ 132:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 133:.\Generated_Source\PSoC5/Player1_Rx.c **** *   The default Interrupt Service Routine for Player1_Rx.
+ 134:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 135:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Add custom code between the coments to keep the next version of this file
+ 136:.\Generated_Source\PSoC5/Player1_Rx.c **** *   from over writting your code.
+ 137:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 138:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:  
+ 139:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 140:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 141:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 142:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 143:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 144:.\Generated_Source\PSoC5/Player1_Rx.c **** CY_ISR(Player1_Rx_Interrupt)
+ 145:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 151              		.loc 1 145 0
  152              		.cfi_startproc
  153              		@ args = 0, pretend = 0, frame = 0
  154              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -326,25 +327,25 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  160              		.cfi_offset 7, -8
  161              	.LCFI8:
  162              		.cfi_def_cfa_register 7
- 145:.\Generated_Source\PSoC5/Player1_Rx.c ****     /*  Place your Interrupt code here. */
- 146:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* `#START Player1_Rx_Interrupt` */
- 147:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx = PlayerBT1_ReadRxData();
- 163              		.loc 1 147 0
- 164 0004 FFF7FEFF 		bl	PlayerBT1_ReadRxData
+ 146:.\Generated_Source\PSoC5/Player1_Rx.c ****     /*  Place your Interrupt code here. */
+ 147:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* `#START Player1_Rx_Interrupt` */
+ 148:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx = PlayerBT1_GetChar();
+ 163              		.loc 1 148 0
+ 164 0004 FFF7FEFF 		bl	PlayerBT1_GetChar
  165 0008 0346     		mov	r3, r0
  166 000a 1A46     		mov	r2, r3
  167 000c 40F20003 		movw	r3, #:lower16:Player1_Rx
  168 0010 C0F20003 		movt	r3, #:upper16:Player1_Rx
  169 0014 1A70     		strb	r2, [r3, #0]
- 148:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_flag = 1;
- 170              		.loc 1 148 0
+ 149:.\Generated_Source\PSoC5/Player1_Rx.c ****     Player1_Rx_flag = 1;
+ 170              		.loc 1 149 0
  171 0016 40F20003 		movw	r3, #:lower16:Player1_Rx_flag
  172 001a C0F20003 		movt	r3, #:upper16:Player1_Rx_flag
  173 001e 4FF00102 		mov	r2, #1
  174 0022 1A70     		strb	r2, [r3, #0]
- 149:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* `#END` */
- 150:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 175              		.loc 1 150 0
+ 150:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* `#END` */
+ 151:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 175              		.loc 1 151 0
  176 0024 80BD     		pop	{r7, pc}
  177              		.cfi_endproc
  178              	.LFE3:
@@ -357,30 +358,30 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  185              		.type	Player1_Rx_SetVector, %function
  186              	Player1_Rx_SetVector:
  187              	.LFB4:
- 151:.\Generated_Source\PSoC5/Player1_Rx.c **** 
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 7
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 7
 
 
  152:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 153:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 154:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_SetVector
- 155:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 156:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 157:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 158:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Change the ISR vector for the Interrupt. Note calling Player1_Rx_Start
- 159:.\Generated_Source\PSoC5/Player1_Rx.c **** *   will override any effect this method would have had. To set the vector 
- 160:.\Generated_Source\PSoC5/Player1_Rx.c **** *   before the component has been started use Player1_Rx_StartEx instead.
- 161:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 162:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 163:.\Generated_Source\PSoC5/Player1_Rx.c **** *   address: Address of the ISR to set in the interrupt vector table.
- 164:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 165:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 166:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 167:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 168:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 169:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_SetVector(cyisraddress address)
- 170:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 188              		.loc 1 170 0
+ 153:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 154:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 155:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_SetVector
+ 156:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 157:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 158:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 159:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Change the ISR vector for the Interrupt. Note calling Player1_Rx_Start
+ 160:.\Generated_Source\PSoC5/Player1_Rx.c **** *   will override any effect this method would have had. To set the vector 
+ 161:.\Generated_Source\PSoC5/Player1_Rx.c **** *   before the component has been started use Player1_Rx_StartEx instead.
+ 162:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 163:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 164:.\Generated_Source\PSoC5/Player1_Rx.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 165:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 166:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 167:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 168:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 169:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 170:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_SetVector(cyisraddress address)
+ 171:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 188              		.loc 1 171 0
  189              		.cfi_startproc
  190              		@ args = 0, pretend = 0, frame = 16
  191              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -396,31 +397,31 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  201              	.LCFI11:
  202              		.cfi_def_cfa_register 7
  203 0006 7860     		str	r0, [r7, #4]
- 171:.\Generated_Source\PSoC5/Player1_Rx.c ****     cyisraddress * ramVectorTable;
- 172:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 173:.\Generated_Source\PSoC5/Player1_Rx.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
- 204              		.loc 1 173 0
+ 172:.\Generated_Source\PSoC5/Player1_Rx.c ****     cyisraddress * ramVectorTable;
+ 173:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 174:.\Generated_Source\PSoC5/Player1_Rx.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+ 204              		.loc 1 174 0
  205 0008 4EF60853 		movw	r3, #:lower16:-536810232
  206 000c CEF20003 		movt	r3, #:upper16:-536810232
  207 0010 1B68     		ldr	r3, [r3, #0]
  208 0012 FB60     		str	r3, [r7, #12]
- 174:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 175:.\Generated_Source\PSoC5/Player1_Rx.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)Player1_Rx__INTC_NUMBER] = address;
- 209              		.loc 1 175 0
+ 175:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 176:.\Generated_Source\PSoC5/Player1_Rx.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)Player1_Rx__INTC_NUMBER] = address;
+ 209              		.loc 1 176 0
  210 0014 FB68     		ldr	r3, [r7, #12]
  211 0016 03F14003 		add	r3, r3, #64
  212 001a 7A68     		ldr	r2, [r7, #4]
  213 001c 1A60     		str	r2, [r3, #0]
- 176:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 214              		.loc 1 176 0
+ 177:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 214              		.loc 1 177 0
  215 001e 07F11407 		add	r7, r7, #20
  216 0022 BD46     		mov	sp, r7
  217 0024 80BC     		pop	{r7}
  218 0026 7047     		bx	lr
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 8
+
+
  219              		.cfi_endproc
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 8
-
-
  220              	.LFE4:
  221              		.size	Player1_Rx_SetVector, .-Player1_Rx_SetVector
  222              		.section	.text.Player1_Rx_GetVector,"ax",%progbits
@@ -431,25 +432,25 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  227              		.type	Player1_Rx_GetVector, %function
  228              	Player1_Rx_GetVector:
  229              	.LFB5:
- 177:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  178:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 179:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 180:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_GetVector
- 181:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 182:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 183:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 184:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
- 185:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 186:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 187:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 188:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 189:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 190:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Address of the ISR in the interrupt vector table.
- 191:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 192:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 193:.\Generated_Source\PSoC5/Player1_Rx.c **** cyisraddress Player1_Rx_GetVector(void)
- 194:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 230              		.loc 1 194 0
+ 179:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 180:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 181:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_GetVector
+ 182:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 183:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 184:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 185:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 186:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 187:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 188:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 189:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 190:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 191:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Address of the ISR in the interrupt vector table.
+ 192:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 193:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 194:.\Generated_Source\PSoC5/Player1_Rx.c **** cyisraddress Player1_Rx_GetVector(void)
+ 195:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 230              		.loc 1 195 0
  231              		.cfi_startproc
  232              		@ args = 0, pretend = 0, frame = 8
  233              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -464,25 +465,25 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  242              		.cfi_offset 7, -4
  243              	.LCFI14:
  244              		.cfi_def_cfa_register 7
- 195:.\Generated_Source\PSoC5/Player1_Rx.c ****     cyisraddress * ramVectorTable;
- 196:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 197:.\Generated_Source\PSoC5/Player1_Rx.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
- 245              		.loc 1 197 0
+ 196:.\Generated_Source\PSoC5/Player1_Rx.c ****     cyisraddress * ramVectorTable;
+ 197:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 198:.\Generated_Source\PSoC5/Player1_Rx.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+ 245              		.loc 1 198 0
  246 0006 4EF60853 		movw	r3, #:lower16:-536810232
  247 000a CEF20003 		movt	r3, #:upper16:-536810232
  248 000e 1B68     		ldr	r3, [r3, #0]
  249 0010 7B60     		str	r3, [r7, #4]
- 198:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 199:.\Generated_Source\PSoC5/Player1_Rx.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)Player1_Rx__INTC_NUMBER];
- 250              		.loc 1 199 0
+ 199:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 200:.\Generated_Source\PSoC5/Player1_Rx.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)Player1_Rx__INTC_NUMBER];
+ 250              		.loc 1 200 0
  251 0012 7B68     		ldr	r3, [r7, #4]
  252 0014 03F14003 		add	r3, r3, #64
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 9
+
+
  253 0018 1B68     		ldr	r3, [r3, #0]
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 9
-
-
- 200:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 254              		.loc 1 200 0
+ 201:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 254              		.loc 1 201 0
  255 001a 1846     		mov	r0, r3
  256 001c 07F10C07 		add	r7, r7, #12
  257 0020 BD46     		mov	sp, r7
@@ -499,29 +500,29 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  268              		.type	Player1_Rx_SetPriority, %function
  269              	Player1_Rx_SetPriority:
  270              	.LFB6:
- 201:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  202:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 203:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 204:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_SetPriority
- 205:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 206:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 207:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 208:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Sets the Priority of the Interrupt. Note calling Player1_Rx_Start
- 209:.\Generated_Source\PSoC5/Player1_Rx.c **** *   or Player1_Rx_StartEx will override any effect this method 
- 210:.\Generated_Source\PSoC5/Player1_Rx.c **** *   would have had. This method should only be called after 
- 211:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Player1_Rx_Start or Player1_Rx_StartEx has been called. To set 
- 212:.\Generated_Source\PSoC5/Player1_Rx.c **** *   the initial priority for the component use the cydwr file in the tool.
- 213:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 214:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 215:.\Generated_Source\PSoC5/Player1_Rx.c **** *   priority: Priority of the interrupt. 0 - 7, 0 being the highest.
- 216:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 217:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 218:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 219:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 220:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 221:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_SetPriority(uint8 priority)
- 222:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 271              		.loc 1 222 0
+ 203:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 204:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 205:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_SetPriority
+ 206:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 207:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 208:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 209:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Sets the Priority of the Interrupt. Note calling Player1_Rx_Start
+ 210:.\Generated_Source\PSoC5/Player1_Rx.c **** *   or Player1_Rx_StartEx will override any effect this method 
+ 211:.\Generated_Source\PSoC5/Player1_Rx.c **** *   would have had. This method should only be called after 
+ 212:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Player1_Rx_Start or Player1_Rx_StartEx has been called. To set 
+ 213:.\Generated_Source\PSoC5/Player1_Rx.c **** *   the initial priority for the component use the cydwr file in the tool.
+ 214:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 215:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 216:.\Generated_Source\PSoC5/Player1_Rx.c **** *   priority: Priority of the interrupt. 0 - 7, 0 being the highest.
+ 217:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 218:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 219:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 220:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 221:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 222:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_SetPriority(uint8 priority)
+ 223:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 271              		.loc 1 223 0
  272              		.cfi_startproc
  273              		@ args = 0, pretend = 0, frame = 8
  274              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -537,20 +538,20 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  284              	.LCFI17:
  285              		.cfi_def_cfa_register 7
  286 0006 0346     		mov	r3, r0
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 10
+
+
  287 0008 FB71     		strb	r3, [r7, #7]
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 10
-
-
- 223:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_PRIOR = priority << 5;
- 288              		.loc 1 223 0
+ 224:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_PRIOR = priority << 5;
+ 288              		.loc 1 224 0
  289 000a 4EF20043 		movw	r3, #:lower16:-536812544
  290 000e CEF20003 		movt	r3, #:upper16:-536812544
  291 0012 FA79     		ldrb	r2, [r7, #7]
  292 0014 4FEA4212 		lsl	r2, r2, #5
  293 0018 D2B2     		uxtb	r2, r2
  294 001a 1A70     		strb	r2, [r3, #0]
- 224:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 295              		.loc 1 224 0
+ 225:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 295              		.loc 1 225 0
  296 001c 07F10C07 		add	r7, r7, #12
  297 0020 BD46     		mov	sp, r7
  298 0022 80BC     		pop	{r7}
@@ -566,25 +567,25 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  308              		.type	Player1_Rx_GetPriority, %function
  309              	Player1_Rx_GetPriority:
  310              	.LFB7:
- 225:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  226:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 227:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 228:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_GetPriority
- 229:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 230:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 231:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 232:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Gets the Priority of the Interrupt.
- 233:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 234:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 235:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 236:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 237:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 238:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Priority of the interrupt. 0 - 7, 0 being the highest.
- 239:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 240:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 241:.\Generated_Source\PSoC5/Player1_Rx.c **** uint8 Player1_Rx_GetPriority(void)
- 242:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 311              		.loc 1 242 0
+ 227:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 228:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 229:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_GetPriority
+ 230:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 231:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 232:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 233:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Gets the Priority of the Interrupt.
+ 234:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 235:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 236:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 237:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 238:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 239:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Priority of the interrupt. 0 - 7, 0 being the highest.
+ 240:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 241:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 242:.\Generated_Source\PSoC5/Player1_Rx.c **** uint8 Player1_Rx_GetPriority(void)
+ 243:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 311              		.loc 1 243 0
  312              		.cfi_startproc
  313              		@ args = 0, pretend = 0, frame = 8
  314              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -597,28 +598,28 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  321              		.cfi_def_cfa_offset 16
  322 0004 00AF     		add	r7, sp, #0
  323              		.cfi_offset 7, -4
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 11
+
+
  324              	.LCFI20:
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 11
-
-
  325              		.cfi_def_cfa_register 7
- 243:.\Generated_Source\PSoC5/Player1_Rx.c ****     uint8 priority;
- 244:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 244:.\Generated_Source\PSoC5/Player1_Rx.c ****     uint8 priority;
  245:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 246:.\Generated_Source\PSoC5/Player1_Rx.c ****     priority = *Player1_Rx_INTC_PRIOR >> 5;
- 326              		.loc 1 246 0
+ 246:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 247:.\Generated_Source\PSoC5/Player1_Rx.c ****     priority = *Player1_Rx_INTC_PRIOR >> 5;
+ 326              		.loc 1 247 0
  327 0006 4EF20043 		movw	r3, #:lower16:-536812544
  328 000a CEF20003 		movt	r3, #:upper16:-536812544
  329 000e 1B78     		ldrb	r3, [r3, #0]
  330 0010 DBB2     		uxtb	r3, r3
  331 0012 4FEA5313 		lsr	r3, r3, #5
  332 0016 FB71     		strb	r3, [r7, #7]
- 247:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 248:.\Generated_Source\PSoC5/Player1_Rx.c ****     return priority;
- 333              		.loc 1 248 0
+ 248:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 249:.\Generated_Source\PSoC5/Player1_Rx.c ****     return priority;
+ 333              		.loc 1 249 0
  334 0018 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 249:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 335              		.loc 1 249 0
+ 250:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 335              		.loc 1 250 0
  336 001a 1846     		mov	r0, r3
  337 001c 07F10C07 		add	r7, r7, #12
  338 0020 BD46     		mov	sp, r7
@@ -635,32 +636,32 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  349              		.type	Player1_Rx_Enable, %function
  350              	Player1_Rx_Enable:
  351              	.LFB8:
- 250:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  251:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 252:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 253:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Enable
- 254:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 255:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 256:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 257:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Enables the interrupt.
- 258:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 259:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 260:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 261:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 262:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 263:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 264:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 265:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 266:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_Enable(void)
- 267:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 352              		.loc 1 267 0
+ 252:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 253:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 254:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Enable
+ 255:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 256:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 257:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 258:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Enables the interrupt.
+ 259:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 260:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 261:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 262:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 263:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 264:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 265:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 266:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 267:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_Enable(void)
+ 268:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 352              		.loc 1 268 0
  353              		.cfi_startproc
  354              		@ args = 0, pretend = 0, frame = 0
  355              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 12
+
+
  356              		@ link register save eliminated.
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 12
-
-
  357 0000 80B4     		push	{r7}
  358              	.LCFI21:
  359              		.cfi_def_cfa_offset 4
@@ -668,15 +669,15 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  361              		.cfi_offset 7, -4
  362              	.LCFI22:
  363              		.cfi_def_cfa_register 7
- 268:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Enable the general interrupt. */
- 269:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_SET_EN = Player1_Rx__INTC_MASK;
- 364              		.loc 1 269 0
+ 269:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Enable the general interrupt. */
+ 270:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_SET_EN = Player1_Rx__INTC_MASK;
+ 364              		.loc 1 270 0
  365 0004 4EF20013 		movw	r3, #:lower16:-536813312
  366 0008 CEF20003 		movt	r3, #:upper16:-536813312
  367 000c 4FF00102 		mov	r2, #1
  368 0010 1A60     		str	r2, [r3, #0]
- 270:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 369              		.loc 1 270 0
+ 271:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 369              		.loc 1 271 0
  370 0012 BD46     		mov	sp, r7
  371 0014 80BC     		pop	{r7}
  372 0016 7047     		bx	lr
@@ -691,25 +692,25 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  381              		.type	Player1_Rx_GetState, %function
  382              	Player1_Rx_GetState:
  383              	.LFB9:
- 271:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  272:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 273:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 274:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_GetState
- 275:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 276:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 277:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 278:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Gets the state (enabled, disabled) of the Interrupt.
- 279:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 280:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 281:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 282:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 283:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 284:.\Generated_Source\PSoC5/Player1_Rx.c **** *   1 if enabled, 0 if disabled.
- 285:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 286:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 287:.\Generated_Source\PSoC5/Player1_Rx.c **** uint8 Player1_Rx_GetState(void)
- 288:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 384              		.loc 1 288 0
+ 273:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 274:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 275:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_GetState
+ 276:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 277:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 278:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 279:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 280:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 281:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 282:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 283:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 284:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 285:.\Generated_Source\PSoC5/Player1_Rx.c **** *   1 if enabled, 0 if disabled.
+ 286:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 287:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 288:.\Generated_Source\PSoC5/Player1_Rx.c **** uint8 Player1_Rx_GetState(void)
+ 289:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 384              		.loc 1 289 0
  385              		.cfi_startproc
  386              		@ args = 0, pretend = 0, frame = 0
  387              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -717,16 +718,16 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  389 0000 80B4     		push	{r7}
  390              	.LCFI23:
  391              		.cfi_def_cfa_offset 4
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 13
+
+
  392 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 13
-
-
  393              		.cfi_offset 7, -4
  394              	.LCFI24:
  395              		.cfi_def_cfa_register 7
- 289:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Get the state of the general interrupt. */
- 290:.\Generated_Source\PSoC5/Player1_Rx.c ****     return ((*Player1_Rx_INTC_SET_EN & (uint32)Player1_Rx__INTC_MASK) != 0u) ? 1u:0u;
- 396              		.loc 1 290 0
+ 290:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Get the state of the general interrupt. */
+ 291:.\Generated_Source\PSoC5/Player1_Rx.c ****     return ((*Player1_Rx_INTC_SET_EN & (uint32)Player1_Rx__INTC_MASK) != 0u) ? 1u:0u;
+ 396              		.loc 1 291 0
  397 0004 4EF20013 		movw	r3, #:lower16:-536813312
  398 0008 CEF20003 		movt	r3, #:upper16:-536813312
  399 000c 1B68     		ldr	r3, [r3, #0]
@@ -739,8 +740,8 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  406              	.L20:
  407 001e 4FF00003 		mov	r3, #0
  408              	.L21:
- 291:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 409              		.loc 1 291 0
+ 292:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 409              		.loc 1 292 0
  410 0022 1846     		mov	r0, r3
  411 0024 BD46     		mov	sp, r7
  412 0026 80BC     		pop	{r7}
@@ -756,31 +757,31 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  422              		.type	Player1_Rx_Disable, %function
  423              	Player1_Rx_Disable:
  424              	.LFB10:
- 292:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  293:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 294:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 295:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Disable
- 296:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 297:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 298:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 299:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Disables the Interrupt.
- 300:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 301:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 302:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 303:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 304:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 305:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 306:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 307:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 308:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_Disable(void)
- 309:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 425              		.loc 1 309 0
+ 294:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 295:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 296:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_Disable
+ 297:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 298:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 299:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 300:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Disables the Interrupt.
+ 301:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 302:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 303:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 304:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 305:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 306:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 307:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 308:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 309:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_Disable(void)
+ 310:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 425              		.loc 1 310 0
  426              		.cfi_startproc
  427              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 14
+
+
  428              		@ frame_needed = 1, uses_anonymous_args = 0
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 14
-
-
  429              		@ link register save eliminated.
  430 0000 80B4     		push	{r7}
  431              	.LCFI25:
@@ -789,15 +790,15 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  434              		.cfi_offset 7, -4
  435              	.LCFI26:
  436              		.cfi_def_cfa_register 7
- 310:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Disable the general interrupt. */
- 311:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_CLR_EN = Player1_Rx__INTC_MASK;
- 437              		.loc 1 311 0
+ 311:.\Generated_Source\PSoC5/Player1_Rx.c ****     /* Disable the general interrupt. */
+ 312:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_CLR_EN = Player1_Rx__INTC_MASK;
+ 437              		.loc 1 312 0
  438 0004 4EF28013 		movw	r3, #:lower16:-536813184
  439 0008 CEF20003 		movt	r3, #:upper16:-536813184
  440 000c 4FF00102 		mov	r2, #1
  441 0010 1A60     		str	r2, [r3, #0]
- 312:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 442              		.loc 1 312 0
+ 313:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 442              		.loc 1 313 0
  443 0012 BD46     		mov	sp, r7
  444 0014 80BC     		pop	{r7}
  445 0016 7047     		bx	lr
@@ -812,48 +813,48 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  454              		.type	Player1_Rx_SetPending, %function
  455              	Player1_Rx_SetPending:
  456              	.LFB11:
- 313:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  314:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 315:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 316:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_SetPending
- 317:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 318:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 319:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 320:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Causes the Interrupt to enter the pending state, a software method of
- 321:.\Generated_Source\PSoC5/Player1_Rx.c **** *   generating the interrupt.
- 322:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 323:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 324:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 325:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 326:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 327:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 328:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 329:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 330:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_SetPending(void)
- 331:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 457              		.loc 1 331 0
+ 315:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 316:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 317:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_SetPending
+ 318:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 319:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 320:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 321:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 322:.\Generated_Source\PSoC5/Player1_Rx.c **** *   generating the interrupt.
+ 323:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 324:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 325:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 326:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 327:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 328:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 329:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 330:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 331:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_SetPending(void)
+ 332:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 457              		.loc 1 332 0
  458              		.cfi_startproc
  459              		@ args = 0, pretend = 0, frame = 0
  460              		@ frame_needed = 1, uses_anonymous_args = 0
  461              		@ link register save eliminated.
  462 0000 80B4     		push	{r7}
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 15
+
+
  463              	.LCFI27:
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 15
-
-
  464              		.cfi_def_cfa_offset 4
  465 0002 00AF     		add	r7, sp, #0
  466              		.cfi_offset 7, -4
  467              	.LCFI28:
  468              		.cfi_def_cfa_register 7
- 332:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_SET_PD = Player1_Rx__INTC_MASK;
- 469              		.loc 1 332 0
+ 333:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_SET_PD = Player1_Rx__INTC_MASK;
+ 469              		.loc 1 333 0
  470 0004 4EF20023 		movw	r3, #:lower16:-536813056
  471 0008 CEF20003 		movt	r3, #:upper16:-536813056
  472 000c 4FF00102 		mov	r2, #1
  473 0010 1A60     		str	r2, [r3, #0]
- 333:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 474              		.loc 1 333 0
+ 334:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 474              		.loc 1 334 0
  475 0012 BD46     		mov	sp, r7
  476 0014 80BC     		pop	{r7}
  477 0016 7047     		bx	lr
@@ -868,25 +869,25 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  486              		.type	Player1_Rx_ClearPending, %function
  487              	Player1_Rx_ClearPending:
  488              	.LFB12:
- 334:.\Generated_Source\PSoC5/Player1_Rx.c **** 
  335:.\Generated_Source\PSoC5/Player1_Rx.c **** 
- 336:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
- 337:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_ClearPending
- 338:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
- 339:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 340:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
- 341:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Clears a pending interrupt.
- 342:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 343:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
- 344:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 345:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 346:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
- 347:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
- 348:.\Generated_Source\PSoC5/Player1_Rx.c **** *
- 349:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
- 350:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_ClearPending(void)
- 351:.\Generated_Source\PSoC5/Player1_Rx.c **** {
- 489              		.loc 1 351 0
+ 336:.\Generated_Source\PSoC5/Player1_Rx.c **** 
+ 337:.\Generated_Source\PSoC5/Player1_Rx.c **** /*******************************************************************************
+ 338:.\Generated_Source\PSoC5/Player1_Rx.c **** * Function Name: Player1_Rx_ClearPending
+ 339:.\Generated_Source\PSoC5/Player1_Rx.c **** ********************************************************************************
+ 340:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 341:.\Generated_Source\PSoC5/Player1_Rx.c **** * Summary:
+ 342:.\Generated_Source\PSoC5/Player1_Rx.c **** *   Clears a pending interrupt.
+ 343:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 344:.\Generated_Source\PSoC5/Player1_Rx.c **** * Parameters:
+ 345:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 346:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 347:.\Generated_Source\PSoC5/Player1_Rx.c **** * Return:
+ 348:.\Generated_Source\PSoC5/Player1_Rx.c **** *   None
+ 349:.\Generated_Source\PSoC5/Player1_Rx.c **** *
+ 350:.\Generated_Source\PSoC5/Player1_Rx.c **** *******************************************************************************/
+ 351:.\Generated_Source\PSoC5/Player1_Rx.c **** void Player1_Rx_ClearPending(void)
+ 352:.\Generated_Source\PSoC5/Player1_Rx.c **** {
+ 489              		.loc 1 352 0
  490              		.cfi_startproc
  491              		@ args = 0, pretend = 0, frame = 0
  492              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -897,18 +898,18 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  497 0002 00AF     		add	r7, sp, #0
  498              		.cfi_offset 7, -4
  499              	.LCFI30:
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 16
+
+
  500              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 16
-
-
- 352:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_CLR_PD = Player1_Rx__INTC_MASK;
- 501              		.loc 1 352 0
+ 353:.\Generated_Source\PSoC5/Player1_Rx.c ****     *Player1_Rx_INTC_CLR_PD = Player1_Rx__INTC_MASK;
+ 501              		.loc 1 353 0
  502 0004 4EF28023 		movw	r3, #:lower16:-536812928
  503 0008 CEF20003 		movt	r3, #:upper16:-536812928
  504 000c 4FF00102 		mov	r2, #1
  505 0010 1A60     		str	r2, [r3, #0]
- 353:.\Generated_Source\PSoC5/Player1_Rx.c **** }
- 506              		.loc 1 353 0
+ 354:.\Generated_Source\PSoC5/Player1_Rx.c **** }
+ 506              		.loc 1 354 0
  507 0012 BD46     		mov	sp, r7
  508 0014 80BC     		pop	{r7}
  509 0016 7047     		bx	lr
@@ -957,10 +958,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  552 0058 77       		.byte	0x77
  553 0059 10       		.sleb128 16
  554 005a 00000000 		.4byte	0x0
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 17
+
+
  555 005e 00000000 		.4byte	0x0
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 17
-
-
  556              	.LLST2:
  557 0062 00000000 		.4byte	.LFB2
  558 0066 02000000 		.4byte	.LCFI5
@@ -1017,10 +1018,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  609 00e6 18       		.sleb128 24
  610 00e7 00000000 		.4byte	0x0
  611 00eb 00000000 		.4byte	0x0
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 18
+
+
  612              	.LLST5:
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 18
-
-
  613 00ef 00000000 		.4byte	.LFB5
  614 00f3 02000000 		.4byte	.LCFI12
  615 00f7 0100     		.2byte	0x1
@@ -1077,10 +1078,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  666 0174 04000000 		.4byte	.LCFI19
  667 0178 06000000 		.4byte	.LCFI20
  668 017c 0200     		.2byte	0x2
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 19
+
+
  669 017e 7D       		.byte	0x7d
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 19
-
-
  670 017f 10       		.sleb128 16
  671 0180 06000000 		.4byte	.LCFI20
  672 0184 26000000 		.4byte	.LFE7
@@ -1137,10 +1138,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  723 0205 18000000 		.4byte	.LFE10
  724 0209 0200     		.2byte	0x2
  725 020b 77       		.byte	0x77
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 20
+
+
  726 020c 04       		.sleb128 4
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 20
-
-
  727 020d 00000000 		.4byte	0x0
  728 0211 00000000 		.4byte	0x0
  729              	.LLST11:
@@ -1197,10 +1198,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  780 002b 06       		.byte	0x6
  781 002c 1C020000 		.4byte	.LASF0
  782 0030 02       		.uleb128 0x2
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 21
+
+
  783 0031 01       		.byte	0x1
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 21
-
-
  784 0032 08       		.byte	0x8
  785 0033 D2000000 		.4byte	.LASF1
  786 0037 02       		.uleb128 0x2
@@ -1257,10 +1258,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  837 008e 04       		.byte	0x4
  838 008f 63000000 		.4byte	.LASF10
  839 0093 02       		.uleb128 0x2
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 22
+
+
  840 0094 08       		.byte	0x8
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 22
-
-
  841 0095 04       		.byte	0x4
  842 0096 E0000000 		.4byte	.LASF11
  843 009a 07       		.uleb128 0x7
@@ -1272,7 +1273,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  849 00a6 01       		.byte	0x1
  850 00a7 26010000 		.4byte	.LASF14
  851 00ab 01       		.byte	0x1
- 852 00ac 3A       		.byte	0x3a
+ 852 00ac 3B       		.byte	0x3b
  853 00ad 01       		.byte	0x1
  854 00ae 00000000 		.4byte	.LFB0
  855 00b2 22000000 		.4byte	.LFE0
@@ -1281,7 +1282,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  858 00bb 01       		.byte	0x1
  859 00bc E7000000 		.4byte	.LASF17
  860 00c0 01       		.byte	0x1
- 861 00c1 58       		.byte	0x58
+ 861 00c1 59       		.byte	0x59
  862 00c2 01       		.byte	0x1
  863 00c3 00000000 		.4byte	.LFB1
  864 00c7 26000000 		.4byte	.LFE1
@@ -1290,7 +1291,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  867 00d3 0A       		.uleb128 0xa
  868 00d4 44010000 		.4byte	.LASF19
  869 00d8 01       		.byte	0x1
- 870 00d9 58       		.byte	0x58
+ 870 00d9 59       		.byte	0x59
  871 00da 9A000000 		.4byte	0x9a
  872 00de 02       		.byte	0x2
  873 00df 91       		.byte	0x91
@@ -1300,7 +1301,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  877 00e3 01       		.byte	0x1
  878 00e4 0C020000 		.4byte	.LASF15
  879 00e8 01       		.byte	0x1
- 880 00e9 75       		.byte	0x75
+ 880 00e9 76       		.byte	0x76
  881 00ea 01       		.byte	0x1
  882 00eb 00000000 		.4byte	.LFB2
  883 00ef 16000000 		.4byte	.LFE2
@@ -1309,7 +1310,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  886 00f8 01       		.byte	0x1
  887 00f9 EE010000 		.4byte	.LASF16
  888 00fd 01       		.byte	0x1
- 889 00fe 8F       		.byte	0x8f
+ 889 00fe 90       		.byte	0x90
  890 00ff 01       		.byte	0x1
  891 0100 00000000 		.4byte	.LFB3
  892 0104 26000000 		.4byte	.LFE3
@@ -1317,11 +1318,11 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  894 010c 09       		.uleb128 0x9
  895 010d 01       		.byte	0x1
  896 010e 4E000000 		.4byte	.LASF18
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 23
+
+
  897 0112 01       		.byte	0x1
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 23
-
-
- 898 0113 A9       		.byte	0xa9
+ 898 0113 AA       		.byte	0xaa
  899 0114 01       		.byte	0x1
  900 0115 00000000 		.4byte	.LFB4
  901 0119 28000000 		.4byte	.LFE4
@@ -1330,7 +1331,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  904 0125 0A       		.uleb128 0xa
  905 0126 44010000 		.4byte	.LASF19
  906 012a 01       		.byte	0x1
- 907 012b A9       		.byte	0xa9
+ 907 012b AA       		.byte	0xaa
  908 012c 9A000000 		.4byte	0x9a
  909 0130 02       		.byte	0x2
  910 0131 91       		.byte	0x91
@@ -1338,7 +1339,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  912 0133 0B       		.uleb128 0xb
  913 0134 CA010000 		.4byte	.LASF20
  914 0138 01       		.byte	0x1
- 915 0139 AB       		.byte	0xab
+ 915 0139 AC       		.byte	0xac
  916 013a 42010000 		.4byte	0x142
  917 013e 02       		.byte	0x2
  918 013f 91       		.byte	0x91
@@ -1351,7 +1352,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  925 0149 01       		.byte	0x1
  926 014a 11010000 		.4byte	.LASF23
  927 014e 01       		.byte	0x1
- 928 014f C1       		.byte	0xc1
+ 928 014f C2       		.byte	0xc2
  929 0150 01       		.byte	0x1
  930 0151 9A000000 		.4byte	0x9a
  931 0155 00000000 		.4byte	.LFB5
@@ -1361,7 +1362,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  935 0165 0B       		.uleb128 0xb
  936 0166 CA010000 		.4byte	.LASF20
  937 016a 01       		.byte	0x1
- 938 016b C3       		.byte	0xc3
+ 938 016b C4       		.byte	0xc4
  939 016c 42010000 		.4byte	0x142
  940 0170 02       		.byte	0x2
  941 0171 91       		.byte	0x91
@@ -1371,19 +1372,19 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  945 0175 01       		.byte	0x1
  946 0176 FA000000 		.4byte	.LASF21
  947 017a 01       		.byte	0x1
- 948 017b DD       		.byte	0xdd
+ 948 017b DE       		.byte	0xde
  949 017c 01       		.byte	0x1
  950 017d 00000000 		.4byte	.LFB6
  951 0181 26000000 		.4byte	.LFE6
  952 0185 26010000 		.4byte	.LLST6
  953 0189 9C010000 		.4byte	0x19c
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 24
+
+
  954 018d 0A       		.uleb128 0xa
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 24
-
-
  955 018e 99000000 		.4byte	.LASF22
  956 0192 01       		.byte	0x1
- 957 0193 DD       		.byte	0xdd
+ 957 0193 DE       		.byte	0xde
  958 0194 81000000 		.4byte	0x81
  959 0198 02       		.byte	0x2
  960 0199 91       		.byte	0x91
@@ -1393,7 +1394,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  964 019d 01       		.byte	0x1
  965 019e 0E000000 		.4byte	.LASF24
  966 01a2 01       		.byte	0x1
- 967 01a3 F1       		.byte	0xf1
+ 967 01a3 F2       		.byte	0xf2
  968 01a4 01       		.byte	0x1
  969 01a5 81000000 		.4byte	0x81
  970 01a9 00000000 		.4byte	.LFB7
@@ -1403,7 +1404,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  974 01b9 0B       		.uleb128 0xb
  975 01ba 99000000 		.4byte	.LASF22
  976 01be 01       		.byte	0x1
- 977 01bf F3       		.byte	0xf3
+ 977 01bf F4       		.byte	0xf4
  978 01c0 81000000 		.4byte	0x81
  979 01c4 02       		.byte	0x2
  980 01c5 91       		.byte	0x91
@@ -1413,7 +1414,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  984 01c9 01       		.byte	0x1
  985 01ca 28020000 		.4byte	.LASF25
  986 01ce 01       		.byte	0x1
- 987 01cf 0A01     		.2byte	0x10a
+ 987 01cf 0B01     		.2byte	0x10b
  988 01d1 01       		.byte	0x1
  989 01d2 00000000 		.4byte	.LFB8
  990 01d6 18000000 		.4byte	.LFE8
@@ -1422,7 +1423,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  993 01df 01       		.byte	0x1
  994 01e0 3A020000 		.4byte	.LASF34
  995 01e4 01       		.byte	0x1
- 996 01e5 1F01     		.2byte	0x11f
+ 996 01e5 2001     		.2byte	0x120
  997 01e7 01       		.byte	0x1
  998 01e8 81000000 		.4byte	0x81
  999 01ec 00000000 		.4byte	.LFB9
@@ -1432,19 +1433,19 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1003 01f9 01       		.byte	0x1
  1004 01fa 96010000 		.4byte	.LASF26
  1005 01fe 01       		.byte	0x1
- 1006 01ff 3401     		.2byte	0x134
+ 1006 01ff 3501     		.2byte	0x135
  1007 0201 01       		.byte	0x1
  1008 0202 00000000 		.4byte	.LFB10
  1009 0206 18000000 		.4byte	.LFE10
  1010 020a EA010000 		.4byte	.LLST10
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 25
+
+
  1011 020e 0D       		.uleb128 0xd
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 25
-
-
  1012 020f 01       		.byte	0x1
  1013 0210 38000000 		.4byte	.LASF27
  1014 0214 01       		.byte	0x1
- 1015 0215 4A01     		.2byte	0x14a
+ 1015 0215 4B01     		.2byte	0x14b
  1016 0217 01       		.byte	0x1
  1017 0218 00000000 		.4byte	.LFB11
  1018 021c 18000000 		.4byte	.LFE11
@@ -1453,7 +1454,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1021 0225 01       		.byte	0x1
  1022 0226 69000000 		.4byte	.LASF28
  1023 022a 01       		.byte	0x1
- 1024 022b 5E01     		.2byte	0x15e
+ 1024 022b 5F01     		.2byte	0x15f
  1025 022d 01       		.byte	0x1
  1026 022e 00000000 		.4byte	.LFB12
  1027 0232 18000000 		.4byte	.LFE12
@@ -1461,7 +1462,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1029 023a 0F       		.uleb128 0xf
  1030 023b D9010000 		.4byte	.LASF29
  1031 023f 01       		.byte	0x1
- 1032 0240 1D       		.byte	0x1d
+ 1032 0240 1E       		.byte	0x1e
  1033 0241 81000000 		.4byte	0x81
  1034 0245 01       		.byte	0x1
  1035 0246 05       		.byte	0x5
@@ -1470,7 +1471,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1038 024c 0F       		.uleb128 0xf
  1039 024d A9010000 		.4byte	.LASF30
  1040 0251 01       		.byte	0x1
- 1041 0252 1E       		.byte	0x1e
+ 1041 0252 1F       		.byte	0x1f
  1042 0253 81000000 		.4byte	0x81
  1043 0257 01       		.byte	0x1
  1044 0258 05       		.byte	0x5
@@ -1497,10 +1498,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1065 0010 06       		.uleb128 0x6
  1066 0011 10       		.uleb128 0x10
  1067 0012 06       		.uleb128 0x6
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 26
+
+
  1068 0013 00       		.byte	0x0
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 26
-
-
  1069 0014 00       		.byte	0x0
  1070 0015 02       		.uleb128 0x2
  1071 0016 24       		.uleb128 0x24
@@ -1557,10 +1558,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1122 0049 3A       		.uleb128 0x3a
  1123 004a 0B       		.uleb128 0xb
  1124 004b 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 27
+
+
  1125 004c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 27
-
-
  1126 004d 49       		.uleb128 0x49
  1127 004e 13       		.uleb128 0x13
  1128 004f 00       		.byte	0x0
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1179 0082 3A       		.uleb128 0x3a
  1180 0083 0B       		.uleb128 0xb
  1181 0084 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 28
+
+
  1182 0085 0B       		.uleb128 0xb
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 28
-
-
  1183 0086 49       		.uleb128 0x49
  1184 0087 13       		.uleb128 0x13
  1185 0088 02       		.uleb128 0x2
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1236 00bb 3A       		.uleb128 0x3a
  1237 00bc 0B       		.uleb128 0xb
  1238 00bd 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 29
+
+
  1239 00be 05       		.uleb128 0x5
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 29
-
-
  1240 00bf 27       		.uleb128 0x27
  1241 00c0 0C       		.uleb128 0xc
  1242 00c1 11       		.uleb128 0x11
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1293 0004 0200     		.2byte	0x2
  1294 0006 00000000 		.4byte	.Ldebug_info0
  1295 000a 5F020000 		.4byte	0x25f
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 30
+
+
  1296 000e A5000000 		.4byte	0xa5
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 30
-
-
  1297 0012 506C6179 		.ascii	"Player1_Rx_Start\000"
  1297      6572315F 
  1297      52785F53 
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1315 00e9 506C6179 		.ascii	"Player1_Rx_GetState\000"
  1315      6572315F 
  1315      52785F47 
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 31
+
+
  1315      65745374 
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 31
-
-
  1315      61746500 
  1316 00fd F8010000 		.4byte	0x1f8
  1317 0101 506C6179 		.ascii	"Player1_Rx_Disable\000"
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1351 0050 00000000 		.4byte	.LFB8
  1352 0054 18000000 		.4byte	.LFE8-.LFB8
  1353 0058 00000000 		.4byte	.LFB9
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 32
+
+
  1354 005c 2A000000 		.4byte	.LFE9-.LFB9
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 32
-
-
  1355 0060 00000000 		.4byte	.LFB10
  1356 0064 18000000 		.4byte	.LFE10-.LFB10
  1357 0068 00000000 		.4byte	.LFB11
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1401 0025 73686F72 		.ascii	"short unsigned int\000"
  1401      7420756E 
  1401      7369676E 
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 33
+
+
  1401      65642069 
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 33
-
-
  1401      6E7400
  1402              	.LASF27:
  1403 0038 506C6179 		.ascii	"Player1_Rx_SetPending\000"
@@ -1977,10 +1978,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1424      52785F53 
  1424      74617274 
  1424      457800
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 34
+
+
  1425              	.LASF21:
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 34
-
-
  1426 00fa 506C6179 		.ascii	"Player1_Rx_SetPriority\000"
  1426      6572315F 
  1426      52785F53 
@@ -2037,10 +2038,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 1
  1445              	.LASF31:
  1446 01b9 474E5520 		.ascii	"GNU C 4.4.1\000"
  1446      4320342E 
+ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccddjwQY.s 			page 35
+
+
  1446      342E3100 
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccoYIbSP.s 			page 35
-
-
  1447              	.LASF9:
  1448 01c5 63686172 		.ascii	"char\000"
  1448      00

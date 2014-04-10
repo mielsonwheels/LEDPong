@@ -22,7 +22,7 @@
 #include <Player1_Tx.h>
 #include <Player1_Rx.h>
 #include <LCD.h>
-#include <Clock_1.h>
+#include <PlayerBT1_IntClock.h>
 #include <LCD_LCDPort_aliases.h>
 #include <LCD_LCDPort.h>
 #include <core_cm3_psoc5.h>

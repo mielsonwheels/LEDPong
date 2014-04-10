@@ -26,8 +26,8 @@
   <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\LCD.c" value="ARM_C_FILE;LCD" />
   <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\LCD.h" value="NONE;LCD" />
   <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\LCD_PM.c" value="ARM_C_FILE;LCD" />
-  <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\Clock_1.c" value="ARM_C_FILE;Clock_1" />
-  <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\Clock_1.h" value="NONE;Clock_1" />
+  <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\PlayerBT1_IntClock.c" value="ARM_C_FILE;PlayerBT1_IntClock" />
+  <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\PlayerBT1_IntClock.h" value="NONE;PlayerBT1_IntClock" />
   <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\LCD_LCDPort_aliases.h" value="NONE;LCD_LCDPort" />
   <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\LCD_LCDPort.c" value="ARM_C_FILE;LCD_LCDPort" />
   <file name="C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\codegentemp\LCD_LCDPort.h" value="NONE;LCD_LCDPort" />

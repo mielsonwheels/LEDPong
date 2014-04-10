@@ -25,18 +25,22 @@ void main()
     CyDelay(2000);
  */
     Player1_Rx_Start();
-    extern uint8 Player1_Rx_flag, Player1_Rx;
+    extern uint8 Player1_Rx_flag;
+    extern char Player1_Rx;
     LCD_Start();
     CyGlobalIntEnable; /* Uncomment this line to enable global interrupts. */
     for(;;)
     {
+        PlayerBT1_PutString("AT\r\n");
         if(Player1_Rx_flag)
         {
             Player1_Rx_flag = 0;
-            PlayerBT1_PutString("a");
+            //PlayerBT1_PutString("a");
             LCD_Position(0,0);
-            if(Player1_Rx == 1)
-                LCD_PrintInt8(1);
+            if(Player1_Rx)
+                LCD_ClearDisplay();
+                LCD_PutChar(Player1_Rx);
+                //Player1_Rx = 0;
         }
     }
 }

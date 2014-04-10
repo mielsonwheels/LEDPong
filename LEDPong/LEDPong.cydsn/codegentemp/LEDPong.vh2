@@ -2,7 +2,7 @@
 --	Conversion of LEDPong.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Apr 09 10:48:58 2014
+--	Thu Apr 10 16:46:27 2014
 --
 
 USE cypress.cypress.all;
@@ -12,8 +12,8 @@ ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
 END top_RTL;
 --------------------------------------------------------
 ARCHITECTURE R_T_L OF top_RTL IS
+SIGNAL \PlayerBT1:Net_9\ : bit;
 SIGNAL \PlayerBT1:Net_61\ : bit;
-SIGNAL Net_28 : bit;
 SIGNAL one : bit;
 SIGNAL \PlayerBT1:BUART:clock_op\ : bit;
 SIGNAL \PlayerBT1:BUART:reset_reg\ : bit;
@@ -520,9 +520,19 @@ zero <=  ('0') ;
 
 \PlayerBT1:BUART:rx_address_detected\\D\ <= ((not \PlayerBT1:BUART:reset_reg\ and \PlayerBT1:BUART:rx_address_detected\));
 
+\PlayerBT1:IntClock\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"b0162966-0060-4af5-82d1-fcb491ad7619/be0a0e37-ad17-42ca-b5a1-1a654d736358",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"3255208333.33333",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\PlayerBT1:Net_9\,
+		dig_domain_out=>open);
 \PlayerBT1:BUART:ClkSync\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>Net_28,
+	PORT MAP(clock_in=>\PlayerBT1:Net_9\,
 		enable=>one,
 		clock_out=>\PlayerBT1:BUART:clock_op\);
 \PlayerBT1:BUART:sTX:TxShifter:u0\:cy_psoc3_dp
@@ -1022,16 +1032,6 @@ Player1_Rx:cy_isr_v1_0
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>\LCD:tmpINTERRUPT_0__LCDPort_net_0\);
-Clock_1:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"084db1d3-4a76-4f68-9ec5-8d9d0db16d16",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"3257328990.22801",
-		is_direct=>'0',
-		is_digital=>'1')
-	PORT MAP(clock_out=>Net_28,
-		dig_domain_out=>open);
 \PlayerBT1:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\PlayerBT1:BUART:clock_op\,
