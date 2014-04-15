@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
   20:.\Generated_Source\PSoC5/LCD_LCDPort.c **** /* APIs are not generated for P15[7:6] on PSoC 5 */
   21:.\Generated_Source\PSoC5/LCD_LCDPort.c **** #if !(CY_PSOC5A &&\
   22:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 	 LCD_LCDPort__PORT == 15 && ((LCD_LCDPort__MASK & 0xC0) != 0))
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 2
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 2
 
 
   23:.\Generated_Source\PSoC5/LCD_LCDPort.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
   65              		.loc 1 43 0
   66 0034 07F11407 		add	r7, r7, #20
   67 0038 BD46     		mov	sp, r7
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 3
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 3
 
 
   68 003a 80BC     		pop	{r7}
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  103 001a 1278     		ldrb	r2, [r2, #0]
  104 001c D2B2     		uxtb	r2, r2
  105 001e D1B2     		uxtb	r1, r2
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 4
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 4
 
 
  106 0020 01F0F101 		and	r1, r1, #241
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  157 00ac 02F00E02 		and	r2, r2, #14
  158 00b0 41EA0202 		orr	r2, r1, r2
  159 00b4 D2B2     		uxtb	r2, r2
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 5
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 5
 
 
  160 00b6 D2B2     		uxtb	r2, r2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  210              		.loc 1 69 0
  211 013e 07F10C07 		add	r7, r7, #12
  212 0142 BD46     		mov	sp, r7
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 6
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 6
 
 
  213 0144 80BC     		pop	{r7}
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
   93:.\Generated_Source\PSoC5/LCD_LCDPort.c **** }
  244              		.loc 1 93 0
  245 0014 1846     		mov	r0, r3
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 7
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 7
 
 
  246 0016 BD46     		mov	sp, r7
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  280 0016 BD46     		mov	sp, r7
  281 0018 80BC     		pop	{r7}
  282 001a 7047     		bx	lr
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 8
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 8
 
 
  283              		.cfi_endproc
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  337 0076 0100     		.2byte	0x1
  338 0078 5D       		.byte	0x5d
  339 0079 02000000 		.4byte	.LCFI6
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 9
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 9
 
 
  340 007d 04000000 		.4byte	.LCFI7
@@ -516,10 +516,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  372 0006 00000000 		.4byte	.Ldebug_abbrev0
  373 000a 04       		.byte	0x4
  374 000b 01       		.uleb128 0x1
- 375 000c 22010000 		.4byte	.LASF18
+ 375 000c 29010000 		.4byte	.LASF18
  376 0010 01       		.byte	0x1
- 377 0011 FB000000 		.4byte	.LASF19
- 378 0015 9B000000 		.4byte	.LASF20
+ 377 0011 02010000 		.4byte	.LASF19
+ 378 0015 44000000 		.4byte	.LASF20
  379 0019 00000000 		.4byte	0x0
  380 001d 00000000 		.4byte	0x0
  381 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
@@ -527,30 +527,30 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  383 0029 02       		.uleb128 0x2
  384 002a 01       		.byte	0x1
  385 002b 06       		.byte	0x6
- 386 002c 5D010000 		.4byte	.LASF0
+ 386 002c 64010000 		.4byte	.LASF0
  387 0030 02       		.uleb128 0x2
  388 0031 01       		.byte	0x1
  389 0032 08       		.byte	0x8
- 390 0033 44000000 		.4byte	.LASF1
+ 390 0033 7B000000 		.4byte	.LASF1
  391 0037 02       		.uleb128 0x2
  392 0038 02       		.byte	0x2
  393 0039 05       		.byte	0x5
- 394 003a 33010000 		.4byte	.LASF2
+ 394 003a 3A010000 		.4byte	.LASF2
  395 003e 02       		.uleb128 0x2
  396 003f 02       		.byte	0x2
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 10
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 10
 
 
  397 0040 07       		.byte	0x7
- 398 0041 6F000000 		.4byte	.LASF3
+ 398 0041 A6000000 		.4byte	.LASF3
  399 0045 02       		.uleb128 0x2
  400 0046 04       		.byte	0x4
  401 0047 05       		.byte	0x5
- 402 0048 54010000 		.4byte	.LASF4
+ 402 0048 5B010000 		.4byte	.LASF4
  403 004c 02       		.uleb128 0x2
  404 004d 04       		.byte	0x4
  405 004e 07       		.byte	0x7
- 406 004f 5D000000 		.4byte	.LASF5
+ 406 004f 94000000 		.4byte	.LASF5
  407 0053 02       		.uleb128 0x2
  408 0054 08       		.byte	0x8
  409 0055 05       		.byte	0x5
@@ -558,7 +558,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  411 005a 02       		.uleb128 0x2
  412 005b 08       		.byte	0x8
  413 005c 07       		.byte	0x7
- 414 005d DF000000 		.4byte	.LASF7
+ 414 005d E6000000 		.4byte	.LASF7
  415 0061 03       		.uleb128 0x3
  416 0062 04       		.byte	0x4
  417 0063 05       		.byte	0x5
@@ -566,9 +566,9 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  419 0068 02       		.uleb128 0x2
  420 0069 04       		.byte	0x4
  421 006a 07       		.byte	0x7
- 422 006b D2000000 		.4byte	.LASF8
+ 422 006b D9000000 		.4byte	.LASF8
  423 006f 04       		.uleb128 0x4
- 424 0070 3D010000 		.4byte	.LASF21
+ 424 0070 44010000 		.4byte	.LASF21
  425 0074 02       		.byte	0x2
  426 0075 4C       		.byte	0x4c
  427 0076 30000000 		.4byte	0x30
@@ -579,11 +579,11 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  432 0081 02       		.uleb128 0x2
  433 0082 08       		.byte	0x8
  434 0083 04       		.byte	0x4
- 435 0084 CB000000 		.4byte	.LASF10
+ 435 0084 D2000000 		.4byte	.LASF10
  436 0088 02       		.uleb128 0x2
  437 0089 01       		.byte	0x1
  438 008a 08       		.byte	0x8
- 439 008b 2E010000 		.4byte	.LASF11
+ 439 008b 35010000 		.4byte	.LASF11
  440 008f 05       		.uleb128 0x5
  441 0090 01       		.byte	0x1
  442 0091 14000000 		.4byte	.LASF12
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  451 00a9 0E000000 		.4byte	.LASF14
  452 00ad 01       		.byte	0x1
  453 00ae 27       		.byte	0x27
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 11
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 11
 
 
  454 00af 6F000000 		.4byte	0x6f
@@ -606,7 +606,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  456 00b4 91       		.byte	0x91
  457 00b5 6F       		.sleb128 -17
  458 00b6 07       		.uleb128 0x7
- 459 00b7 52000000 		.4byte	.LASF22
+ 459 00b7 89000000 		.4byte	.LASF22
  460 00bb 01       		.byte	0x1
  461 00bc 29       		.byte	0x29
  462 00bd 6F000000 		.4byte	0x6f
@@ -616,7 +616,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  466 00c4 00       		.byte	0x0
  467 00c5 05       		.uleb128 0x5
  468 00c6 01       		.byte	0x1
- 469 00c7 82000000 		.4byte	.LASF13
+ 469 00c7 B9000000 		.4byte	.LASF13
  470 00cb 01       		.byte	0x1
  471 00cc 3C       		.byte	0x3c
  472 00cd 01       		.byte	0x1
@@ -625,7 +625,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  475 00d6 37000000 		.4byte	.LLST1
  476 00da ED000000 		.4byte	0xed
  477 00de 06       		.uleb128 0x6
- 478 00df F6000000 		.4byte	.LASF15
+ 478 00df FD000000 		.4byte	.LASF15
  479 00e3 01       		.byte	0x1
  480 00e4 3C       		.byte	0x3c
  481 00e5 6F000000 		.4byte	0x6f
@@ -635,7 +635,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  485 00ec 00       		.byte	0x0
  486 00ed 08       		.uleb128 0x8
  487 00ee 01       		.byte	0x1
- 488 00ef 43010000 		.4byte	.LASF16
+ 488 00ef 4A010000 		.4byte	.LASF16
  489 00f3 01       		.byte	0x1
  490 00f4 5A       		.byte	0x5a
  491 00f5 01       		.byte	0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  508 0000 01       		.uleb128 0x1
  509 0001 11       		.uleb128 0x11
  510 0002 01       		.byte	0x1
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 12
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 12
 
 
  511 0003 25       		.uleb128 0x25
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  565 0039 2E       		.uleb128 0x2e
  566 003a 01       		.byte	0x1
  567 003b 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 13
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 13
 
 
  568 003c 0C       		.uleb128 0xc
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  622 0072 03       		.uleb128 0x3
  623 0073 0E       		.uleb128 0xe
  624 0074 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 14
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 14
 
 
  625 0075 0B       		.uleb128 0xb
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  663 0010 00000000 		.4byte	.LFB0
  664 0014 3E000000 		.4byte	.LFE0-.LFB0
  665 0018 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 15
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 15
 
 
  666 001c 48010000 		.4byte	.LFE1-.LFB1
@@ -886,95 +886,97 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 1
  696              	.LASF9:
  697 003e 666C6F61 		.ascii	"float\000"
  697      7400
- 698              	.LASF1:
- 699 0044 756E7369 		.ascii	"unsigned char\000"
- 699      676E6564 
- 699      20636861 
- 699      7200
- 700              	.LASF22:
- 701 0052 73746174 		.ascii	"staticBits\000"
- 701      69634269 
- 701      747300
- 702              	.LASF5:
- 703 005d 6C6F6E67 		.ascii	"long unsigned int\000"
- 703      20756E73 
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 16
+ 698              	.LASF20:
+ 699 0044 433A5C55 		.ascii	"C:\\Users\\Miles\\Documents\\LEDPong\\LEDPong\\LEDP"
+ 699      73657273 
+ 699      5C4D696C 
+ 699      65735C44 
+ 699      6F63756D 
+ 700 0071 6F6E672E 		.ascii	"ong.cydsn\000"
+ 700      63796473 
+ 700      6E00
+ 701              	.LASF1:
+ 702 007b 756E7369 		.ascii	"unsigned char\000"
+ 702      676E6564 
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 16
 
 
- 703      69676E65 
- 703      6420696E 
- 703      7400
- 704              	.LASF3:
- 705 006f 73686F72 		.ascii	"short unsigned int\000"
- 705      7420756E 
- 705      7369676E 
- 705      65642069 
- 705      6E7400
- 706              	.LASF13:
- 707 0082 4C43445F 		.ascii	"LCD_LCDPort_SetDriveMode\000"
- 707      4C434450 
- 707      6F72745F 
- 707      53657444 
- 707      72697665 
- 708              	.LASF20:
- 709 009b 433A5C67 		.ascii	"C:\\githubIGNOREME\\LEDPong\\LEDPong\\LEDPong.cydsn"
- 709      69746875 
- 709      6249474E 
- 709      4F52454D 
- 709      455C4C45 
- 710 00ca 00       		.ascii	"\000"
+ 702      20636861 
+ 702      7200
+ 703              	.LASF22:
+ 704 0089 73746174 		.ascii	"staticBits\000"
+ 704      69634269 
+ 704      747300
+ 705              	.LASF5:
+ 706 0094 6C6F6E67 		.ascii	"long unsigned int\000"
+ 706      20756E73 
+ 706      69676E65 
+ 706      6420696E 
+ 706      7400
+ 707              	.LASF3:
+ 708 00a6 73686F72 		.ascii	"short unsigned int\000"
+ 708      7420756E 
+ 708      7369676E 
+ 708      65642069 
+ 708      6E7400
+ 709              	.LASF13:
+ 710 00b9 4C43445F 		.ascii	"LCD_LCDPort_SetDriveMode\000"
+ 710      4C434450 
+ 710      6F72745F 
+ 710      53657444 
+ 710      72697665 
  711              	.LASF10:
- 712 00cb 646F7562 		.ascii	"double\000"
+ 712 00d2 646F7562 		.ascii	"double\000"
  712      6C6500
  713              	.LASF8:
- 714 00d2 756E7369 		.ascii	"unsigned int\000"
+ 714 00d9 756E7369 		.ascii	"unsigned int\000"
  714      676E6564 
  714      20696E74 
  714      00
  715              	.LASF7:
- 716 00df 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 716 00e6 6C6F6E67 		.ascii	"long long unsigned int\000"
  716      206C6F6E 
  716      6720756E 
  716      7369676E 
  716      65642069 
  717              	.LASF15:
- 718 00f6 6D6F6465 		.ascii	"mode\000"
+ 718 00fd 6D6F6465 		.ascii	"mode\000"
  718      00
  719              	.LASF19:
- 720 00fb 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\LCD_LCDPort.c\000"
+ 720 0102 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\LCD_LCDPort.c\000"
  720      6E657261 
  720      7465645F 
  720      536F7572 
  720      63655C50 
  721              	.LASF18:
- 722 0122 474E5520 		.ascii	"GNU C 4.4.1\000"
+ 722 0129 474E5520 		.ascii	"GNU C 4.4.1\000"
  722      4320342E 
  722      342E3100 
  723              	.LASF11:
- 724 012e 63686172 		.ascii	"char\000"
+ 724 0135 63686172 		.ascii	"char\000"
  724      00
  725              	.LASF2:
- 726 0133 73686F72 		.ascii	"short int\000"
+ 726 013a 73686F72 		.ascii	"short int\000"
  726      7420696E 
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccS6OUQ7.s 			page 17
+
+
  726      7400
  727              	.LASF21:
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\cc4aWtQ6.s 			page 17
-
-
- 728 013d 75696E74 		.ascii	"uint8\000"
+ 728 0144 75696E74 		.ascii	"uint8\000"
  728      3800
  729              	.LASF16:
- 730 0143 4C43445F 		.ascii	"LCD_LCDPort_Read\000"
+ 730 014a 4C43445F 		.ascii	"LCD_LCDPort_Read\000"
  730      4C434450 
  730      6F72745F 
  730      52656164 
  730      00
  731              	.LASF4:
- 732 0154 6C6F6E67 		.ascii	"long int\000"
+ 732 015b 6C6F6E67 		.ascii	"long int\000"
  732      20696E74 
  732      00
  733              	.LASF0:
- 734 015d 7369676E 		.ascii	"signed char\000"
+ 734 0164 7369676E 		.ascii	"signed char\000"
  734      65642063 
  734      68617200 
  735              		.ident	"GCC: (Sourcery G++ Lite 2010q1-188) 4.4.1"

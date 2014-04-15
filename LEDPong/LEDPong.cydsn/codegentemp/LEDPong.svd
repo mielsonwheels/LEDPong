@@ -9,17 +9,53 @@
     <peripheral>
       <name>PlayerBT1</name>
       <description>UART</description>
-      <baseAddress>0x40006467</baseAddress>
+      <baseAddress>0x4000642E</baseAddress>
       <addressBlock>
         <offset>0</offset>
-        <size>0xFE</size>
+        <size>0x3E</size>
         <usage>registers</usage>
       </addressBlock>
       <registers>
         <register>
+          <name>RX_PlayerBT1_RX_ADDRESS1</name>
+          <description>RX Address1 Register</description>
+          <addressOffset>0x0</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>RX_PlayerBT1_RX_ADDRESS2</name>
+          <description>RX Address2 Register</description>
+          <addressOffset>0x10</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>TX_PlayerBT1_TX_DATA</name>
+          <description>TX Data Register</description>
+          <addressOffset>0x1E</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
+          <name>RX_PlayerBT1_RX_DATA</name>
+          <description>RX Data Register</description>
+          <addressOffset>0x20</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
           <name>RX_PlayerBT1_RX_STATUS</name>
           <description>RX status register</description>
-          <addressOffset>0x0</addressOffset>
+          <addressOffset>0x3C</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -77,45 +113,9 @@
           </fields>
         </register>
         <register>
-          <name>RX_PlayerBT1_RX_ADDRESS1</name>
-          <description>RX Address1 Register</description>
-          <addressOffset>0xBF</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>RX_PlayerBT1_RX_ADDRESS2</name>
-          <description>RX Address2 Register</description>
-          <addressOffset>0xCF</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>RX_PlayerBT1_RX_DATA</name>
-          <description>RX Data Register</description>
-          <addressOffset>0xDF</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
-          <name>TX_PlayerBT1_TX_DATA</name>
-          <description>TX Data Register</description>
-          <addressOffset>0xE0</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
           <name>TX_PlayerBT1_TX_STATUS</name>
           <description>TX status register</description>
-          <addressOffset>0xFD</addressOffset>
+          <addressOffset>0x3D</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>

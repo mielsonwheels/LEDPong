@@ -1,3 +1,3 @@
-# Component constraints for C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\TopDesign\TopDesign.cysch
-# Project: C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\LEDPong.cyprj
-# Date: Thu, 10 Apr 2014 21:46:26 GMT
+# Component constraints for C:\Users\Miles\Documents\LEDPong\LEDPong\LEDPong.cydsn\TopDesign\TopDesign.cysch
+# Project: C:\Users\Miles\Documents\LEDPong\LEDPong\LEDPong.cydsn\LEDPong.cyprj
+# Date: Sun, 13 Apr 2014 21:20:56 GMT

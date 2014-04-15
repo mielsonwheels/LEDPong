@@ -24,24 +24,30 @@ void main()
 	PlayerBT1_PutString("\r\n+INQ=1\r\n");
     CyDelay(2000);
  */
-    Player1_Rx_Start();
-    extern uint8 Player1_Rx_flag;
-    extern char Player1_Rx;
+    char8 Player1_Rx = 0;
+	uint8 pos = 0, count = 0;
     LCD_Start();
     CyGlobalIntEnable; /* Uncomment this line to enable global interrupts. */
     for(;;)
     {
-        PlayerBT1_PutString("AT\r\n");
-        if(Player1_Rx_flag)
-        {
-            Player1_Rx_flag = 0;
-            //PlayerBT1_PutString("a");
-            LCD_Position(0,0);
-            if(Player1_Rx)
+    	Player1_Rx = PlayerBT1_GetChar();
+		if(Player1_Rx > 0u)
+		{
+			 count++;        
+            /* If the count value reaches the count 16 start from first location */
+            if(count % 16 == 0u) 
+            {
+                pos = 0u; /* resets the count value */
+                /* Display will be cleared when reached count value 16 */
                 LCD_ClearDisplay();
-                LCD_PutChar(Player1_Rx);
-                //Player1_Rx = 0;
-        }
+            }
+		
+            LCD_Position(0u, pos++);
+            LCD_PutChar(Player1_Rx);         /* Print the received character */
+
+            LCD_Position(1u, 0u);
+            LCD_PrintInt8(count);    /* Prints the count in the LCD */
+		}
     }
 }
 

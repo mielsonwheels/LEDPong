@@ -1,5 +1,5 @@
 -- Project:   LEDPong
--- Generated: 04/10/2014 16:46:28
+-- Generated: 04/13/2014 16:21:06
 -- 
 
 ENTITY LEDPong IS
@@ -36,8 +36,9 @@ ARCHITECTURE __DEFAULT__ OF LEDPong IS
     SIGNAL ClockBlock_XTAL : bit;
     SIGNAL ClockBlock_XTAL_32KHZ : bit;
     SIGNAL Net_2 : bit;
-    SIGNAL Net_30 : bit;
-    SIGNAL Net_31 : bit;
+    SIGNAL Net_58 : bit;
+    ATTRIBUTE global_signal OF Net_58 : SIGNAL IS true;
+    SIGNAL Net_58_local : bit;
     SIGNAL Net_7 : bit;
     SIGNAL PlayerBTRx1(0)__PA : bit;
     SIGNAL PlayerBTTx1(0)__PA : bit;
@@ -87,9 +88,6 @@ ARCHITECTURE __DEFAULT__ OF LEDPong IS
     SIGNAL \PlayerBT1:BUART:tx_status_0\ : bit;
     SIGNAL \PlayerBT1:BUART:tx_status_2\ : bit;
     SIGNAL \PlayerBT1:BUART:txn\ : bit;
-    SIGNAL \PlayerBT1:Net_9\ : bit;
-    ATTRIBUTE global_signal OF \PlayerBT1:Net_9\ : SIGNAL IS true;
-    SIGNAL \PlayerBT1:Net_9_local\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
@@ -100,9 +98,9 @@ ARCHITECTURE __DEFAULT__ OF LEDPong IS
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     ATTRIBUTE lib_model OF Net_2 : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF PlayerBTRx1(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF PlayerBTRx1(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF PlayerBTRx1(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF PlayerBTTx1(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF PlayerBTTx1(0) : LABEL IS "P1[6]";
+    ATTRIBUTE Location OF PlayerBTTx1(0) : LABEL IS "P0[0]";
     ATTRIBUTE lib_model OF \LCD:LCDPort(0)\ : LABEL IS "iocell3";
     ATTRIBUTE Location OF \LCD:LCDPort(0)\ : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF \LCD:LCDPort(1)\ : LABEL IS "iocell4";
@@ -1086,8 +1084,8 @@ BEGIN
             imo => ClockBlock_IMO,
             dsi_clkin_div => open,
             dsi_glb_div => open,
-            dclk_glb_0 => \PlayerBT1:Net_9\,
-            dclk_0 => \PlayerBT1:Net_9_local\);
+            dclk_glb_0 => Net_58,
+            dclk_0 => Net_58_local);
 
     Net_2:macrocell
         GENERIC MAP(
@@ -1095,20 +1093,6 @@ BEGIN
         PORT MAP(
             q => Net_2,
             main_0 => \PlayerBT1:BUART:txn\);
-
-    Player1_Rx:interrupt
-        GENERIC MAP(
-            int_type => "10")
-        PORT MAP(
-            interrupt => Net_31,
-            clock => ClockBlock_BUS_CLK);
-
-    Player1_Tx:interrupt
-        GENERIC MAP(
-            int_type => "10")
-        PORT MAP(
-            interrupt => Net_30,
-            clock => ClockBlock_BUS_CLK);
 
     PlayerBTRx1:logicalport
         GENERIC MAP(
@@ -1199,10 +1183,10 @@ BEGIN
 
     PlayerBTTx1:logicalport
         GENERIC MAP(
-            drive_mode => "110",
+            drive_mode => "001",
             ibuf_enabled => "1",
             id => "ed092b9b-d398-4703-be89-cebf998501f6",
-            init_dr_st => "1",
+            init_dr_st => "0",
             input_clk_en => 0,
             input_sync => "1",
             input_sync_mode => "0",
@@ -1499,7 +1483,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:pollcount_0\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_count_2\,
             main_1 => \PlayerBT1:BUART:rx_count_1\,
             main_2 => Net_7,
@@ -1511,7 +1495,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:pollcount_1\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_count_2\,
             main_1 => \PlayerBT1:BUART:rx_count_1\,
             main_2 => \PlayerBT1:BUART:pollcount_1\,
@@ -1524,7 +1508,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_address_detected\,
-            clock_0 => \PlayerBT1:Net_9\);
+            clock_0 => Net_58);
 
     \PlayerBT1:BUART:rx_bitclk_enable\:macrocell
         GENERIC MAP(
@@ -1532,7 +1516,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_bitclk_enable\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_count_2\,
             main_1 => \PlayerBT1:BUART:rx_count_1\,
             main_2 => \PlayerBT1:BUART:rx_count_0\);
@@ -1553,7 +1537,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_last\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => Net_7);
 
     \PlayerBT1:BUART:rx_load_fifo\:macrocell
@@ -1562,7 +1546,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_load_fifo\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_address_detected\,
             main_1 => \PlayerBT1:BUART:rx_state_0\,
             main_2 => \PlayerBT1:BUART:rx_bitclk_enable\,
@@ -1587,7 +1571,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_state_0\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_address_detected\,
             main_1 => \PlayerBT1:BUART:rx_state_0\,
             main_2 => \PlayerBT1:BUART:rx_bitclk_enable\,
@@ -1606,7 +1590,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_state_2\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_address_detected\,
             main_1 => \PlayerBT1:BUART:rx_state_0\,
             main_2 => \PlayerBT1:BUART:rx_bitclk_enable\,
@@ -1624,7 +1608,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_state_3\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_address_detected\,
             main_1 => \PlayerBT1:BUART:rx_state_0\,
             main_2 => \PlayerBT1:BUART:rx_bitclk_enable\,
@@ -1640,7 +1624,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_state_stop1_reg\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_address_detected\,
             main_1 => \PlayerBT1:BUART:rx_state_0\,
             main_2 => \PlayerBT1:BUART:rx_state_3\,
@@ -1652,7 +1636,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:rx_status_3\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:rx_address_detected\,
             main_1 => \PlayerBT1:BUART:rx_state_0\,
             main_2 => \PlayerBT1:BUART:rx_bitclk_enable\,
@@ -1687,7 +1671,7 @@ BEGIN
             cy_route_ld => 1,
             clk_inv => '0')
         PORT MAP(
-            clock => \PlayerBT1:Net_9\,
+            clock => Net_58,
             reset => open,
             load => \PlayerBT1:BUART:rx_counter_load\,
             enable => open,
@@ -1727,7 +1711,7 @@ BEGIN
             uses_p_out => '0',
             clk_inv => '0')
         PORT MAP(
-            clock => \PlayerBT1:Net_9\,
+            clock => Net_58,
             cs_addr_2 => \PlayerBT1:BUART:rx_address_detected\,
             cs_addr_1 => \PlayerBT1:BUART:rx_state_0\,
             cs_addr_0 => \PlayerBT1:BUART:rx_bitclk_enable\,
@@ -1744,15 +1728,14 @@ BEGIN
             cy_md_select => "1011111",
             clk_inv => '0')
         PORT MAP(
-            clock => \PlayerBT1:Net_9\,
+            clock => Net_58,
             status_6 => open,
             status_5 => \PlayerBT1:BUART:rx_status_5\,
             status_4 => \PlayerBT1:BUART:rx_status_4\,
             status_3 => \PlayerBT1:BUART:rx_status_3\,
             status_2 => open,
             status_1 => open,
-            status_0 => open,
-            interrupt => Net_31);
+            status_0 => open);
 
     \PlayerBT1:BUART:sTX:TxShifter:u0\:datapathcell
         GENERIC MAP(
@@ -1781,7 +1764,7 @@ BEGIN
             uses_p_out => '0',
             clk_inv => '0')
         PORT MAP(
-            clock => \PlayerBT1:Net_9\,
+            clock => Net_58,
             cs_addr_2 => \PlayerBT1:BUART:tx_state_1\,
             cs_addr_1 => \PlayerBT1:BUART:tx_state_0\,
             cs_addr_0 => \PlayerBT1:BUART:tx_bitclk_enable_pre\,
@@ -1797,15 +1780,14 @@ BEGIN
             cy_md_select => "0000001",
             clk_inv => '0')
         PORT MAP(
-            clock => \PlayerBT1:Net_9\,
+            clock => Net_58,
             status_6 => open,
             status_5 => open,
             status_4 => open,
             status_3 => \PlayerBT1:BUART:tx_fifo_notfull\,
             status_2 => \PlayerBT1:BUART:tx_status_2\,
             status_1 => \PlayerBT1:BUART:tx_fifo_empty\,
-            status_0 => \PlayerBT1:BUART:tx_status_0\,
-            interrupt => Net_30);
+            status_0 => \PlayerBT1:BUART:tx_status_0\);
 
     \PlayerBT1:BUART:sTX:sCLOCK:TxBitClkGen\:datapathcell
         GENERIC MAP(
@@ -1834,7 +1816,7 @@ BEGIN
             uses_p_out => '0',
             clk_inv => '0')
         PORT MAP(
-            clock => \PlayerBT1:Net_9\,
+            clock => Net_58,
             cs_addr_0 => \PlayerBT1:BUART:counter_load_not\,
             cl0_comb => \PlayerBT1:BUART:tx_bitclk_dp\,
             cl1_comb => \PlayerBT1:BUART:tx_counter_dp\,
@@ -1846,7 +1828,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:tx_bitclk\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:tx_bitclk_dp\);
 
     \PlayerBT1:BUART:tx_bitclk_enable_pre\:macrocell
@@ -1862,7 +1844,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:tx_state_0\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:tx_state_1\,
             main_1 => \PlayerBT1:BUART:tx_state_0\,
             main_2 => \PlayerBT1:BUART:tx_fifo_empty\,
@@ -1875,7 +1857,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:tx_state_1\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:tx_state_1\,
             main_1 => \PlayerBT1:BUART:tx_state_0\,
             main_2 => \PlayerBT1:BUART:tx_state_2\,
@@ -1888,7 +1870,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:tx_state_2\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:tx_state_1\,
             main_1 => \PlayerBT1:BUART:tx_state_0\,
             main_2 => \PlayerBT1:BUART:tx_state_2\,
@@ -1919,7 +1901,7 @@ BEGIN
             clk_inv => '0')
         PORT MAP(
             q => \PlayerBT1:BUART:txn\,
-            clock_0 => \PlayerBT1:Net_9\,
+            clock_0 => Net_58,
             main_0 => \PlayerBT1:BUART:txn\,
             main_1 => \PlayerBT1:BUART:tx_state_1\,
             main_2 => \PlayerBT1:BUART:tx_state_0\,

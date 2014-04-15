@@ -15,5 +15,5 @@ move "%~1\%~2\%~n3.hex" "%~1\%~2\%~n3.ihx"
 @IF %errorlevel% NEQ 0 EXIT /b %errorlevel% 
 CD /D "C:\Keil\UV4"
 @IF %errorlevel% NEQ 0 EXIT /b %errorlevel% 
-IF NOT EXIST "C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\LEDPong.svd" rem "C:\githubIGNOREME\LEDPong\LEDPong\LEDPong.cydsn\LEDPong.sfr"
+IF NOT EXIST "C:\Users\Miles\Documents\LEDPong\LEDPong\LEDPong.cydsn\LEDPong.svd" rem "C:\Users\Miles\Documents\LEDPong\LEDPong\LEDPong.cydsn\LEDPong.sfr"
 @IF %errorlevel% NEQ 0 EXIT /b %errorlevel% 

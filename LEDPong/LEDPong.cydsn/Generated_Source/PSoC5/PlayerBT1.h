@@ -33,7 +33,7 @@
 #define PlayerBT1_HD_ENABLED                     (0u)
 #define PlayerBT1_RX_INTERRUPT_ENABLED           (0u)
 #define PlayerBT1_TX_INTERRUPT_ENABLED           (0u)
-#define PlayerBT1_INTERNAL_CLOCK_USED            (1u)
+#define PlayerBT1_INTERNAL_CLOCK_USED            (0u)
 #define PlayerBT1_RXHW_ADDRESS_ENABLED           (0u)
 #define PlayerBT1_OVER_SAMPLE_COUNT              (8u)
 #define PlayerBT1_PARITY_TYPE                    (0u)
@@ -381,7 +381,7 @@ extern uint8 PlayerBT1_initVar;
 #endif /* End EnableHWAddress */
 
 #define PlayerBT1_INIT_RX_INTERRUPTS_MASK \
-                                  (uint8)((1 << PlayerBT1_RX_STS_FIFO_NOTEMPTY_SHIFT) \
+                                  (uint8)((0 << PlayerBT1_RX_STS_FIFO_NOTEMPTY_SHIFT) \
                                         | (0 << PlayerBT1_RX_STS_MRKSPC_SHIFT) \
                                         | (0 << PlayerBT1_RX_STS_ADDR_MATCH_SHIFT) \
                                         | (0 << PlayerBT1_RX_STS_PAR_ERROR_SHIFT) \

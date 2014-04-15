@@ -13,7 +13,7 @@
           <Cpu>"IRAM(0x1FFF8000-0x20007FFF)IROM(0x0-0x3FFFF)CLOCK(67000000)CPUTYPE( "Cortex-M3") ESEL ELITTLE"</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll></FlashDriverDll>
+          <FlashDriverDll>"C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\export\ide\uVision\4.x\driver\cyuvdriver_arm.dll"("Cypress MiniProg3/FX2LP v2.2")</FlashDriverDll>
           <DeviceId></DeviceId>
           <RegisterFile></RegisterFile>
           <MemoryEnv></MemoryEnv>
@@ -146,7 +146,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver></Driver>
+            <Driver>"C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\export\ide\uVision\4.x\driver\cyuvdriver_arm.dll"("Cypress MiniProg3/FX2LP v2.2")</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -155,10 +155,10 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
+            <Capability>1</Capability>
             <DriverSelection>8191</DriverSelection>
           </Flash1>
-          <Flash2></Flash2>
+          <Flash2>"C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\export\ide\uVision\4.x\driver\cyuvdriver_arm.dll"("Cypress MiniProg3/FX2LP v2.2")</Flash2>
           <Flash3></Flash3>
           <Flash4></Flash4>
         </Utilities>
@@ -252,14 +252,14 @@
             <interw>0</interw>
             <bigend>0</bigend>
             <Strict>0</Strict>
-            <Optim>0</Optim>
+            <Optim>1</Optim>
             <wLevel>2</wLevel>
             <uThumb>1</uThumb>
             <VariousControls>
-              <MiscControls>-Wno-main</MiscControls>
-              <Define></Define>
+              <MiscControls>-Wa,-alh=.\ARM-GNU\Debug\*.lst -ffunction-sections </MiscControls>
+              <Define>DEBUG</Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.;.\Generated_Source\PSoC5</IncludePath>
             </VariousControls>
           </Carm>
           <Aarm>
@@ -269,22 +269,22 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.;.\Generated_Source\PSoC5</IncludePath>
             </VariousControls>
           </Aarm>
           <LDarm>
             <umfTarg>1</umfTarg>
             <enaGarb>0</enaGarb>
             <noStart>0</noStart>
-            <noStLib>1</noStLib>
+            <noStLib>0</noStLib>
             <uMathLib>0</uMathLib>
             <TextAddressRange></TextAddressRange>
             <DataAddressRange></DataAddressRange>
             <BSSAddressRange></BSSAddressRange>
             <IncludeLibs></IncludeLibs>
             <IncludeDir></IncludeDir>
-            <Misc>-march=armv7-m -mfix-cortex-m3-ldrd</Misc>
-            <ScatterFile></ScatterFile>
+            <Misc>-Wl,--gc-sections </Misc>
+            <ScatterFile>.\Generated_Source\PSoC5\cm3gcc.ld</ScatterFile>
           </LDarm>
         </TargetArm>
       </TargetOption>
@@ -371,26 +371,6 @@
               <FileName>PlayerBT1_BOOT.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC5\PlayerBT1_BOOT.c</FilePath>
-            </File>
-            <File>
-              <FileName>Player1_Tx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Player1_Tx.c</FilePath>
-            </File>
-            <File>
-              <FileName>Player1_Tx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Player1_Tx.h</FilePath>
-            </File>
-            <File>
-              <FileName>Player1_Rx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Player1_Rx.c</FilePath>
-            </File>
-            <File>
-              <FileName>Player1_Rx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Player1_Rx.h</FilePath>
             </File>
             <File>
               <FileName>cm3gcc.ld</FileName>
@@ -523,14 +503,14 @@
               <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort.h</FilePath>
             </File>
             <File>
-              <FileName>PlayerBT1_IntClock.c</FileName>
+              <FileName>Clock_1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_IntClock.c</FilePath>
+              <FilePath>.\Generated_Source\PSoC5\Clock_1.c</FilePath>
             </File>
             <File>
-              <FileName>PlayerBT1_IntClock.h</FileName>
+              <FileName>Clock_1.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_IntClock.h</FilePath>
+              <FilePath>.\Generated_Source\PSoC5\Clock_1.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -547,7 +527,7 @@
           <Cpu>"IRAM(0x1FFF8000-0x20007FFF)IROM(0x0-0x3FFFF)CLOCK(67000000)CPUTYPE( "Cortex-M3") ESEL ELITTLE"</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll></FlashDriverDll>
+          <FlashDriverDll>"C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\export\ide\uVision\4.x\driver\cyuvdriver_arm.dll"("Cypress MiniProg3/FX2LP v2.2")</FlashDriverDll>
           <DeviceId></DeviceId>
           <RegisterFile></RegisterFile>
           <MemoryEnv></MemoryEnv>
@@ -680,7 +660,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver></Driver>
+            <Driver>"C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\export\ide\uVision\4.x\driver\cyuvdriver_arm.dll"("Cypress MiniProg3/FX2LP v2.2")</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -689,10 +669,10 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
+            <Capability>1</Capability>
             <DriverSelection>8191</DriverSelection>
           </Flash1>
-          <Flash2></Flash2>
+          <Flash2>"C:\Program Files (x86)\Cypress\PSoC Creator\2.2\PSoC Creator\export\ide\uVision\4.x\driver\cyuvdriver_arm.dll"("Cypress MiniProg3/FX2LP v2.2")</Flash2>
           <Flash3></Flash3>
           <Flash4></Flash4>
         </Utilities>
@@ -786,14 +766,14 @@
             <interw>0</interw>
             <bigend>0</bigend>
             <Strict>0</Strict>
-            <Optim>0</Optim>
+            <Optim>4</Optim>
             <wLevel>2</wLevel>
             <uThumb>1</uThumb>
             <VariousControls>
-              <MiscControls>-Wno-main</MiscControls>
-              <Define></Define>
+              <MiscControls>-Wa,-alh=.\ARM-GNU\Release\*.lst -ffunction-sections </MiscControls>
+              <Define>NDEBUG</Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.;.\Generated_Source\PSoC5</IncludePath>
             </VariousControls>
           </Carm>
           <Aarm>
@@ -803,22 +783,22 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>.;.\Generated_Source\PSoC5</IncludePath>
             </VariousControls>
           </Aarm>
           <LDarm>
             <umfTarg>1</umfTarg>
             <enaGarb>0</enaGarb>
             <noStart>0</noStart>
-            <noStLib>1</noStLib>
+            <noStLib>0</noStLib>
             <uMathLib>0</uMathLib>
             <TextAddressRange></TextAddressRange>
             <DataAddressRange></DataAddressRange>
             <BSSAddressRange></BSSAddressRange>
             <IncludeLibs></IncludeLibs>
             <IncludeDir></IncludeDir>
-            <Misc>-march=armv7-m -mfix-cortex-m3-ldrd</Misc>
-            <ScatterFile></ScatterFile>
+            <Misc>-Wl,--gc-sections </Misc>
+            <ScatterFile>.\Generated_Source\PSoC5\cm3gcc.ld</ScatterFile>
           </LDarm>
         </TargetArm>
       </TargetOption>
@@ -905,26 +885,6 @@
               <FileName>PlayerBT1_BOOT.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Generated_Source\PSoC5\PlayerBT1_BOOT.c</FilePath>
-            </File>
-            <File>
-              <FileName>Player1_Tx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Player1_Tx.c</FilePath>
-            </File>
-            <File>
-              <FileName>Player1_Tx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Player1_Tx.h</FilePath>
-            </File>
-            <File>
-              <FileName>Player1_Rx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Player1_Rx.c</FilePath>
-            </File>
-            <File>
-              <FileName>Player1_Rx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC5\Player1_Rx.h</FilePath>
             </File>
             <File>
               <FileName>cm3gcc.ld</FileName>
@@ -1057,14 +1017,14 @@
               <FilePath>.\Generated_Source\PSoC5\LCD_LCDPort.h</FilePath>
             </File>
             <File>
-              <FileName>PlayerBT1_IntClock.c</FileName>
+              <FileName>Clock_1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_IntClock.c</FilePath>
+              <FilePath>.\Generated_Source\PSoC5\Clock_1.c</FilePath>
             </File>
             <File>
-              <FileName>PlayerBT1_IntClock.h</FileName>
+              <FileName>Clock_1.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Generated_Source\PSoC5\PlayerBT1_IntClock.h</FilePath>
+              <FilePath>.\Generated_Source\PSoC5\Clock_1.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
   16:.\Generated_Source\PSoC5/LCD_PM.c **** 
   17:.\Generated_Source\PSoC5/LCD_PM.c **** #include "LCD.h"
   18:.\Generated_Source\PSoC5/LCD_PM.c **** 
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 2
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 2
 
 
   19:.\Generated_Source\PSoC5/LCD_PM.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
   46:.\Generated_Source\PSoC5/LCD_PM.c **** * Summary:
   47:.\Generated_Source\PSoC5/LCD_PM.c **** *  Does nothing, provided for consistency.
   48:.\Generated_Source\PSoC5/LCD_PM.c **** *
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 3
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 3
 
 
   49:.\Generated_Source\PSoC5/LCD_PM.c **** * Parameters:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
   76:.\Generated_Source\PSoC5/LCD_PM.c **** *
   77:.\Generated_Source\PSoC5/LCD_PM.c **** *******************************************************************************/
   78:.\Generated_Source\PSoC5/LCD_PM.c **** void LCD_Sleep(void) 
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 4
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 4
 
 
   79:.\Generated_Source\PSoC5/LCD_PM.c **** {
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
   97:.\Generated_Source\PSoC5/LCD_PM.c **** * Return:
   98:.\Generated_Source\PSoC5/LCD_PM.c **** *  Status one of standard status for PSoC3 Component
   99:.\Generated_Source\PSoC5/LCD_PM.c **** *       CYRET_SUCCESS - Function completed successfully.
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 5
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 5
 
 
  100:.\Generated_Source\PSoC5/LCD_PM.c **** *       CYRET_LOCKED - The object was locked, already in use. Some of TDs or
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  164 000f 04000000 		.4byte	.LCFI1
  165 0013 0200     		.2byte	0x2
  166 0015 7D       		.byte	0x7d
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 6
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 6
 
 
  167 0016 04       		.sleb128 4
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  221 00a0 0200     		.2byte	0x2
  222 00a2 77       		.byte	0x77
  223 00a3 08       		.sleb128 8
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 7
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 7
 
 
  224 00a4 00000000 		.4byte	0x0
@@ -371,10 +371,10 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  231 0006 00000000 		.4byte	.Ldebug_abbrev0
  232 000a 04       		.byte	0x4
  233 000b 01       		.uleb128 0x1
- 234 000c FF000000 		.4byte	.LASF18
+ 234 000c 06010000 		.4byte	.LASF18
  235 0010 01       		.byte	0x1
- 236 0011 70000000 		.4byte	.LASF19
- 237 0015 92000000 		.4byte	.LASF20
+ 236 0011 A7000000 		.4byte	.LASF19
+ 237 0015 41000000 		.4byte	.LASF20
  238 0019 00000000 		.4byte	0x0
  239 001d 00000000 		.4byte	0x0
  240 0021 00000000 		.4byte	.Ldebug_ranges0+0x0
@@ -382,15 +382,15 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  242 0029 02       		.uleb128 0x2
  243 002a 01       		.byte	0x1
  244 002b 06       		.byte	0x6
- 245 002c 52010000 		.4byte	.LASF0
+ 245 002c 59010000 		.4byte	.LASF0
  246 0030 02       		.uleb128 0x2
  247 0031 01       		.byte	0x1
  248 0032 08       		.byte	0x8
- 249 0033 41000000 		.4byte	.LASF1
+ 249 0033 78000000 		.4byte	.LASF1
  250 0037 02       		.uleb128 0x2
  251 0038 02       		.byte	0x2
  252 0039 05       		.byte	0x5
- 253 003a 22010000 		.4byte	.LASF2
+ 253 003a 29010000 		.4byte	.LASF2
  254 003e 02       		.uleb128 0x2
  255 003f 02       		.byte	0x2
  256 0040 07       		.byte	0x7
@@ -398,11 +398,11 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  258 0045 02       		.uleb128 0x2
  259 0046 04       		.byte	0x4
  260 0047 05       		.byte	0x5
- 261 0048 3D010000 		.4byte	.LASF4
+ 261 0048 44010000 		.4byte	.LASF4
  262 004c 02       		.uleb128 0x2
  263 004d 04       		.byte	0x4
  264 004e 07       		.byte	0x7
- 265 004f 5E000000 		.4byte	.LASF5
+ 265 004f 95000000 		.4byte	.LASF5
  266 0053 02       		.uleb128 0x2
  267 0054 08       		.byte	0x8
  268 0055 05       		.byte	0x5
@@ -410,7 +410,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  270 005a 02       		.uleb128 0x2
  271 005b 08       		.byte	0x8
  272 005c 07       		.byte	0x7
- 273 005d E8000000 		.4byte	.LASF7
+ 273 005d EF000000 		.4byte	.LASF7
  274 0061 03       		.uleb128 0x3
  275 0062 04       		.byte	0x4
  276 0063 05       		.byte	0x5
@@ -418,12 +418,12 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  278 0068 02       		.uleb128 0x2
  279 0069 04       		.byte	0x4
  280 006a 07       		.byte	0x7
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 8
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 8
 
 
- 281 006b DB000000 		.4byte	.LASF8
+ 281 006b E2000000 		.4byte	.LASF8
  282 006f 04       		.uleb128 0x4
- 283 0070 2C010000 		.4byte	.LASF12
+ 283 0070 33010000 		.4byte	.LASF12
  284 0074 02       		.byte	0x2
  285 0075 4C       		.byte	0x4c
  286 0076 30000000 		.4byte	0x30
@@ -434,18 +434,18 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  291 0081 02       		.uleb128 0x2
  292 0082 08       		.byte	0x8
  293 0083 04       		.byte	0x4
- 294 0084 C2000000 		.4byte	.LASF10
+ 294 0084 C9000000 		.4byte	.LASF10
  295 0088 02       		.uleb128 0x2
  296 0089 01       		.byte	0x1
  297 008a 08       		.byte	0x8
- 298 008b 0B010000 		.4byte	.LASF11
+ 298 008b 12010000 		.4byte	.LASF11
  299 008f 05       		.uleb128 0x5
  300 0090 01       		.byte	0x1
  301 0091 03       		.byte	0x3
  302 0092 2D       		.byte	0x2d
  303 0093 A6000000 		.4byte	0xa6
  304 0097 06       		.uleb128 0x6
- 305 0098 46010000 		.4byte	.LASF21
+ 305 0098 4D010000 		.4byte	.LASF21
  306 009c 03       		.byte	0x3
  307 009d 2E       		.byte	0x2e
  308 009e 6F000000 		.4byte	0x6f
@@ -454,13 +454,13 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  311 00a4 00       		.uleb128 0x0
  312 00a5 00       		.byte	0x0
  313 00a6 04       		.uleb128 0x4
- 314 00a7 10010000 		.4byte	.LASF13
+ 314 00a7 17010000 		.4byte	.LASF13
  315 00ab 03       		.byte	0x3
  316 00ac 2F       		.byte	0x2f
  317 00ad 8F000000 		.4byte	0x8f
  318 00b1 07       		.uleb128 0x7
  319 00b2 01       		.byte	0x1
- 320 00b3 4F000000 		.4byte	.LASF14
+ 320 00b3 86000000 		.4byte	.LASF14
  321 00b7 01       		.byte	0x1
  322 00b8 25       		.byte	0x25
  323 00b9 01       		.byte	0x1
@@ -469,7 +469,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  326 00c2 00000000 		.4byte	.LLST0
  327 00c6 07       		.uleb128 0x7
  328 00c7 01       		.byte	0x1
- 329 00c8 C9000000 		.4byte	.LASF15
+ 329 00c8 D0000000 		.4byte	.LASF15
  330 00cc 01       		.byte	0x1
  331 00cd 38       		.byte	0x38
  332 00ce 01       		.byte	0x1
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  335 00d7 2B000000 		.4byte	.LLST1
  336 00db 07       		.uleb128 0x7
  337 00dc 01       		.byte	0x1
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 9
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 9
 
 
  338 00dd 1E000000 		.4byte	.LASF16
@@ -490,7 +490,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  344 00ec 56000000 		.4byte	.LLST2
  345 00f0 07       		.uleb128 0x7
  346 00f1 01       		.byte	0x1
- 347 00f2 5E010000 		.4byte	.LASF17
+ 347 00f2 65010000 		.4byte	.LASF17
  348 00f6 01       		.byte	0x1
  349 00f7 6B       		.byte	0x6b
  350 00f8 01       		.byte	0x1
@@ -498,7 +498,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  352 00fd 1C000000 		.4byte	.LFE3
  353 0101 81000000 		.4byte	.LLST3
  354 0105 08       		.uleb128 0x8
- 355 0106 32010000 		.4byte	.LASF22
+ 355 0106 39010000 		.4byte	.LASF22
  356 010a 01       		.byte	0x1
  357 010b 14       		.byte	0x14
  358 010c A6000000 		.4byte	0xa6
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  392 0015 02       		.uleb128 0x2
  393 0016 24       		.uleb128 0x24
  394 0017 00       		.byte	0x0
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 10
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 10
 
 
  395 0018 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  449 004e 49       		.uleb128 0x49
  450 004f 13       		.uleb128 0x13
  451 0050 38       		.uleb128 0x38
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 11
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 11
 
 
  452 0051 0A       		.uleb128 0xa
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  506 0087 00       		.byte	0x0
  507 0088 00       		.byte	0x0
  508 0089 00       		.byte	0x0
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 12
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 12
 
 
  509              		.section	.debug_pubnames,"",%progbits
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  552 0024 1C000000 		.4byte	.LFE3
  553 0028 00000000 		.4byte	0x0
  554 002c 00000000 		.4byte	0x0
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 13
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 13
 
 
  555              		.section	.debug_str,"MS",%progbits,1
@@ -745,99 +745,101 @@ ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 1
  564              	.LASF9:
  565 003b 666C6F61 		.ascii	"float\000"
  565      7400
- 566              	.LASF1:
- 567 0041 756E7369 		.ascii	"unsigned char\000"
- 567      676E6564 
- 567      20636861 
- 567      7200
- 568              	.LASF14:
- 569 004f 4C43445F 		.ascii	"LCD_SaveConfig\000"
- 569      53617665 
- 569      436F6E66 
- 569      696700
- 570              	.LASF5:
- 571 005e 6C6F6E67 		.ascii	"long unsigned int\000"
- 571      20756E73 
- 571      69676E65 
- 571      6420696E 
- 571      7400
- 572              	.LASF19:
- 573 0070 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\LCD_PM.c\000"
- 573      6E657261 
- 573      7465645F 
- 573      536F7572 
- 573      63655C50 
- 574              	.LASF20:
- 575 0092 433A5C67 		.ascii	"C:\\githubIGNOREME\\LEDPong\\LEDPong\\LEDPong.cydsn"
- 575      69746875 
- 575      6249474E 
- 575      4F52454D 
- 575      455C4C45 
- 576 00c1 00       		.ascii	"\000"
+ 566              	.LASF20:
+ 567 0041 433A5C55 		.ascii	"C:\\Users\\Miles\\Documents\\LEDPong\\LEDPong\\LEDP"
+ 567      73657273 
+ 567      5C4D696C 
+ 567      65735C44 
+ 567      6F63756D 
+ 568 006e 6F6E672E 		.ascii	"ong.cydsn\000"
+ 568      63796473 
+ 568      6E00
+ 569              	.LASF1:
+ 570 0078 756E7369 		.ascii	"unsigned char\000"
+ 570      676E6564 
+ 570      20636861 
+ 570      7200
+ 571              	.LASF14:
+ 572 0086 4C43445F 		.ascii	"LCD_SaveConfig\000"
+ 572      53617665 
+ 572      436F6E66 
+ 572      696700
+ 573              	.LASF5:
+ 574 0095 6C6F6E67 		.ascii	"long unsigned int\000"
+ 574      20756E73 
+ 574      69676E65 
+ 574      6420696E 
+ 574      7400
+ 575              	.LASF19:
+ 576 00a7 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\LCD_PM.c\000"
+ 576      6E657261 
+ 576      7465645F 
+ 576      536F7572 
+ 576      63655C50 
  577              	.LASF10:
- 578 00c2 646F7562 		.ascii	"double\000"
+ 578 00c9 646F7562 		.ascii	"double\000"
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 14
+
+
  578      6C6500
  579              	.LASF15:
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 14
-
-
- 580 00c9 4C43445F 		.ascii	"LCD_RestoreConfig\000"
+ 580 00d0 4C43445F 		.ascii	"LCD_RestoreConfig\000"
  580      52657374 
  580      6F726543 
  580      6F6E6669 
  580      6700
  581              	.LASF8:
- 582 00db 756E7369 		.ascii	"unsigned int\000"
+ 582 00e2 756E7369 		.ascii	"unsigned int\000"
  582      676E6564 
  582      20696E74 
  582      00
  583              	.LASF7:
- 584 00e8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 584 00ef 6C6F6E67 		.ascii	"long long unsigned int\000"
  584      206C6F6E 
  584      6720756E 
  584      7369676E 
  584      65642069 
  585              	.LASF18:
- 586 00ff 474E5520 		.ascii	"GNU C 4.4.1\000"
+ 586 0106 474E5520 		.ascii	"GNU C 4.4.1\000"
  586      4320342E 
  586      342E3100 
  587              	.LASF11:
- 588 010b 63686172 		.ascii	"char\000"
+ 588 0112 63686172 		.ascii	"char\000"
  588      00
  589              	.LASF13:
- 590 0110 4C43445F 		.ascii	"LCD_BACKUP_STRUCT\000"
+ 590 0117 4C43445F 		.ascii	"LCD_BACKUP_STRUCT\000"
  590      4241434B 
  590      55505F53 
  590      54525543 
  590      5400
  591              	.LASF2:
- 592 0122 73686F72 		.ascii	"short int\000"
+ 592 0129 73686F72 		.ascii	"short int\000"
  592      7420696E 
  592      7400
  593              	.LASF12:
- 594 012c 75696E74 		.ascii	"uint8\000"
+ 594 0133 75696E74 		.ascii	"uint8\000"
  594      3800
  595              	.LASF22:
- 596 0132 4C43445F 		.ascii	"LCD_backup\000"
+ 596 0139 4C43445F 		.ascii	"LCD_backup\000"
  596      6261636B 
  596      757000
  597              	.LASF4:
- 598 013d 6C6F6E67 		.ascii	"long int\000"
+ 598 0144 6C6F6E67 		.ascii	"long int\000"
  598      20696E74 
  598      00
  599              	.LASF21:
- 600 0146 656E6162 		.ascii	"enableState\000"
+ 600 014d 656E6162 		.ascii	"enableState\000"
  600      6C655374 
  600      61746500 
  601              	.LASF0:
- 602 0152 7369676E 		.ascii	"signed char\000"
+ 602 0159 7369676E 		.ascii	"signed char\000"
  602      65642063 
  602      68617200 
  603              	.LASF17:
- 604 015e 4C43445F 		.ascii	"LCD_Wakeup\000"
+ 604 0165 4C43445F 		.ascii	"LCD_Wakeup\000"
  604      57616B65 
+ARM GAS  C:\Users\Miles\AppData\Local\Temp\ccshCgkJ.s 			page 15
+
+
  604      757000
  605              		.ident	"GCC: (Sourcery G++ Lite 2010q1-188) 4.4.1"
-ARM GAS  C:\Users\milesh\AppData\Local\Temp\ccYpQ4F4.s 			page 15
-
-
