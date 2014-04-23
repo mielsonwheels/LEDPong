@@ -36,6 +36,10 @@ int parseCommand(int val, int& player)
   return val/10;
 }
 
+int getPosition(int val, int& x, int& y)
+{
+  if(val => 9999 && val <= 99999
+}
 void loop()
 {
   lcd.setCursor(0,0);
