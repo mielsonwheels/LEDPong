@@ -11,13 +11,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.*;
 
-public class Controller extends Activity {
+public class PongServer extends Activity {
 
     private static final int REQUEST_ENABLE_BT = 1;
     private Button onBtn;
@@ -28,12 +25,12 @@ public class Controller extends Activity {
     private BluetoothAdapter myBluetoothAdapter;
     private Set<BluetoothDevice> pairedDevices;
     private ListView myListView;
-    private ArrayAdapter<String> BTArrayAdapter;
+    private ArrayAdapter<BluetoothDevice> BTArrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.bt_test);
 
         // take an instance of BluetoothAdapter - Bluetooth radio
         myBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -87,12 +84,17 @@ public class Controller extends Activity {
                     find(v);
                 }
             });
-
             myListView = (ListView)findViewById(R.id.listView1);
 
             // create the arrayAdapter that contains the BTDevices, and set it to the ListView
-            BTArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+            BTArrayAdapter = new ArrayAdapter<BluetoothDevice>(this, android.R.layout.simple_list_item_1);
             myListView.setAdapter(BTArrayAdapter);
+            myListView.setOnItemClickListener(new OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                }
+            });
         }
     }
 
@@ -128,7 +130,7 @@ public class Controller extends Activity {
 
         // put it's one to the adapter
         for(BluetoothDevice device : pairedDevices)
-            BTArrayAdapter.add(device.getName()+ "\n" + device.getAddress());
+            BTArrayAdapter.add(device);
 
         Toast.makeText(getApplicationContext(),"Show Paired Devices",
                 Toast.LENGTH_SHORT).show();
@@ -143,7 +145,7 @@ public class Controller extends Activity {
                 // Get the BluetoothDevice object from the Intent
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 // add the name and the MAC address of the object to the arrayAdapter
-                BTArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+                BTArrayAdapter.add(device);
                 BTArrayAdapter.notifyDataSetChanged();
             }
         }
@@ -176,5 +178,4 @@ public class Controller extends Activity {
         super.onDestroy();
         unregisterReceiver(bReceiver);
     }
-
 }

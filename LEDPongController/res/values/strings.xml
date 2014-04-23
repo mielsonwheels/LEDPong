@@ -8,6 +8,8 @@
         <string name="off">Turn Off</string>
         <string name="List">List paired Devices</string>
         <string name="Find">Search new Devices / Cancel</string>
-
+        <string name="Menu1">Pong Server</string>
+        <string name="Menu2">Pong Client</string>
+        <string name="Menu3">Animate</string>
 </resources>
 
