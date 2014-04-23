@@ -1,6 +1,8 @@
 #include <LiquidCrystal.h>
+#include <LedControl.h>
 
 LiquidCrystal lcd(8,9,4,5,6,7);
+LedControl lc = LedControl(12,11,10,1);
 
 int MODE = -1;
 int X = -1, Y = -1;
@@ -47,14 +49,90 @@ void setXYValues(String val)
   delete y;
 }
 
-void setPlayer(String val)
+int getPlayer(String val)
 {
+   return atoi(val.c_str())%10;
+}
+
+void multiPlayerLoop()
+{
+  int player = -1;
+  while(MODE == MULTIPLAYER_MODE)
+  {
+    player = getPlayer(getStringFromSerial());
+    switch(player)
+    {
+      case 1: //move left paddle
+        break;
+      case 2: //move right paddle 
+        break;
+      case 3: //move top paddle
+        break;
+      case 4: //move bottom paddle
+        break;
+      default:
+        break; 
+    }
+  }
+}
+
+void setLed(int x,int y, boolean on)
+{
+  int address = -1;
+  if(y > 0 && y < 8) //first row
+  {
+    if(x > 0 && x < 8) // first column
+    {
+      address = 0;
+    }
+    if(x > 7 && x < 16) //second column
+    {
+      address = 1;
+    }
+    if(x > 15 && x < 24) //third column
+    {
+      address = 2;
+    }
+  }
+  else if (y > 7 && y < 16) //second row
+  {
+    if(x > 0 && x < 8) // first column
+    {
+      address = 3;
+    }
+    if(x > 7 && x < 16) //second column
+    {
+      address = 4;
+    }
+    if(x > 15 && x < 24) //third column
+    {
+      address = 5;
+    }
+  }
+  else if (y > 15 && x < 24)
+  {
+    if(x > 0 && x < 8) // first column
+    {
+      address = 6;
+    }
+    if(x > 7 && x < 16) //second column
+    {
+      address = 7;
+    }
+    if(x > 15 && x < 24) //third column
+    {
+      //address = 8; //new variable with address 0
+    }
+  }
+  
+  lc.setLed(address,x%8,y%8,on);
   
 }
 
 void loop()
 {
-  String number = getStringFromSerial();
+  String number = getStringFromSerial(); //also Sets MODE
+  int player = -1;
   if(number != "-1")
   {
     lcd.clear();
@@ -65,7 +143,7 @@ void loop()
         setXYValues(number);
         break;
       case 2: //MULTIPLAYER
-        
+        multiPlayerLoop();
         break;
       default:
         break;
