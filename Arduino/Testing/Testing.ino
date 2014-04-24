@@ -9,6 +9,9 @@ int X = -1, Y = -1;
 const int LED_POSITION_MODE = 1;
 const int MULTIPLAYER_MODE = 2;
 
+const int CMD_UP = 10;
+const int CMD_DOWN = 11;
+
 void setup()
 {
   lcd.begin(16,2);
@@ -34,7 +37,6 @@ String getStringFromSerial() //returns 5 digit String of digits
   }
   return "-1"; //nothing entered
 }
-
 void setXYValues(String val)
 {
   char* x = new char[2];
@@ -55,38 +57,55 @@ int getPlayer(String val)
    return atoi(val.c_str())%10;
 }
 
-void multiPlayerLoop()
+int getCommand(String val)
+{
+  char* x = new char[2];
+  x[0] = val[2];
+  x[1] = val[3];
+  int value = atoi(x);
+  delete x;
+  return value;
+}
+
+
+
+void multiPlayerLoop(String number)
 {
   int player = -1;
-  while(MODE == MULTIPLAYER_MODE)
+  int command = -1;
+  player = getPlayer(number);
+  command = getCommand(number);
+  lcd.clear();
+  lcd.setCursor(0,0);
+  switch(player)
   {
-    player = getPlayer(getStringFromSerial());
-    lcd.print(player);
-    switch(player)
-    {
-      case 1: //move left paddle
-        lcd.clear();
-        lcd.setCursor(0,0);
-        lcd.print("Player 1");
-        break;
-      case 2: //move right paddle 
-       lcd.clear();
-        lcd.setCursor(0,0);
-        lcd.print("Player 2");
-        break;
-      case 3: //move top paddle
-       lcd.clear();
-        lcd.setCursor(0,0);
-        lcd.print("Player 3");
-        break;
-      case 4: //move bottom paddle
-       lcd.clear();
-        lcd.setCursor(0,0);
-        lcd.print("Player 4");
-        break;
-      default:
-        break; 
-    }
+    case 1: //move left paddle
+      lcd.print("Player 1");
+      break;
+    case 2: //move right paddle
+      lcd.print("Player 2");
+      break;
+    case 3: //move top paddle
+      lcd.print("Player 3");
+      break;
+    case 4: //move bottom paddle
+      lcd.print("Player 4");
+      break;
+    default:
+      break; 
+  }
+  lcd.setCursor(0,1);
+  switch(command)
+  {
+    case CMD_UP:
+      lcd.print("Up");
+      break;
+    case CMD_DOWN:
+      lcd.print("Down");
+      break;
+    default:
+      lcd.print("Invalid command");
+      break;
   }
 }
 
@@ -144,7 +163,7 @@ void loop()
         lcd.print(Y);
         break;
       case 2: //MULTIPLAYER
-        multiPlayerLoop();
+        multiPlayerLoop(number);
         break;
       default:
         break;
