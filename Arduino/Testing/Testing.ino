@@ -82,47 +82,29 @@ void setLed(int x,int y, boolean on)
   if(y > 0 && y < 8) //first row
   {
     if(x > 0 && x < 8) // first column
-    {
       address = 0;
-    }
-    if(x > 7 && x < 16) //second column
-    {
+    else if(x > 7 && x < 16) //second column
       address = 1;
-    }
-    if(x > 15 && x < 24) //third column
-    {
+    else if(x > 15 && x < 24) //third column
       address = 2;
-    }
   }
   else if (y > 7 && y < 16) //second row
   {
     if(x > 0 && x < 8) // first column
-    {
       address = 3;
-    }
-    if(x > 7 && x < 16) //second column
-    {
+    else if(x > 7 && x < 16) //second column
       address = 4;
-    }
-    if(x > 15 && x < 24) //third column
-    {
+    else if(x > 15 && x < 24) //third column
       address = 5;
-    }
   }
   else if (y > 15 && x < 24)
   {
     if(x > 0 && x < 8) // first column
-    {
       address = 6;
-    }
-    if(x > 7 && x < 16) //second column
-    {
+    else if(x > 7 && x < 16) //second column
       address = 7;
-    }
-    if(x > 15 && x < 24) //third column
-    {
+    else if(x > 15 && x < 24) //third column
       //address = 8; //new variable with address 0
-    }
   }
   
   lc.setLed(address,x%8,y%8,on);
