@@ -51,6 +51,7 @@ void setXYValues(String val)
 
 int getPlayer(String val)
 {
+   
    return atoi(val.c_str())%10;
 }
 
@@ -60,15 +61,28 @@ void multiPlayerLoop()
   while(MODE == MULTIPLAYER_MODE)
   {
     player = getPlayer(getStringFromSerial());
+    lcd.print(player);
     switch(player)
     {
       case 1: //move left paddle
+        lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("Player 1");
         break;
       case 2: //move right paddle 
+       lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("Player 2");
         break;
       case 3: //move top paddle
+       lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("Player 3");
         break;
       case 4: //move bottom paddle
+       lcd.clear();
+        lcd.setCursor(0,0);
+        lcd.print("Player 4");
         break;
       default:
         break; 
@@ -104,7 +118,7 @@ void setLed(int x,int y, boolean on)
     else if(x > 7 && x < 16) //second column
       address = 7;
     else if(x > 15 && x < 24) //third column
-      //address = 8; //new variable with address 0
+      address = 8; //new variable with address 0
   }
   
   lc.setLed(address,x%8,y%8,on);
@@ -123,6 +137,11 @@ void loop()
     {
       case 1: //LED_POSITION
         setXYValues(number);
+        lcd.print("X = ");
+        lcd.print(X);
+        lcd.setCursor(0,1);
+        lcd.print("Y = ");
+        lcd.print(Y);
         break;
       case 2: //MULTIPLAYER
         multiPlayerLoop();
