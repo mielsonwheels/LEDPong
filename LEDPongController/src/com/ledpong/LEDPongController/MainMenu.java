@@ -15,7 +15,7 @@ public class MainMenu extends Activity {
     }
 
     public void startServer(View view){
-        Intent intent = new Intent(this, PongServer.class);
+        Intent intent = new Intent(this, BluetoothConnector.class);
         startActivity(intent);
     }
 
