@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <resources>
-
-        <string name="app_name">LEDPongController</string>
-        <string name="action_settings">Settings</string>
-        <string name="Text">Status: -</string>
-        <string name="on">Turn On</string>
-        <string name="off">Turn Off</string>
-        <string name="List">List paired Devices</string>
-        <string name="Find">Search new Devices / Cancel</string>
-        <string name="Menu1">Pong Server</string>
-        <string name="Menu2">Pong Client</string>
-        <string name="Menu3">Animate</string>
+<resources>
+    <string name="app_name">LEDPongController</string>
+    <string name="action_settings">Settings</string>
+    <string name="Text">Status: -</string>
+    <string name="on">Turn On</string>
+    <string name="off">Turn Off</string>
+    <string name="List">List paired Devices</string>
+    <string name="Find">Search new Devices / Cancel</string>
+    <string name="Menu1">Pong Server</string>
+    <string name="Menu2">Pong Client</string>
+    <string name="Menu3">Animate</string>
+    <string name="GameL">Left</string>
+    <string name="GameR">Right</string>
 </resources>
 

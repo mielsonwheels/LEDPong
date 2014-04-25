@@ -74,8 +74,16 @@ public class BTConnectorServer extends Activity {
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(bReceiver, filter);
         myBluetoothAdapter.startDiscovery();
-
     }
+
+    public void sendLeft(View v){
+        arduinoThread.sendLeft(1);
+    }
+
+    public void sendRight(View view){
+        arduinoThread.sendRight(1);
+    }
+
     @Override
     protected void onDestroy() {
         // TODO Auto-generated method stub
