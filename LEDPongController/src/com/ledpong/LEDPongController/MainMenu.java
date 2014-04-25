@@ -15,10 +15,14 @@ public class MainMenu extends Activity {
     }
 
     public void startServer(View view){
-        Intent intent = new Intent(this, BluetoothConnector.class);
+        Intent intent = new Intent(this, BTConnectorServer.class);
         startActivity(intent);
     }
 
+    public void startClient(View view){
+        Intent intent = new Intent(this, BTConnectorClient.class);
+        startActivity(intent);
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
