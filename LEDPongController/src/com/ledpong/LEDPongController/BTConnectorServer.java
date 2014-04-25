@@ -6,6 +6,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+
+import java.io.IOException;
 import java.util.Set;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -19,6 +21,7 @@ public class BTConnectorServer extends Activity {
     private BluetoothAdapter myBluetoothAdapter;
     private Set<BluetoothDevice> pairedDevices;
     private BluetoothDevice mmDevice;
+    private PongClient arduinoThread;
     protected boolean arduinoFound = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +48,9 @@ public class BTConnectorServer extends Activity {
             }
         if(!arduinoFound) { //arduino isn't already paired; start searching for it.
             find();
-            while(!arduinoFound){
-                //busy loop like a noob
-            }
         }
-
+        arduinoThread = new PongClient(mmDevice);
+        arduinoThread.run();
     }
     final BroadcastReceiver bReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -63,6 +64,8 @@ public class BTConnectorServer extends Activity {
                     mmDevice = device;
                     myBluetoothAdapter.cancelDiscovery();
                     arduinoFound = true;
+                    arduinoThread = new PongClient(mmDevice);
+                    arduinoThread.run();
                 }
             }
         }
@@ -71,6 +74,7 @@ public class BTConnectorServer extends Activity {
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(bReceiver, filter);
         myBluetoothAdapter.startDiscovery();
+
     }
     @Override
     protected void onDestroy() {
