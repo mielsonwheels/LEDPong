@@ -14,8 +14,9 @@ boolean testMatrix = true;
 
 LiquidCrystal lcd(8,9,4,5,6,7);
 //LedControl(int dataPin, int clkPin, int csPin, int numDevices);
-LedControl lc = LedControl(A5,A4,A3,1); //default is (12,11,10,1)
-LedControl lc1 = LedControl(A2,A1,A0,1);
+const int DEVICES = 1;
+LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
+LedControl lc1 = LedControl(A3,A2,A1,1);
 
 
 int MODE = -1;
@@ -28,6 +29,18 @@ const int CMD_DOWN = 11;
 
 void setup()
 {
+  //Initialize all Devices
+  for(int i = 0; i < DEVICES; i++)
+  {
+    lc.shutdown(i,false);
+    lc.setIntensity(i,8);
+    lc.clearDisplay(i);
+  }
+  
+  lc1.shutdown(0,false);
+  lc1.setIntensity(0,8);
+  lc1.clearDisplay(0);
+  
   lcd.begin(16,2);
   lcd.clear();
   Serial.begin(9600);
@@ -188,12 +201,33 @@ void demoMatrix(int delayTime)
   }
 }
 
+void demoTest()
+{
+  for(int i = 0; i < 8; i++)
+  {
+    for(int j = 0; j < 8; j++)
+    {
+      lc.setLed(0,i,j,true);
+      delay(50);
+    }
+  }
+  for(int i = 0; i < 8; i++)
+  {
+    for(int j = 0; j < 8; j++)
+    {
+      //lc.setLed(0,i,j,false); //to turn off
+    }
+    //delay(50);
+  }
+}
+
 void loop()
 {
   
   if(testMatrix)
   {
-    demoMatrix(50); //comment this line
+    //demoMatrix(50); //comment this line
+    demoTest();
   }
   else
   {
