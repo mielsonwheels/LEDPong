@@ -1,9 +1,22 @@
- #include <LiquidCrystal.h>
+#include <LiquidCrystal.h>
 #include <LedControl.h>
 
+boolean testMatrix = true;
+
+/* 
+ * Now we create a new LedControl. 
+ * We use pins 12,11 and 10 on the Arduino for the SPI interface
+ * Pin 12,A2 is connected to the DATA IN-pin of the first MAX7221
+ * Pin 11,A1 is connected to the CLK-pin of the first MAX7221
+ * Pin 10,A0 is connected to the LOAD(/CS)-pin of the first MAX7221 	
+ * There will only be a single MAX7221 attached to the arduino 
+ */
+
 LiquidCrystal lcd(8,9,4,5,6,7);
-LedControl lc = LedControl(12,11,10,1);
 //LedControl(int dataPin, int clkPin, int csPin, int numDevices);
+LedControl lc = LedControl(A5,A4,A3,1); //default is (12,11,10,1)
+LedControl lc1 = LedControl(A2,A1,A0,1);
+
 
 int MODE = -1;
 int X = -1, Y = -1;
@@ -119,6 +132,7 @@ void multiPlayerLoop(String number)
 void setLed(int x,int y, boolean on)
 {
   int address = -1;
+  boolean otherDriver = false;
   if(y >= 0 && y < 8) //first row
   {
     if(x >= 0 && x < 8) // first column
@@ -144,10 +158,13 @@ void setLed(int x,int y, boolean on)
     else if(x > 7 && x < 16) //second column
       address = 7;
     else if(x > 15 && x < 24) //third column
-      address = 8; //new variable with address 0
+    {
+      lc1.setLed(0,x%8,y%8,on);
+      otherDriver = true;
+    }
   }
-  
-  lc.setLed(address,x%8,y%8,on);
+  if(!otherDriver)
+    lc.setLed(address,x%8,y%8,on);
   
 }
 
@@ -171,32 +188,37 @@ void demoMatrix(int delayTime)
   }
 }
 
-
 void loop()
 {
-  String number = "-1";
-  //String number = getStringFromSerial(); //also Sets MODE
-  int player = -1;
-  demoMatrix(50);
-  if(number != "-1")
+  
+  if(testMatrix)
   {
-    lcd.clear();
-    lcd.setCursor(0,0);
-    switch(MODE)
+    demoMatrix(50); //comment this line
+  }
+  else
+  {
+    String number = getStringFromSerial(); //also Sets MODE //uncomment this line
+    int player = -1;
+    if(number != "-1")
     {
-      case 1: //LED_POSITION
-        setXYValues(number);
-        lcd.print("X = ");
-        lcd.print(X);
-        lcd.setCursor(0,1);
-        lcd.print("Y = ");
-        lcd.print(Y);
-        break;
-      case 2: //MULTIPLAYER
-        multiPlayerLoop(number);
-        break;
-      default:
-        break;
+      lcd.clear();
+      lcd.setCursor(0,0);
+      switch(MODE)
+      {
+        case 1: //LED_POSITION
+          setXYValues(number);
+          lcd.print("X = ");
+          lcd.print(X);
+          lcd.setCursor(0,1);
+          lcd.print("Y = ");
+          lcd.print(Y);
+          break;
+        case 2: //MULTIPLAYER
+          multiPlayerLoop(number);
+          break;
+        default:
+          break;
+      }
     }
   }
 }
