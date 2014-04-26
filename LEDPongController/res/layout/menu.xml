@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/Menu2"
             android:id="@+id/button" android:layout_centerVertical="true" android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true" android:onCLick="startClient"/>
+            android:layout_alignParentStart="true" android:onClick="startClient"/>
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

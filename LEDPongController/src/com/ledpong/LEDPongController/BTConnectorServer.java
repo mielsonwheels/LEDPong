@@ -12,8 +12,6 @@ import java.util.Set;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.*;
 
 public class BTConnectorServer extends Activity {
@@ -21,7 +19,7 @@ public class BTConnectorServer extends Activity {
     private BluetoothAdapter myBluetoothAdapter;
     private Set<BluetoothDevice> pairedDevices;
     private BluetoothDevice mmDevice;
-    private PongClient arduinoThread;
+    private PongServer arduinoThread;
     protected boolean arduinoFound = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +39,7 @@ public class BTConnectorServer extends Activity {
 
         // put it's one to the adapter
         for(BluetoothDevice device : pairedDevices)
-            if(device.getName() == "HC-06"){
+            if(device.getName().contains("HC-06")){
                 mmDevice = device;
                 arduinoFound = true;
                 break;
@@ -49,8 +47,8 @@ public class BTConnectorServer extends Activity {
         if(!arduinoFound) { //arduino isn't already paired; start searching for it.
             find();
         }
-        arduinoThread = new PongClient(mmDevice);
-        arduinoThread.run();
+        arduinoThread = new PongServer(mmDevice);
+        arduinoThread.start();
     }
     final BroadcastReceiver bReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -60,12 +58,12 @@ public class BTConnectorServer extends Activity {
                 // Get the BluetoothDevice object from the Intent
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 // check if device is arduino BT module
-                if (device.getName() == "HC-06") {
+                if (device.getName().contains("HC-06")) {
                     mmDevice = device;
                     myBluetoothAdapter.cancelDiscovery();
                     arduinoFound = true;
-                    arduinoThread = new PongClient(mmDevice);
-                    arduinoThread.run();
+                    arduinoThread = new PongServer(mmDevice);
+                    arduinoThread.start();
                 }
             }
         }
@@ -77,11 +75,19 @@ public class BTConnectorServer extends Activity {
     }
 
     public void sendLeft(View v){
-        arduinoThread.sendLeft(1);
+        try {
+            arduinoThread.sendLeft(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sendRight(View view){
-        arduinoThread.sendRight(1);
+        try {
+            arduinoThread.sendRight(1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
