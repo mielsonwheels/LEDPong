@@ -3,6 +3,7 @@
 
 LiquidCrystal lcd(8,9,4,5,6,7);
 LedControl lc = LedControl(12,11,10,1);
+//LedControl(int dataPin, int clkPin, int csPin, int numDevices);
 
 int MODE = -1;
 int X = -1, Y = -1;
@@ -118,9 +119,9 @@ void multiPlayerLoop(String number)
 void setLed(int x,int y, boolean on)
 {
   int address = -1;
-  if(y > -1 && y < 8) //first row
+  if(y >= 0 && y < 8) //first row
   {
-    if(x > 0 && x < 8) // first column
+    if(x >= 0 && x < 8) // first column
       address = 0;
     else if(x > 7 && x < 16) //second column
       address = 1;
@@ -129,7 +130,7 @@ void setLed(int x,int y, boolean on)
   }
   else if (y > 7 && y < 16) //second row
   {
-    if(x > 0 && x < 8) // first column
+    if(x >= 0 && x < 8) // first column
       address = 3;
     else if(x > 7 && x < 16) //second column
       address = 4;
@@ -138,7 +139,7 @@ void setLed(int x,int y, boolean on)
   }
   else if (y > 15 && x < 24)
   {
-    if(x > 0 && x < 8) // first column
+    if(x >= 0 && x < 8) // first column
       address = 6;
     else if(x > 7 && x < 16) //second column
       address = 7;
@@ -173,9 +174,10 @@ void demoMatrix(int delayTime)
 
 void loop()
 {
-  String number = getStringFromSerial(); //also Sets MODE
+  String number = "-1";
+  //String number = getStringFromSerial(); //also Sets MODE
   int player = -1;
-  //demoMatrix(50);
+  demoMatrix(50);
   if(number != "-1")
   {
     lcd.clear();
