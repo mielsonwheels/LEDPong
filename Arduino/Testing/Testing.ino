@@ -1,4 +1,4 @@
-#include <LiquidCrystal.h>
+ #include <LiquidCrystal.h>
 #include <LedControl.h>
 
 LiquidCrystal lcd(8,9,4,5,6,7);
@@ -37,6 +37,7 @@ String getStringFromSerial() //returns 5 digit String of digits
   }
   return "-1"; //nothing entered
 }
+
 void setXYValues(String val)
 {
   char* x = new char[2];
@@ -67,52 +68,57 @@ int getCommand(String val)
   return value;
 }
 
-
+void doCommand(int player, int command)
+{
+  lcd.clear();
+  lcd.setCursor(0,0);
+  boolean invalid = false;
+  switch(player)
+  {
+     case 1:
+       lcd.print("Player 1");
+       break;
+     case 2:
+       lcd.print("Player 2");
+       break;
+     case 3:
+       lcd.print("Player 3");
+       break;
+     case 4:
+       lcd.print("Player 4");
+       break;
+     default:
+       invalid = true;
+       break;
+  }
+  if(!invalid)
+  {
+    lcd.setCursor(0,1);
+    switch(command)
+    {
+      case CMD_UP:
+        lcd.print("UP");
+        break;
+      case CMD_DOWN:
+        lcd.print("DOWN");
+        break;
+    }
+  }
+}
 
 void multiPlayerLoop(String number)
 {
   int player = -1;
   int command = -1;
-  player = getPlayer(number);
-  command = getCommand(number);
-  lcd.clear();
-  lcd.setCursor(0,0);
-  switch(player)
-  {
-    case 1: //move left paddle
-      lcd.print("Player 1");
-      break;
-    case 2: //move right paddle
-      lcd.print("Player 2");
-      break;
-    case 3: //move top paddle
-      lcd.print("Player 3");
-      break;
-    case 4: //move bottom paddle
-      lcd.print("Player 4");
-      break;
-    default:
-      break; 
-  }
-  lcd.setCursor(0,1);
-  switch(command)
-  {
-    case CMD_UP:
-      lcd.print("Up");
-      break;
-    case CMD_DOWN:
-      lcd.print("Down");
-      break;
-    default:
-      lcd.print("Invalid command");
-      break;
-  }
+  //player = getPlayer(number);
+  //command = getCommand(number);
+  doCommand(getPlayer(number),getCommand(number));
 }
 
 void setLed(int x,int y, boolean on)
 {
   int address = -1;
-  if(y > 0 && y < 8) //first row
+  if(y > -1 && y < 8) //first row
   {
     if(x > 0 && x < 8) // first column
       address = 0;
@@ -144,10 +150,32 @@ void setLed(int x,int y, boolean on)
   
 }
 
+void demoMatrix(int delayTime)
+{
+  for(int i = 0; i < 8; i++)
+  {
+    for(int j = 0; j < 8; j++)
+    {
+      setLed(i,j,true);
+      delay(delayTime);
+    }
+  }
+  for(int i = 0; i < 8; i++)
+  {
+    for(int j = 0; j < 8; j++)
+    {
+      setLed(i,j,false);
+      delay(delayTime);
+    }
+  }
+}
+
+
 void loop()
 {
   String number = getStringFromSerial(); //also Sets MODE
   int player = -1;
+  //demoMatrix(50);
   if(number != "-1")
   {
     lcd.clear();
