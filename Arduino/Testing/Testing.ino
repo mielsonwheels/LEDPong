@@ -243,12 +243,28 @@ void loop()
         
         for(int j = 0; j < 24; j++){
           setLed(i,j,true);
-          delay(50);
-          //setLed(i,j,false);
+          delay(10);
+        }
+      }
+      for(int i = 0; i < 24; i++)
+      {
+        for(int j = 0; j < 24; j++)
+        {
+          setLed(i,j,false);
+          delay(10);
         }
       }
     }
-  }else{
+    for(int i = 0; i < 24; i++)
+    {
+      for(int j = 0; j < 24; j++)
+      {
+        setLed(i,j,true);
+      }
+    }
+    delay(3000);
+  }
+  else{
     String number = getStringFromSerial(); //also Sets MODE //uncomment this line
     int player = -1;
     if(number != "-1")
