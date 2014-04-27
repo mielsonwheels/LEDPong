@@ -146,15 +146,16 @@ void multiPlayerLoop(String number)
 void setLed(int x,int y, boolean on)
 {
   int address = -1;
-  boolean otherDriver = false;
-  y = y - 8;
-  if (y < 0) y = y * -1;
+  
   if(y >= 0 && y < 8) //first row
   {
     if(x >= 0 && x <= 7) // first column
     {
-      lc1.setLed(0,x%8,y%8,on);
-      otherDriver = true;
+      y = y%8;
+      y-= 7;
+      if(y<0) y *= -1;
+      lc1.setLed(0,x%8,y,on);
+      return;
     }
     else if(x > 7 && x <= 15) //second column
       address = 3;
@@ -181,8 +182,12 @@ void setLed(int x,int y, boolean on)
       address = 0;
     }
   }
-  if(!otherDriver)
-    lc.setLed(address,x%8,y%8,on);
+  
+  
+  y = y %8;
+  y -= 7;
+  if(y < 0) y *= -1;
+  lc.setLed(address,x%8,y,on);
   
 }
 
