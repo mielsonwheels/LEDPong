@@ -19,5 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".BTConnectorClient"/>
+        <activity android:name=".Animator"/>
     </application>
 </manifest>

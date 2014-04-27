@@ -70,14 +70,27 @@ public class PongServer extends Thread {
         }
     }
 
-    public void cancel() throws IOException {
+    public void sendLed(int x, int y) throws IOException {
+        try{
+            byte[] message;
+            String command = Integer.toString(1) +
+                    Integer.toString(x) + Integer.toString(y);
+            command += "a";
+            message = command.getBytes();
+            mmOutStream.write(message);
+        } catch(IOException e) {
+            throw e;
+        }
+    }
+
+    public void cancel() {
         quit = true;
         try {
-            mmSocket.close();
-            mmInStream.close();
-            mmOutStream.close();
+            if(mmSocket != null) mmSocket.close();
+            if(mmInStream != null) mmInStream.close();
+            if(mmOutStream != null) mmOutStream.close();
         } catch (IOException e){
-            throw e;
+            e.printStackTrace();
         }
     }
 }

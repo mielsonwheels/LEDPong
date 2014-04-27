@@ -12,5 +12,8 @@
     <string name="Menu3">Animate</string>
     <string name="GameL">Left</string>
     <string name="GameR">Right</string>
+    <string name="Animator">Draw!</string>
+    <string name="animateButton1">Save Frame</string>
+    <string name="animateButton2">Clear</string>
 </resources>
 

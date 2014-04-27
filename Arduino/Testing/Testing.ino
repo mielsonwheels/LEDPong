@@ -12,11 +12,12 @@ boolean testMatrix = true;
  * There will only be a single MAX7221 attached to the arduino 
  */
 
+
 LiquidCrystal lcd(8,9,4,5,6,7);
 //LedControl(int dataPin, int clkPin, int csPin, int numDevices);
-const int DEVICES = 1;
+const int DEVICES = 8;
 LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
-LedControl lc1 = LedControl(A3,A2,A1,1);
+LedControl lc1 = LedControl(A3,11,A1,1);
 
 
 int MODE = -1;
@@ -33,12 +34,12 @@ void setup()
   for(int i = 0; i < DEVICES; i++)
   {
     lc.shutdown(i,false);
-    lc.setIntensity(i,8);
+    lc.setIntensity(i,0);
     lc.clearDisplay(i);
   }
   
   lc1.shutdown(0,false);
-  lc1.setIntensity(0,8);
+  lc1.setIntensity(0,0);
   lc1.clearDisplay(0);
   
   lcd.begin(16,2);
@@ -146,34 +147,38 @@ void setLed(int x,int y, boolean on)
 {
   int address = -1;
   boolean otherDriver = false;
+  y = y - 8;
+  if (y < 0) y = y * -1;
   if(y >= 0 && y < 8) //first row
   {
-    if(x >= 0 && x < 8) // first column
-      address = 0;
-    else if(x > 7 && x < 16) //second column
-      address = 1;
+    if(x >= 0 && x <= 7) // first column
+    {
+      lc1.setLed(0,x%8,y%8,on);
+      otherDriver = true;
+    }
+    else if(x > 7 && x <= 15) //second column
+      address = 3;
     else if(x > 15 && x < 24) //third column
       address = 2;
   }
   else if (y > 7 && y < 16) //second row
   {
     if(x >= 0 && x < 8) // first column
-      address = 3;
+      address = 6;
     else if(x > 7 && x < 16) //second column
-      address = 4;
-    else if(x > 15 && x < 24) //third column
       address = 5;
+    else if(x > 15 && x < 24) //third column
+      address = 1;
   }
   else if (y > 15 && x < 24)
   {
     if(x >= 0 && x < 8) // first column
-      address = 6;
-    else if(x > 7 && x < 16) //second column
       address = 7;
+    else if(x > 7 && x < 16) //second column
+      address = 4;
     else if(x > 15 && x < 24) //third column
     {
-      lc1.setLed(0,x%8,y%8,on);
-      otherDriver = true;
+      address = 0;
     }
   }
   if(!otherDriver)
@@ -203,21 +208,21 @@ void demoMatrix(int delayTime)
 
 void demoTest()
 {
-  for(int i = 0; i < 8; i++)
+  for(int i = 0; i < 64; i++)
   {
-    for(int j = 0; j < 8; j++)
+    for(int j = 0; j < 64; j++)
     {
-      lc.setLed(0,i,j,true);
-      delay(50);
+      setLed(i,j,true);
+      delay(5);
     }
   }
-  for(int i = 0; i < 8; i++)
+  for(int i = 0; i < 64; i++)
   {
-    for(int j = 0; j < 8; j++)
+    for(int j = 0; j < 64; j++)
     {
-      //lc.setLed(0,i,j,false); //to turn off
+      setLed(i,j,false); //to turn off
     }
-    //delay(50);
+    delay(50);
   }
 }
 
@@ -227,10 +232,18 @@ void loop()
   if(testMatrix)
   {
     //demoMatrix(50); //comment this line
-    demoTest();
-  }
-  else
-  {
+    int intensity = 0;
+    while(true){
+      for(int i = 0; i < 24; i++){
+        
+        for(int j = 0; j < 24; j++){
+          setLed(i,j,true);
+          delay(50);
+          //setLed(i,j,false);
+        }
+      }
+    }
+  }else{
     String number = getStringFromSerial(); //also Sets MODE //uncomment this line
     int player = -1;
     if(number != "-1")

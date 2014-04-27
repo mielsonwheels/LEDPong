@@ -23,6 +23,11 @@ public class MainMenu extends Activity {
         Intent intent = new Intent(this, BTConnectorClient.class);
         startActivity(intent);
     }
+
+    public void startAnimate(View view){
+        Intent intent = new Intent(this, Animator.class);
+        startActivity(intent);
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
