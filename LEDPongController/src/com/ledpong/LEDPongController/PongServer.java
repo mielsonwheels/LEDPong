@@ -43,6 +43,9 @@ public class PongServer extends Thread {
         }
         while(!quit){
             //keep thread alive until we don't need it anymore
+            //This is where where we listen for connections on master socket
+            //once we get the right number of players, we close master socket
+            //and start handling the game
         }
     }
 

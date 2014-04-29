@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.IOException;
 import java.util.Vector;
 
 /**
@@ -22,13 +23,17 @@ public class AnimatorCanvas extends View{
     private float selfWidth;
     private float selfHeight;
     private Paint linePaint;
+    private Paint squarePaint;
+    PongServer arduinoThread;
 
     public AnimatorCanvas(Context context) {
         super(context);
         ledMatrix = new boolean[24][24];
         linePaint = new Paint();
         linePaint.setColor(Color.CYAN);
-        this.clearFrame(null);
+        squarePaint = new Paint();
+        squarePaint.setColor(Color.GREEN);
+        this.clearFrame();
     }
 
     public AnimatorCanvas(Context context, AttributeSet attributeSet) {
@@ -36,7 +41,9 @@ public class AnimatorCanvas extends View{
         ledMatrix = new boolean[24][24];
         linePaint = new Paint();
         linePaint.setColor(Color.CYAN);
-        this.clearFrame(null);
+        squarePaint = new Paint();
+        squarePaint.setColor(Color.GREEN);
+        this.clearFrame();
     }
 
     public AnimatorCanvas(Context context, AttributeSet attributeSet, int defStyle) {
@@ -44,7 +51,9 @@ public class AnimatorCanvas extends View{
         ledMatrix = new boolean[24][24];
         linePaint = new Paint();
         linePaint.setColor(Color.CYAN);
-        this.clearFrame(null);
+        squarePaint = new Paint();
+        squarePaint.setColor(Color.GREEN);
+        this.clearFrame();
     }
 
 
@@ -56,13 +65,18 @@ public class AnimatorCanvas extends View{
 
     @Override
     protected void onDraw(Canvas canvas){
-        float startX = 0;
+        float startX;
         float startY = 0;
+        canvas.drawColor(Color.BLACK);
         for(int i = 0; i < 24; i++){
             startX = 0;
             for(int j = 0; j < 24; j++){
                 canvas.drawLine(startX + cellWidth, startY, startX+cellWidth, startY+cellHeight, linePaint);
                 canvas.drawLine(startX, startY+cellHeight, startX+cellWidth, startY+cellHeight, linePaint);
+                if(ledMatrix[i][j]){
+                    canvas.drawRect(startX,startY,
+                            (startX+cellWidth),(startY+cellHeight),squarePaint);
+                }
                 startX += cellWidth;
             }
             startY += cellHeight;
@@ -77,11 +91,54 @@ public class AnimatorCanvas extends View{
         frames.add(ledMatrix);
     }
 
-    public void clearFrame(View view){
-        for(boolean[] boolList : ledMatrix){
-            for(boolean bool : boolList){
-                bool = false;
+    public void toggleLed(int x, int y){
+        if(x < 0) x = 0;
+        if(y < 0) y = 0;
+        if(x > 23) x = 23;
+        if(y > 23) y = 23;
+        ledMatrix[y][x] = !(ledMatrix[y][x]);
+        invalidate();
+    }
+
+    public boolean getLed(int x, int y){
+        return ledMatrix[x][y];
+    }
+
+    public Vector<boolean[][]> getFrames(){
+        return frames;
+    }
+
+    public void clearFrame(){
+        for(int i = 0; i < 23; i++){
+            for(int j = 0; j < 23; j++){
+                ledMatrix[i][j] = false;
             }
         }
+        invalidate();
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        float touchX = event.getX();
+        float touchY = event.getY();
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_UP:
+                toggleLed((int)touchX/23, (int)touchY/23);
+                break;
+            default:
+                return false;
+        }
+        //c.invalidate();
+        try {
+            arduinoThread.sendLed((int) touchX / 24, (int) touchY / 24);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    public void setThread(PongServer thread){
+        arduinoThread = thread;
     }
 }

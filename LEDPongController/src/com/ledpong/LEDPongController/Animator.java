@@ -9,12 +9,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.TableLayout;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -25,6 +27,7 @@ public class Animator extends Activity {
     private Set<BluetoothDevice> pairedDevices;
     private BluetoothDevice mmDevice;
     private PongServer arduinoThread;
+    private AnimatorCanvas c;
     private int REQUEST_ENABLE_BT = 1;
     protected boolean arduinoFound = false;
 
@@ -54,8 +57,19 @@ public class Animator extends Activity {
             }
         }
         setContentView(R.layout.animate);
-        //arduinoThread = new PongServer(mmDevice);
-        //arduinoThread.start();
+        AnimatorCanvas canvas = (AnimatorCanvas)findViewById(R.id.view);
+        if(canvas != null) {
+            c = canvas;
+        }
+        //canvas.setOnTouchListener();
+        setContentView(R.layout.animate);
+        arduinoThread = new PongServer(mmDevice);
+        arduinoThread.start();
+        c.setThread(arduinoThread);
+    }
+
+    public void clear(View view){
+        c.clearFrame();
     }
 
     @Override

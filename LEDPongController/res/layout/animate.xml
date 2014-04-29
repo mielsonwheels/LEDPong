@@ -12,9 +12,9 @@
             android:layout_width="121dp"
             android:layout_height="wrap_content"
             android:text="@string/animateButton2"
-            android:id="@+id/button2" android:layout_gravity="right|bottom"/>
+            android:id="@+id/button2" android:layout_gravity="right|bottom" android:onClick="clear"/>
     <view android:layout_width="fill_parent"
-          android:layout_height="382dp"
+          android:layout_height="435dp"
           class="com.ledpong.LEDPongController.AnimatorCanvas" android:id="@+id/view"
           android:layout_gravity="center_horizontal|top"/>
 </FrameLayout>
