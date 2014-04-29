@@ -1,5 +1,6 @@
 #include <LiquidCrystal.h>
 #include <LedControl.h>
+#include "Player.h"
 
 boolean testMatrix = true;
 
@@ -21,7 +22,32 @@ const int INTENSITY = 0;
 LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
 LedControl lc1 = LedControl(A3,11,A1,1);
 
-boolean MATRIX[24][24];
+boolean MATRIX[24][24] = {
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+};
 
 int MODE = -1;
 int X = -1, Y = -1;
@@ -31,7 +57,7 @@ const int DEMO_MODE = 3;
 
 const int CMD_UP = 10;
 const int CMD_DOWN = 11;
-
+/*-----------------------SET UP---------------------*/
 void setup()
 {
   //Initialize all Devices
@@ -86,7 +112,6 @@ void setXYValues(String val)
 
 int getPlayer(String val)
 {
-   
    return atoi(val.c_str())%10;
 }
 
@@ -142,8 +167,6 @@ void multiPlayerLoop(String number)
 {
   int player = -1;
   int command = -1;
-  //player = getPlayer(number);
-  //command = getCommand(number);
   doCommand(getPlayer(number),getCommand(number));
 }
 
@@ -171,22 +194,7 @@ void setRow(int y, boolean on)
   }
 }
 
-void moveEverything(boolean right) //left or right
-{
-  if(right)
-  {
-    for(int i = 0; i < 24; i++)
-    {
-      
-    }
-  }
-  else
-  {
-    
-  }
-}
-
-void setLed(int y,int x, boolean on)
+void setLed(int x,int y, boolean on)
 {
   int address = -1;
   
@@ -223,7 +231,6 @@ void setLed(int y,int x, boolean on)
     else if(x > 15 && x < 24) //third column
       address = 0;
   }
-  
   if(address != -1)
   {
     y = y %8;
@@ -231,9 +238,19 @@ void setLed(int y,int x, boolean on)
     if(y < 0) y *= -1;
     lc.setLed(address,x%8,y,on);
   }
-  
 }
 
+
+void resetMatrix()
+{
+  for(int i = 0; i < 24; i++)
+  {
+    for(int j = 0; j < 24; j++)
+    {
+      MATRIX[i][j] = false;
+    }
+  }
+}
 
 void printMatrix()
 {
@@ -251,89 +268,37 @@ void printRow(int row, boolean val[24])
   for(int i = 0; i < 24; i++)
   {
     if(val[i])
-      setLed(i,row,true);
+      setLed(row,i,true);
   }
-}
-void randomTest()
-{
-  boolean row0[24] =  {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0};
-  boolean row1[24] =  {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0};
-  boolean row2[24] =  {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0};
-  boolean row3[24] =  {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0};
-  boolean row4[24] =  {0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0};
-  boolean row5[24] =  {0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0};
-  boolean row6[24] =  {0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row7[24] =  {0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row8[24] =  {0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row9[24] =  {0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row10[24] = {0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row11[24] = {0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row12[24] = {0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row13[24] = {0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row14[24] = {0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row15[24] = {0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row16[24] = {0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row17[24] = {0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row18[24] = {0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0};
-  boolean row19[24] = {0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0};
-  boolean row20[24] = {0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0};
-  boolean row21[24] = {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0};
-  boolean row22[24] = {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0};
-  boolean row23[24] = {0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0};
-  
-  printRow(0,row0);
-  printRow(1,row1);
-  printRow(2,row2);
-  printRow(3,row3);
-  printRow(4,row4);
-  printRow(5,row5);
-  printRow(6,row6);
-  printRow(7,row7);
-  printRow(8,row8);
-  printRow(9,row9);
-  printRow(10,row10);
-  printRow(11,row11);
-  printRow(12,row12);
-  printRow(13,row13);
-  printRow(14,row14);
-  printRow(15,row15);
-  printRow(16,row16);
-  printRow(17,row17);
-  printRow(18,row18);
-  printRow(19,row19);
-  printRow(20,row20);
-  printRow(21,row21);
-  printRow(22,row22);
 }
 
 void ballTest() {
-   int Max = 23;
-   int xPos = 5;
+  int Max = 23;
+  int xPos = 5;
   int yPos = 0;
- int vx = 3;
- int vy = 2;
- while (true) {
-  setLed(xPos, yPos, false);
-  setLed(Max - xPos, Max - yPos, false);
-  setLed(yPos, xPos, false);
-  setLed(Max - yPos, Max - xPos, false);
-  xPos += vx;
-  yPos += vy;
-  
-  if (xPos > Max || xPos < 0) {
-     xPos -= vx;
-    vx *= -1; 
-  }
-  if (yPos > Max || yPos < 0) {
-     yPos -= vy;
-    vy *= -1; 
-  }
-  setLed(xPos, yPos, true);
-  setLed(Max - xPos, Max - yPos, true);
-  setLed(yPos, xPos, true);
-  setLed(Max - yPos, Max - xPos, true);
-  delay(90);
- } 
+  int vx = 3;
+  int vy = 2;
+  while (true) {
+    setLed(xPos, yPos, false);
+    setLed(Max - xPos, Max - yPos, false);
+    setLed(yPos, xPos, false);
+    setLed(Max - yPos, Max - xPos, false);
+    xPos += vx;
+    yPos += vy;
+    if (xPos > Max || xPos < 0) {
+      xPos -= vx;
+      vx *= -1; 
+    }
+    if (yPos > Max || yPos < 0) {
+      yPos -= vy;
+      vy *= -1; 
+    }
+    setLed(xPos, yPos, true);
+    setLed(Max - xPos, Max - yPos, true);
+    setLed(yPos, xPos, true);
+    setLed(Max - yPos, Max - xPos, true);
+    delay(90);
+  } 
 }
 
 void demoTest()
@@ -373,9 +338,58 @@ void clearDisplays()
   }
 }
 
+void setPlayerOnMatrix(Player p)
+{
+  int row = -1;
+  int column = -1;
+  switch(p.playerNum)
+  {
+    case 1:
+      row = 23;
+      break;
+    case 2:
+      row = 0;
+      break;
+    case 3:
+      column = 23;
+      break;
+    case 4:
+      column = 0;
+      break;
+  }
+  for(int i = 0; i < 23; i++) //reset row or column
+  {
+    if(row != -1)
+      MATRIX[row][i] = false;
+    if(column != -1)
+      MATRIX[i][column] = false;
+  }
+  for(int i = 0; i < 5; i++)
+  {
+    MATRIX[p.xCoords[i]][p.yCoords[i]] = true;
+  }
+}
+
+void pongTest()
+{
+  Player one(1);
+  Player two(2);
+  Player three(3);
+  Player four(4);
+  setPlayerOnMatrix(one);
+  setPlayerOnMatrix(two);
+  setPlayerOnMatrix(three);
+  setPlayerOnMatrix(four);
+  printMatrix();
+   three.moveDownOrRight();
+   one.moveUpOrLeft();
+   printMatrix();
+ 
+}
+
 void loop()
 {
-  while(true) demoTest();
+  while(true) pongTest();
   String number = getStringFromSerial(); //also Sets MODE //uncomment this line
   int player = -1;
   if(number != "-1")
