@@ -2,7 +2,15 @@
 #include <LedControl.h>
 #include "Player.h"
 
-boolean testMatrix = true;
+int MODE = -1;
+int X = -1, Y = -1;
+const int LED_POSITION_MODE = 1;
+const int LED_TURNOFF_MODE = 9;
+const int MULTIPLAYER_MODE = 2;
+const int DEMO_MODE = 3;
+
+const int CMD_UP = 10;
+const int CMD_DOWN = 11;
 
 /* 
  * Now we create a new LedControl. 
@@ -49,14 +57,7 @@ boolean MATRIX[24][24] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
-int MODE = -1;
-int X = -1, Y = -1;
-const int LED_POSITION_MODE = 1;
-const int MULTIPLAYER_MODE = 2;
-const int DEMO_MODE = 3;
 
-const int CMD_UP = 10;
-const int CMD_DOWN = 11;
 /*-----------------------SET UP---------------------*/
 void setup()
 {
@@ -348,22 +349,22 @@ void pongTest()
   Player four(4);
   while(true)
   {
-  for(int i = 0; i < 19; i++)
-  {
-    delay(100);
-    two.moveUpOrLeft();
-    one.moveDownOrRight();
-    three.moveDownOrRight();
-    four.moveUpOrLeft();
-  }
-  for(int i = 0; i < 19; i++)
-  {
-    delay(100);
-    two.moveDownOrRight();
-    one.moveUpOrLeft();
-    three.moveUpOrLeft();
-    four.moveDownOrRight();
-  }
+    for(int i = 0; i < 19; i++)
+    {
+      delay(10);
+      two.moveUpOrLeft();
+      one.moveDownOrRight();
+      three.moveDownOrRight();
+      four.moveUpOrLeft();
+    }
+    for(int i = 0; i < 19; i++)
+    {
+      delay(10);
+      two.moveDownOrRight();
+      one.moveUpOrLeft();
+      three.moveUpOrLeft();
+      four.moveDownOrRight();
+    }
   }
   delay(10000);
 }
@@ -383,13 +384,16 @@ void loop()
       case 1: //LED_POSITION
         setXYValues(number);
         setLed(X,Y,true);
-        MATRIX[X][Y] = true;
         break;
       case 2: //MULTIPLAYER
         multiPlayerLoop(number);
         break;
-      case 3:
+      case 3: //DEMO
         demoTest();
+        break;
+      case 9: //TURNOFFLED
+        setXYValues(number);
+        setLed(X,Y,false);
         break;
       default:
         break;
