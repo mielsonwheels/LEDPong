@@ -2,7 +2,15 @@
 #include <LedControl.h>
 #include "Player.h"
 
-boolean testMatrix = true;
+int MODE = -1;
+int X = -1, Y = -1;
+const int LED_POSITION_MODE = 1;
+const int LED_TURNOFF_MODE = 9;
+const int MULTIPLAYER_MODE = 2;
+const int DEMO_MODE = 3;
+
+const int CMD_UP = 10;
+const int CMD_DOWN = 11;
 
 /* 
  * Now we create a new LedControl. 
@@ -49,14 +57,7 @@ boolean MATRIX[24][24] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 };
 
-int MODE = -1;
-int X = -1, Y = -1;
-const int LED_POSITION_MODE = 1;
-const int MULTIPLAYER_MODE = 2;
-const int DEMO_MODE = 3;
 
-const int CMD_UP = 10;
-const int CMD_DOWN = 11;
 /*-----------------------SET UP---------------------*/
 void setup()
 {
@@ -194,7 +195,7 @@ void setRow(int y, boolean on)
   }
 }
 
-void setLed(int x,int y, boolean on)
+void setLed(int y,int x, boolean on)
 {
   int address = -1;
   
@@ -233,6 +234,7 @@ void setLed(int x,int y, boolean on)
   }
   if(address != -1)
   {
+    MATRIX[x][y] = on;
     y = y %8;
     y -= 7;
     if(y < 0) y *= -1;
@@ -329,44 +331,13 @@ void demoTest()
    }
 }
 
-void clearDisplays()
+void clearDisplay()
 {
   lc1.clearDisplay(0);
   for(int i = 0; i < 8; i++)
   {
     lc.clearDisplay(i);
-  }
-}
-
-void setPlayerOnMatrix(Player p)
-{
-  int row = -1;
-  int column = -1;
-  switch(p.playerNum)
-  {
-    case 1:
-      row = 23;
-      break;
-    case 2:
-      row = 0;
-      break;
-    case 3:
-      column = 23;
-      break;
-    case 4:
-      column = 0;
-      break;
-  }
-  for(int i = 0; i < 23; i++) //reset row or column
-  {
-    if(row != -1)
-      MATRIX[row][i] = false;
-    if(column != -1)
-      MATRIX[i][column] = false;
-  }
-  for(int i = 0; i < 5; i++)
-  {
-    MATRIX[p.xCoords[i]][p.yCoords[i]] = true;
+    resetMatrix();
   }
 }
 
@@ -376,20 +347,32 @@ void pongTest()
   Player two(2);
   Player three(3);
   Player four(4);
-  setPlayerOnMatrix(one);
-  setPlayerOnMatrix(two);
-  setPlayerOnMatrix(three);
-  setPlayerOnMatrix(four);
-  printMatrix();
-   three.moveDownOrRight();
-   one.moveUpOrLeft();
-   printMatrix();
- 
+  while(true)
+  {
+    for(int i = 0; i < 19; i++)
+    {
+      delay(10);
+      two.moveUpOrLeft();
+      one.moveDownOrRight();
+      three.moveDownOrRight();
+      four.moveUpOrLeft();
+    }
+    for(int i = 0; i < 19; i++)
+    {
+      delay(10);
+      two.moveDownOrRight();
+      one.moveUpOrLeft();
+      three.moveUpOrLeft();
+      four.moveDownOrRight();
+    }
+  }
+  delay(10000);
 }
 
 void loop()
 {
   while(true) pongTest();
+  //while(true) setLed(2,1,true);
   String number = getStringFromSerial(); //also Sets MODE //uncomment this line
   int player = -1;
   if(number != "-1")
@@ -401,13 +384,16 @@ void loop()
       case 1: //LED_POSITION
         setXYValues(number);
         setLed(X,Y,true);
-        MATRIX[X][Y] = true;
         break;
       case 2: //MULTIPLAYER
         multiPlayerLoop(number);
         break;
-      case 3:
+      case 3: //DEMO
         demoTest();
+        break;
+      case 9: //TURNOFFLED
+        setXYValues(number);
+        setLed(X,Y,false);
         break;
       default:
         break;
