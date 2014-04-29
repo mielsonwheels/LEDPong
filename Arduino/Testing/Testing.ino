@@ -1,5 +1,6 @@
 #include <LiquidCrystal.h>
 #include <LedControl.h>
+#include "Player.h"
 
 boolean testMatrix = true;
 
@@ -16,30 +17,59 @@ boolean testMatrix = true;
 LiquidCrystal lcd(8,9,4,5,6,7);
 //LedControl(int dataPin, int clkPin, int csPin, int numDevices);
 const int DEVICES = 8;
+const int INTENSITY = 0;
+
 LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
 LedControl lc1 = LedControl(A3,11,A1,1);
 
+boolean MATRIX[24][24] = {
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+};
 
 int MODE = -1;
 int X = -1, Y = -1;
 const int LED_POSITION_MODE = 1;
 const int MULTIPLAYER_MODE = 2;
+const int DEMO_MODE = 3;
 
 const int CMD_UP = 10;
 const int CMD_DOWN = 11;
-
+/*-----------------------SET UP---------------------*/
 void setup()
 {
   //Initialize all Devices
   for(int i = 0; i < DEVICES; i++)
   {
     lc.shutdown(i,false);
-    lc.setIntensity(i,0);
+    lc.setIntensity(i,INTENSITY);
     lc.clearDisplay(i);
   }
   
   lc1.shutdown(0,false);
-  lc1.setIntensity(0,0);
+  lc1.setIntensity(0,INTENSITY);
   lc1.clearDisplay(0);
   
   lcd.begin(16,2);
@@ -82,7 +112,6 @@ void setXYValues(String val)
 
 int getPlayer(String val)
 {
-   
    return atoi(val.c_str())%10;
 }
 
@@ -138,23 +167,46 @@ void multiPlayerLoop(String number)
 {
   int player = -1;
   int command = -1;
-  //player = getPlayer(number);
-  //command = getCommand(number);
   doCommand(getPlayer(number),getCommand(number));
+}
+
+void setRow(int y, boolean on)
+{
+  byte turnedOn = 0;
+  if(on) turnedOn = 255;
+  if(y >= 0 && y < 8) //first column
+  {
+    lc1.setRow(0,y,on);
+    lc.setRow(3,y,on);
+    lc.setRow(2,y,on);
+  }
+  else if(y > 7 && y < 16)
+  {
+    lc.setRow(6,y,on);
+    lc.setRow(5,y,on);
+    lc.setRow(1,y,on);
+  }
+  else if (y > 15 && y < 24)
+  {
+    lc.setRow(7,y,on);
+    lc.setRow(4,y,on);
+    lc.setRow(0,y,on);
+  }
 }
 
 void setLed(int x,int y, boolean on)
 {
   int address = -1;
-  boolean otherDriver = false;
-  y = y - 8;
-  if (y < 0) y = y * -1;
+  
   if(y >= 0 && y < 8) //first row
   {
     if(x >= 0 && x <= 7) // first column
     {
-      lc1.setLed(0,x%8,y%8,on);
-      otherDriver = true;
+      y = y%8;
+      y-= 7;
+      if(y<0) y *= -1;
+      lc1.setLed(0,x%8,y,on);
+      return;
     }
     else if(x > 7 && x <= 15) //second column
       address = 3;
@@ -177,95 +229,188 @@ void setLed(int x,int y, boolean on)
     else if(x > 7 && x < 16) //second column
       address = 4;
     else if(x > 15 && x < 24) //third column
-    {
       address = 0;
-    }
   }
-  if(!otherDriver)
-    lc.setLed(address,x%8,y%8,on);
-  
+  if(address != -1)
+  {
+    y = y %8;
+    y -= 7;
+    if(y < 0) y *= -1;
+    lc.setLed(address,x%8,y,on);
+  }
 }
 
-void demoMatrix(int delayTime)
+
+void resetMatrix()
 {
-  for(int i = 0; i < 8; i++)
+  for(int i = 0; i < 24; i++)
   {
-    for(int j = 0; j < 8; j++)
+    for(int j = 0; j < 24; j++)
     {
-      setLed(i,j,true);
-      delay(delayTime);
+      MATRIX[i][j] = false;
     }
   }
-  for(int i = 0; i < 8; i++)
+}
+
+void printMatrix()
+{
+  for(int i = 0; i < 24; i++)
   {
-    for(int j = 0; j < 8; j++)
+    for(int j = 0; j < 24; j++)
     {
-      setLed(i,j,false);
-      delay(delayTime);
+      setLed(i,j,MATRIX[i][j]);
     }
   }
+}
+
+void printRow(int row, boolean val[24])
+{
+  for(int i = 0; i < 24; i++)
+  {
+    if(val[i])
+      setLed(row,i,true);
+  }
+}
+
+void ballTest() {
+  int Max = 23;
+  int xPos = 5;
+  int yPos = 0;
+  int vx = 3;
+  int vy = 2;
+  while (true) {
+    setLed(xPos, yPos, false);
+    setLed(Max - xPos, Max - yPos, false);
+    setLed(yPos, xPos, false);
+    setLed(Max - yPos, Max - xPos, false);
+    xPos += vx;
+    yPos += vy;
+    if (xPos > Max || xPos < 0) {
+      xPos -= vx;
+      vx *= -1; 
+    }
+    if (yPos > Max || yPos < 0) {
+      yPos -= vy;
+      vy *= -1; 
+    }
+    setLed(xPos, yPos, true);
+    setLed(Max - xPos, Max - yPos, true);
+    setLed(yPos, xPos, true);
+    setLed(Max - yPos, Max - xPos, true);
+    delay(90);
+  } 
 }
 
 void demoTest()
 {
-  for(int i = 0; i < 64; i++)
+   for(int i = 0; i < 24; i++)
+   {
+     for(int j = 0; j < 24; j++)
+     {
+       setLed(i,j,true);
+     }
+   }
+   for(int i = 0; i < 24; i++)
+   {
+     for(int j = 0; j < 24; j++)
+     {
+       setLed(j,i,false);
+     }
+   }
+   for(int i = 23; i >= 0; i--)
+   {
+     for(int j = 23; j >= 0; j--)
+       setLed(i,j,true);
+   }
+   for(int i = 23; i >= 0; i--)
+   {
+     for(int j = 23; j >= 0; j--)
+       setLed(j,i,false);
+   }
+}
+
+void clearDisplays()
+{
+  lc1.clearDisplay(0);
+  for(int i = 0; i < 8; i++)
   {
-    for(int j = 0; j < 64; j++)
-    {
-      setLed(i,j,true);
-      delay(5);
-    }
+    lc.clearDisplay(i);
   }
-  for(int i = 0; i < 64; i++)
+}
+
+void setPlayerOnMatrix(Player p)
+{
+  int row = -1;
+  int column = -1;
+  switch(p.playerNum)
   {
-    for(int j = 0; j < 64; j++)
-    {
-      setLed(i,j,false); //to turn off
-    }
-    delay(50);
+    case 1:
+      row = 23;
+      break;
+    case 2:
+      row = 0;
+      break;
+    case 3:
+      column = 23;
+      break;
+    case 4:
+      column = 0;
+      break;
   }
+  for(int i = 0; i < 23; i++) //reset row or column
+  {
+    if(row != -1)
+      MATRIX[row][i] = false;
+    if(column != -1)
+      MATRIX[i][column] = false;
+  }
+  for(int i = 0; i < 5; i++)
+  {
+    MATRIX[p.xCoords[i]][p.yCoords[i]] = true;
+  }
+}
+
+void pongTest()
+{
+  Player one(1);
+  Player two(2);
+  Player three(3);
+  Player four(4);
+  setPlayerOnMatrix(one);
+  setPlayerOnMatrix(two);
+  setPlayerOnMatrix(three);
+  setPlayerOnMatrix(four);
+  printMatrix();
+   three.moveDownOrRight();
+   one.moveUpOrLeft();
+   printMatrix();
+ 
 }
 
 void loop()
 {
-  
-  if(testMatrix)
+  while(true) pongTest();
+  String number = getStringFromSerial(); //also Sets MODE //uncomment this line
+  int player = -1;
+  if(number != "-1")
   {
-    //demoMatrix(50); //comment this line
-    int intensity = 0;
-    while(true){
-      for(int i = 0; i < 24; i++){
-        
-        for(int j = 0; j < 24; j++){
-          setLed(i,j,true);
-          delay(50);
-          //setLed(i,j,false);
-        }
-      }
-    }
-  }else{
-    String number = getStringFromSerial(); //also Sets MODE //uncomment this line
-    int player = -1;
-    if(number != "-1")
+    lcd.clear();
+    lcd.setCursor(0,0);
+    switch(MODE)
     {
-      lcd.clear();
-      lcd.setCursor(0,0);
-      switch(MODE)
-      {
-        case 1: //LED_POSITION
-          setXYValues(number);
-          lcd.print("X = ");
-          lcd.print(X);
-          lcd.setCursor(0,1);
-          lcd.print("Y = ");
-          lcd.print(Y);
-          break;
-        case 2: //MULTIPLAYER
-          multiPlayerLoop(number);
-          break;
-        default:
-          break;
-      }
+      case 1: //LED_POSITION
+        setXYValues(number);
+        setLed(X,Y,true);
+        MATRIX[X][Y] = true;
+        break;
+      case 2: //MULTIPLAYER
+        multiPlayerLoop(number);
+        break;
+      case 3:
+        demoTest();
+        break;
+      default:
+        break;
     }
   }
 }
