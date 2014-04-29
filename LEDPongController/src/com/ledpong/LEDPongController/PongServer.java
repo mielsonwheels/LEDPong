@@ -73,14 +73,18 @@ public class PongServer extends Thread {
         }
     }
 
-    public void sendLed(int x, int y) throws IOException {
+    public void sendLed(int x, int y, boolean on) throws IOException {
         try{
             byte[] message;
-            String command = Integer.toString(1) +
+            int c = 1;
+            if(!on){
+                c = 9;
+            }
+            String command = Integer.toString(c) +
                     Integer.toString(x) + Integer.toString(y);
             command += "a";
             message = command.getBytes();
-            mmOutStream.write(message);
+            if (mmOutStream != null) mmOutStream.write(message);
         } catch(IOException e) {
             throw e;
         }

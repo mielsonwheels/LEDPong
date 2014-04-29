@@ -24,6 +24,7 @@ public class AnimatorCanvas extends View{
     private float selfHeight;
     private Paint linePaint;
     private Paint squarePaint;
+    private boolean eraseMode = false;
     PongServer arduinoThread;
 
     public AnimatorCanvas(Context context) {
@@ -56,6 +57,9 @@ public class AnimatorCanvas extends View{
         this.clearFrame();
     }
 
+    public void toggleErase(){
+        eraseMode = !eraseMode;
+    }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldh, int oldw){
@@ -96,7 +100,12 @@ public class AnimatorCanvas extends View{
         if(y < 0) y = 0;
         if(x > 23) x = 23;
         if(y > 23) y = 23;
-        ledMatrix[y][x] = !(ledMatrix[y][x]);
+        if(eraseMode) {
+            ledMatrix[y][x] = false;
+        }
+        else {
+            ledMatrix[y][x] = true;
+        }
         invalidate();
     }
 
@@ -109,8 +118,8 @@ public class AnimatorCanvas extends View{
     }
 
     public void clearFrame(){
-        for(int i = 0; i < 23; i++){
-            for(int j = 0; j < 23; j++){
+        for(int i = 0; i < 24; i++){
+            for(int j = 0; j < 24; j++){
                 ledMatrix[i][j] = false;
             }
         }
@@ -123,15 +132,16 @@ public class AnimatorCanvas extends View{
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
-            case MotionEvent.ACTION_UP:
-                toggleLed((int)touchX/23, (int)touchY/23);
+            //case MotionEvent.ACTION_UP:
+                toggleLed((int)touchX/24, (int)touchY/24);
                 break;
             default:
                 return false;
         }
-        //c.invalidate();
+        invalidate();
         try {
-            arduinoThread.sendLed((int) touchX / 24, (int) touchY / 24);
+           if(arduinoThread != null) arduinoThread.sendLed((int) touchX / 23, (int) touchY / 23,
+                   getLed((int) touchX / 23, (int) touchY / 23));
         } catch (IOException e) {
             e.printStackTrace();
         }

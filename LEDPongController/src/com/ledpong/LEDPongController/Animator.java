@@ -1,22 +1,13 @@
 package com.ledpong.LEDPongController;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.GridLayout;
-import android.widget.TableLayout;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
-import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -57,12 +48,8 @@ public class Animator extends Activity {
             }
         }
         setContentView(R.layout.animate);
-        AnimatorCanvas canvas = (AnimatorCanvas)findViewById(R.id.view);
-        if(canvas != null) {
-            c = canvas;
-        }
-        //canvas.setOnTouchListener();
-        setContentView(R.layout.animate);
+        AnimatorCanvas canvas = (AnimatorCanvas)findViewById(R.id.canvas);
+        c = canvas;
         arduinoThread = new PongServer(mmDevice);
         arduinoThread.start();
         c.setThread(arduinoThread);
@@ -70,6 +57,10 @@ public class Animator extends Activity {
 
     public void clear(View view){
         c.clearFrame();
+    }
+
+    public void eraseMode(View view){
+        c.toggleErase();
     }
 
     @Override
