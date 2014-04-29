@@ -60,9 +60,9 @@ public:
       case 2:
         if(xCoords[0] > 0)
         {
-          setLed(xCoords[PADDLE_SIZE-1],yCoords[0],false);
+          setLed(xCoords[4],yCoords[0],false);
           setLed(xCoords[0]-1,yCoords[0],true);
-          for(int i = 0; i < PADDLE_SIZE; i++)
+          for(int i = 0; i < 5; i++)
             xCoords[i]--;
         }
         break;
@@ -70,9 +70,9 @@ public:
       case 4:
         if(yCoords[0] > 0)
         {
-          setLed(xCoords[0],yCoords[PADDLE_SIZE-1],false);
+          setLed(xCoords[0],yCoords[4],false);
           setLed(xCoords[0],yCoords[0]-1,true);
-          for(int i = 0; i < PADDLE_SIZE; i++)
+          for(int i = 0; i < 5; i++)
             yCoords[i]--;
         }
         break;
@@ -84,20 +84,20 @@ public:
     {
       case 1: //move Right
       case 2:
-        if(xCoords[PADDLE_SIZE-1] < 23)
+        if(xCoords[4] < 23)
         {
           setLed(xCoords[0],yCoords[0],false);
-          setLed(xCoords[PADDLE_SIZE-1]+1,yCoords[0],true);
-          for(int i = 0; i < PADDLE_SIZE; i++)
+          setLed(xCoords[4]+1,yCoords[0],true);
+          for(int i = 0; i < 5; i++)
             xCoords[i]++;
         }
         break;
       case 3: //move Down
       case 4:
-        if(yCoords[PADDLE_SIZE-1] < 23)
+        if(yCoords[4] < 23)
         {
           setLed(xCoords[0],yCoords[0],false);
-          setLed(xCoords[0],yCoords[PADDLE_SIZE]+1,true);
+          setLed(xCoords[0],yCoords[4]+1,true);
           for(int i = 0; i < PADDLE_SIZE; i++)
             yCoords[i]++;
         }
