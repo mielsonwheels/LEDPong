@@ -1,34 +1,32 @@
-#include <LiquidCrystal.h>
+//#include <LiquidCrystal.h>
 #include <LedControl.h>
 #include "Player.h"
+#include "Ball.h"
 
 int MODE = -1;
-int X = -1, Y = -1;
-const int LED_POSITION_MODE = 1;
+long int X = -1, Y = -1;
+const int LED_TURNON_MODE = 1;
 const int LED_TURNOFF_MODE = 9;
 const int MULTIPLAYER_MODE = 2;
-const int DEMO_MODE = 3;
+const int SET_MODE = 3;
+const int SET_PLAYERS_MODE = 4;
 
 const int CMD_UP = 10;
 const int CMD_DOWN = 11;
 
-/* 
- * Now we create a new LedControl. 
- * We use pins 12,11 and 10 on the Arduino for the SPI interface
- * Pin 12,A2 is connected to the DATA IN-pin of the first MAX7221
- * Pin 11,A1 is connected to the CLK-pin of the first MAX7221
- * Pin 10,A0 is connected to the LOAD(/CS)-pin of the first MAX7221 	
- * There will only be a single MAX7221 attached to the arduino 
- */
-
-
-LiquidCrystal lcd(8,9,4,5,6,7);
-//LedControl(int dataPin, int clkPin, int csPin, int numDevices);
 const int DEVICES = 8;
 const int INTENSITY = 0;
 
 LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
 LedControl lc1 = LedControl(A3,11,A1,1);
+
+Player *POne;
+Player *PTwo;
+Player *PThree;
+Player *PFour;
+
+Ball *BALL;
+const long int BALLTIMER = 500; //milliseconds
 
 boolean MATRIX[24][24] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -72,24 +70,30 @@ void setup()
   lc1.shutdown(0,false);
   lc1.setIntensity(0,INTENSITY);
   lc1.clearDisplay(0);
+
+  POne = new Player(1);
+  PTwo = new Player(2);
+  PThree = new Player(3);
+  PFour = new Player(4);
+  BALL = new Ball(BALLTIMER);
   
-  lcd.begin(16,2);
-  lcd.clear();
   Serial.begin(9600);
 }
 
 String getStringFromSerial() //returns 5 digit String of digits
 {
-  int val = -1;
   char charVal[6];
   String stringVal = "-1";
+  long int val = -1;
   if(Serial.available())
   {
-    val = Serial.parseInt();
-    if(val > 9999 && val < 99999) //five digits is acceptable
+    //val = Serial.parseInt();
+    stringVal = Serial.readStringUntil('a');
+    val = atol(stringVal.c_str());
+    if(val > 9999 && val < 999999) //five / six digits is acceptable
     {
-      itoa(val,charVal,10);
-      stringVal = charVal;
+      //itoa(val,charVal,10);
+      //stringVal = charVal;
       MODE = val / 10000;
       return stringVal;
     }
@@ -105,62 +109,58 @@ void setXYValues(String val)
   char* y = new char[2];
   y[0] = val[3];
   y[1] = val[4];
-  X = atoi(x);
-  Y = atoi(y);
+  X = atol(x);
+  Y = atol(y);
   delete x;
   delete y;
 }
 
-int getPlayer(String val)
+long int getPlayer(String val)
 {
-   return atoi(val.c_str())%10;
+   return atol(val.c_str())%10;
 }
 
-int getCommand(String val)
+long int getCommand(String val)
 {
   char* x = new char[2];
   x[0] = val[2];
   x[1] = val[3];
-  int value = atoi(x);
+  long int value = atol(x);
   delete x;
   return value;
 }
 
 void doCommand(int player, int command)
 {
-  lcd.clear();
-  lcd.setCursor(0,0);
   boolean invalid = false;
+  Player *p;
   switch(player)
   {
      case 1:
-       lcd.print("Player 1");
+       p = POne;
        break;
      case 2:
-       lcd.print("Player 2");
+       p = PTwo;
        break;
      case 3:
-       lcd.print("Player 3");
+       p = PThree;
        break;
      case 4:
-       lcd.print("Player 4");
+       p = PFour;
        break;
      default:
        invalid = true;
        break;
   }
   if(!invalid)
+  switch(command)
   {
-    lcd.setCursor(0,1);
-    switch(command)
-    {
-      case CMD_UP:
-        lcd.print("UP");
-        break;
-      case CMD_DOWN:
-        lcd.print("DOWN");
-        break;
-    }
+    case CMD_UP:
+      p->moveUpOrLeft();
+      break;
+    case CMD_DOWN:
+      p->moveDownOrRight();
+      break;
   }
 }
 
@@ -195,7 +195,7 @@ void setRow(int y, boolean on)
   }
 }
 
-void setLed(int y,int x, boolean on)
+void setLed(long int y,long int x, boolean on)
 {
   int address = -1;
   
@@ -337,52 +337,89 @@ void clearDisplay()
   for(int i = 0; i < 8; i++)
   {
     lc.clearDisplay(i);
-    resetMatrix();
+  }
+  resetMatrix();
+}
+
+void setPlayers(String number)
+{
+  switch(getPlayer(number))
+  {
+    case 1:
+      PTwo->lose();
+      PThree->lose();
+      PFour->lose();
+      break;
+    case 2:
+      PThree->lose();
+      PFour->lose();
+      break;
+    case 3:
+      PFour->lose();
+      break;
+    case 4:
+      break;
   }
 }
 
-void pongTest()
+void playerLost(String number)
 {
-  Player one(1);
-  Player two(2);
-  Player three(3);
-  Player four(4);
-  while(true)
+  Serial.println(number);
+  switch(getPlayer(number))
   {
-    for(int i = 0; i < 19; i++)
-    {
-      delay(10);
-      two.moveUpOrLeft();
-      one.moveDownOrRight();
-      three.moveDownOrRight();
-      four.moveUpOrLeft();
-    }
-    for(int i = 0; i < 19; i++)
-    {
-      delay(10);
-      two.moveDownOrRight();
-      one.moveUpOrLeft();
-      three.moveUpOrLeft();
-      four.moveDownOrRight();
-    }
+    case 1:
+      POne->lose();
+      break;
+    case 2:
+      PTwo->lose();
+      break;
+    case 3:
+      PThree->lose();
+      break;
+    case 4:
+      PFour->lose();
+      break;
+    default:
+      break;
   }
-  delay(10000);
+}
+
+void checkCollision()
+{
+  if(BALL->xPos <= 0 && BALL->yPos >= 23) // bottom left corner PLAYER ONE LOST
+  {
+    
+  }
+  else if(BALL->xPos <= 0 && BALL->yPos <= 0) // top left corner PLAYER FOUR LOST
+  {
+    
+  }
+  else if(BALL->xPos >= 23 && BALL->yPos <= 0) // top right corner PLAYER TWO LOST
+  {
+    
+  }
+  else if(BALL->xPos >= 23 && BALL->yPos >= 23) // bottom right PLAYER THREE LOST
+  {
+    
+  }
 }
 
 void loop()
 {
-  while(true) pongTest();
   //while(true) setLed(2,1,true);
   String number = getStringFromSerial(); //also Sets MODE //uncomment this line
   int player = -1;
   if(number != "-1")
   {
-    lcd.clear();
-    lcd.setCursor(0,0);
     switch(MODE)
     {
       case 1: //LED_POSITION
         setXYValues(number);
+        Serial.println(number);
+        Serial.print("x = ");
+        Serial.print(X);
+        Serial.print(" y = ");
+        Serial.println(Y);
         setLed(X,Y,true);
         break;
       case 2: //MULTIPLAYER
@@ -391,9 +428,18 @@ void loop()
       case 3: //DEMO
         demoTest();
         break;
+      case 4: //SET PLAYERS
+        setPlayers(number);
+        break;
+      case 5: //LOSE PLAYER
+        playerLost(number);
+        break;
       case 9: //TURNOFFLED
         setXYValues(number);
         setLed(X,Y,false);
+        break;
+      case 10:
+        clearDisplay();
         break;
       default:
         break;
