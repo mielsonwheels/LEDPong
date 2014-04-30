@@ -2,7 +2,7 @@
 #define Player_h
 
 const int PADDLE_SIZE = 5;
-void setLed(int x,int y, boolean on); //declaration
+void setLed(long int x,long int y, boolean on); //declaration
 
 class Player
 {

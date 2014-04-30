@@ -1,6 +1,7 @@
-#include <LiquidCrystal.h>
+//#include <LiquidCrystal.h>
 #include <LedControl.h>
 #include "Player.h"
+#include "Ball.h"
 
 int MODE = -1;
 long int X = -1, Y = -1;
@@ -16,20 +17,6 @@ const int CMD_DOWN = 11;
 const int DEVICES = 8;
 const int INTENSITY = 0;
 
-/* 
- * Now we create a new LedControl. 
- * We use pins 12,11 and 10 on the Arduino for the SPI interface
- * Pin 12,A2 is connected to the DATA IN-pin of the first MAX7221
- * Pin 11,A1 is connected to the CLK-pin of the first MAX7221
- * Pin 10,A0 is connected to the LOAD(/CS)-pin of the first MAX7221 	
- * There will only be a single MAX7221 attached to the arduino 
- */
-
-
-LiquidCrystal lcd(8,9,4,5,6,7);
-//LedControl(int dataPin, int clkPin, int csPin, int numDevices);
-
-
 LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
 LedControl lc1 = LedControl(A3,11,A1,1);
 
@@ -37,6 +24,9 @@ Player *POne;
 Player *PTwo;
 Player *PThree;
 Player *PFour;
+
+Ball *BALL;
+const long int BALLTIMER = 500; //milliseconds
 
 boolean MATRIX[24][24] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -80,13 +70,12 @@ void setup()
   lc1.shutdown(0,false);
   lc1.setIntensity(0,INTENSITY);
   lc1.clearDisplay(0);
-  
-  lcd.begin(16,2);
-  lcd.clear();
+
   POne = new Player(1);
   PTwo = new Player(2);
   PThree = new Player(3);
   PFour = new Player(4);
+  BALL = new Ball(BALLTIMER);
   
   Serial.begin(9600);
 }
@@ -101,7 +90,7 @@ String getStringFromSerial() //returns 5 digit String of digits
     //val = Serial.parseInt();
     stringVal = Serial.readStringUntil('a');
     val = atol(stringVal.c_str());
-    if(val > 9999 && val < 99999) //five digits is acceptable
+    if(val > 9999 && val < 999999) //five / six digits is acceptable
     {
       //itoa(val,charVal,10);
       //stringVal = charVal;
@@ -143,8 +132,6 @@ long int getCommand(String val)
 
 void doCommand(int player, int command)
 {
-  lcd.clear();
-  lcd.setCursor(0,0);
   boolean invalid = false;
   Player *p;
   switch(player)
@@ -208,7 +195,7 @@ void setRow(int y, boolean on)
   }
 }
 
-void setLed(int y,int x, boolean on)
+void setLed(long int y,long int x, boolean on)
 {
   int address = -1;
   
@@ -354,32 +341,6 @@ void clearDisplay()
   resetMatrix();
 }
 
-void pongTest()
-{
-  /*
-  while(true)
-  {
-    for(int i = 0; i < 19; i++)
-    {
-      delay(10);
-      two.moveUpOrLeft();
-      one.moveDownOrRight();
-      three.moveDownOrRight();
-      four.moveUpOrLeft();
-    }
-    for(int i = 0; i < 19; i++)
-    {
-      delay(10);
-      two.moveDownOrRight();
-      one.moveUpOrLeft();
-      three.moveUpOrLeft();
-      four.moveDownOrRight();
-    }
-  }
-  delay(10000);
-  */
-}
-
 void setPlayers(String number)
 {
   switch(getPlayer(number))
@@ -423,34 +384,42 @@ void playerLost(String number)
   }
 }
 
-
-long int setMode(String number)
+void checkCollision()
 {
-  
-  char* x = new char[2];
-  x[0] = number[2];
-  x[1] = number[3];
-  long int value = atol(x);
-  delete x;
-  return value;
+  if(BALL->xPos <= 0 && BALL->yPos >= 23) // bottom left corner PLAYER ONE LOST
+  {
+    
+  }
+  else if(BALL->xPos <= 0 && BALL->yPos <= 0) // top left corner PLAYER FOUR LOST
+  {
+    
+  }
+  else if(BALL->xPos >= 23 && BALL->yPos <= 0) // top right corner PLAYER TWO LOST
+  {
+    
+  }
+  else if(BALL->xPos >= 23 && BALL->yPos >= 23) // bottom right PLAYER THREE LOST
+  {
+    
+  }
 }
 
 void loop()
 {
   //while(true) setLed(2,1,true);
   String number = getStringFromSerial(); //also Sets MODE //uncomment this line
-  
   int player = -1;
   if(number != "-1")
   {
-    Serial.print("Number = ");
-  Serial.println(number);
-    lcd.clear();
-    lcd.setCursor(0,0);
     switch(MODE)
     {
       case 1: //LED_POSITION
         setXYValues(number);
+        Serial.println(number);
+        Serial.print("x = ");
+        Serial.print(X);
+        Serial.print(" y = ");
+        Serial.println(Y);
         setLed(X,Y,true);
         break;
       case 2: //MULTIPLAYER
@@ -468,6 +437,9 @@ void loop()
       case 9: //TURNOFFLED
         setXYValues(number);
         setLed(X,Y,false);
+        break;
+      case 10:
+        clearDisplay();
         break;
       default:
         break;
