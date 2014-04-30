@@ -124,6 +124,11 @@ public class AnimatorCanvas extends View{
             }
         }
         invalidate();
+        try {
+            if (arduinoThread != null) arduinoThread.clearLED(); //Might not want this here when saving animations?
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -133,7 +138,7 @@ public class AnimatorCanvas extends View{
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
             //case MotionEvent.ACTION_UP:
-                toggleLed((int)touchX/24, (int)touchY/24);
+                toggleLed((int)touchX/23, (int)touchY/23);
                 break;
             default:
                 return false;

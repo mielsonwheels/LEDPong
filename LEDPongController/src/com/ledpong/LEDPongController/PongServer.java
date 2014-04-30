@@ -2,6 +2,7 @@ package com.ledpong.LEDPongController;
 
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.os.SystemClock;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,6 +42,7 @@ public class PongServer extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         while(!quit){
             //keep thread alive until we don't need it anymore
             //This is where where we listen for connections on master socket
@@ -73,17 +75,30 @@ public class PongServer extends Thread {
         }
     }
 
+    public void clearLED() throws IOException {
+        try{
+            byte[] message;
+            String command = Integer.toString(101234);
+            command += "a";
+            message = command.getBytes();
+            mmOutStream.write(message);
+        } catch(IOException e) {
+            throw e;
+        }
+    }
+
     public void sendLed(int x, int y, boolean on) throws IOException {
         try{
             byte[] message;
             int c = 1;
-            if(!on){
+            if(on){
                 c = 9;
             }
             String command = Integer.toString(c) +
                     Integer.toString(x) + Integer.toString(y);
             command += "a";
             message = command.getBytes();
+            System.out.println(command);
             if (mmOutStream != null) mmOutStream.write(message);
         } catch(IOException e) {
             throw e;
