@@ -3,14 +3,18 @@
 #include "Player.h"
 
 int MODE = -1;
-int X = -1, Y = -1;
-const int LED_POSITION_MODE = 1;
+long int X = -1, Y = -1;
+const int LED_TURNON_MODE = 1;
 const int LED_TURNOFF_MODE = 9;
 const int MULTIPLAYER_MODE = 2;
-const int DEMO_MODE = 3;
+const int SET_MODE = 3;
+const int SET_PLAYERS_MODE = 4;
 
 const int CMD_UP = 10;
 const int CMD_DOWN = 11;
+
+const int DEVICES = 8;
+const int INTENSITY = 0;
 
 /* 
  * Now we create a new LedControl. 
@@ -24,11 +28,15 @@ const int CMD_DOWN = 11;
 
 LiquidCrystal lcd(8,9,4,5,6,7);
 //LedControl(int dataPin, int clkPin, int csPin, int numDevices);
-const int DEVICES = 8;
-const int INTENSITY = 0;
+
 
 LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
 LedControl lc1 = LedControl(A3,11,A1,1);
+
+Player *POne;
+Player *PTwo;
+Player *PThree;
+Player *PFour;
 
 boolean MATRIX[24][24] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -75,21 +83,28 @@ void setup()
   
   lcd.begin(16,2);
   lcd.clear();
+  POne = new Player(1);
+  PTwo = new Player(2);
+  PThree = new Player(3);
+  PFour = new Player(4);
+  
   Serial.begin(9600);
 }
 
 String getStringFromSerial() //returns 5 digit String of digits
 {
-  int val = -1;
   char charVal[6];
   String stringVal = "-1";
+  long int val = -1;
   if(Serial.available())
   {
-    val = Serial.parseInt();
+    //val = Serial.parseInt();
+    stringVal = Serial.readStringUntil('a');
+    val = atol(stringVal.c_str());
     if(val > 9999 && val < 99999) //five digits is acceptable
     {
-      itoa(val,charVal,10);
-      stringVal = charVal;
+      //itoa(val,charVal,10);
+      //stringVal = charVal;
       MODE = val / 10000;
       return stringVal;
     }
@@ -105,23 +120,23 @@ void setXYValues(String val)
   char* y = new char[2];
   y[0] = val[3];
   y[1] = val[4];
-  X = atoi(x);
-  Y = atoi(y);
+  X = atol(x);
+  Y = atol(y);
   delete x;
   delete y;
 }
 
-int getPlayer(String val)
+long int getPlayer(String val)
 {
-   return atoi(val.c_str())%10;
+   return atol(val.c_str())%10;
 }
 
-int getCommand(String val)
+long int getCommand(String val)
 {
   char* x = new char[2];
   x[0] = val[2];
   x[1] = val[3];
-  int value = atoi(x);
+  long int value = atol(x);
   delete x;
   return value;
 }
@@ -131,36 +146,34 @@ void doCommand(int player, int command)
   lcd.clear();
   lcd.setCursor(0,0);
   boolean invalid = false;
+  Player *p;
   switch(player)
   {
      case 1:
-       lcd.print("Player 1");
+       p = POne;
        break;
      case 2:
-       lcd.print("Player 2");
+       p = PTwo;
        break;
      case 3:
-       lcd.print("Player 3");
+       p = PThree;
        break;
      case 4:
-       lcd.print("Player 4");
+       p = PFour;
        break;
      default:
        invalid = true;
        break;
   }
   if(!invalid)
+  switch(command)
   {
-    lcd.setCursor(0,1);
-    switch(command)
-    {
-      case CMD_UP:
-        lcd.print("UP");
-        break;
-      case CMD_DOWN:
-        lcd.print("DOWN");
-        break;
-    }
+    case CMD_UP:
+      p->moveUpOrLeft();
+      break;
+    case CMD_DOWN:
+      p->moveDownOrRight();
+      break;
   }
 }
 
@@ -337,16 +350,13 @@ void clearDisplay()
   for(int i = 0; i < 8; i++)
   {
     lc.clearDisplay(i);
-    resetMatrix();
   }
+  resetMatrix();
 }
 
 void pongTest()
 {
-  Player one(1);
-  Player two(2);
-  Player three(3);
-  Player four(4);
+  /*
   while(true)
   {
     for(int i = 0; i < 19; i++)
@@ -367,16 +377,74 @@ void pongTest()
     }
   }
   delay(10000);
+  */
+}
+
+void setPlayers(String number)
+{
+  switch(getPlayer(number))
+  {
+    case 1:
+      PTwo->lose();
+      PThree->lose();
+      PFour->lose();
+      break;
+    case 2:
+      PThree->lose();
+      PFour->lose();
+      break;
+    case 3:
+      PFour->lose();
+      break;
+    case 4:
+      break;
+  }
+}
+
+void playerLost(String number)
+{
+  Serial.println(number);
+  switch(getPlayer(number))
+  {
+    case 1:
+      POne->lose();
+      break;
+    case 2:
+      PTwo->lose();
+      break;
+    case 3:
+      PThree->lose();
+      break;
+    case 4:
+      PFour->lose();
+      break;
+    default:
+      break;
+  }
+}
+
+
+long int setMode(String number)
+{
+  
+  char* x = new char[2];
+  x[0] = number[2];
+  x[1] = number[3];
+  long int value = atol(x);
+  delete x;
+  return value;
 }
 
 void loop()
 {
-  while(true) pongTest();
   //while(true) setLed(2,1,true);
   String number = getStringFromSerial(); //also Sets MODE //uncomment this line
+  
   int player = -1;
   if(number != "-1")
   {
+    Serial.print("Number = ");
+  Serial.println(number);
     lcd.clear();
     lcd.setCursor(0,0);
     switch(MODE)
@@ -390,6 +458,12 @@ void loop()
         break;
       case 3: //DEMO
         demoTest();
+        break;
+      case 4: //SET PLAYERS
+        setPlayers(number);
+        break;
+      case 5: //LOSE PLAYER
+        playerLost(number);
         break;
       case 9: //TURNOFFLED
         setXYValues(number);

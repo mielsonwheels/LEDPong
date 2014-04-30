@@ -4,9 +4,17 @@
 class Ball
 {
 public:
-  Ball() {xPos = 12; yPos = 12;}
   int xPos;
   int yPos;
+  Ball() {xPos = 12; yPos = 12;}
+  
+  void move(int angle)
+  {
+    switch(angle)
+    {
+      
+    }
+  }
 };
 
 #endif
