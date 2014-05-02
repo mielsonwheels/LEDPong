@@ -110,6 +110,10 @@ public class AnimatorCanvas extends View{
     }
 
     public boolean getLed(int x, int y){
+        if(x < 0) x = 0;
+        if(x > 23) x = 23;
+        if(y < 0) y = 0;
+        if(y > 23) y = 23;
         return ledMatrix[x][y];
     }
 
@@ -130,23 +134,45 @@ public class AnimatorCanvas extends View{
             e.printStackTrace();
         }
     }
+
+    private int calcRow(float touchX){
+        float x = cellWidth;
+        for(int i = 0; i < 24; i++){
+            if(touchX > x && touchX < x + cellWidth)
+                return i;
+            x += cellWidth;
+        }
+        return 23;
+    }
+
+    private int calcColumn(float touchY){
+        float y = cellHeight;
+        for(int i = 0; i < 24; i++){
+            if(touchY > y && touchY < y + cellHeight)
+                return i;
+            y += cellHeight;
+        }
+        return 23;
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float touchX = event.getX();
         float touchY = event.getY();
+        int x = calcRow(touchX);
+        int y = calcColumn(touchY);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
             //case MotionEvent.ACTION_UP:
-                toggleLed((int)touchX/23, (int)touchY/23);
+                toggleLed(x,y);
                 break;
             default:
                 return false;
         }
         invalidate();
         try {
-           if(arduinoThread != null) arduinoThread.sendLed((int) touchX / 23, (int) touchY / 23,
-                   getLed((int) touchX / 23, (int) touchY / 23));
+           if(arduinoThread != null) arduinoThread.sendLed(x, y, eraseMode);
         } catch (IOException e) {
             e.printStackTrace();
         }

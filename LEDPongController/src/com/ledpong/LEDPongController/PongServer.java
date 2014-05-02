@@ -94,8 +94,12 @@ public class PongServer extends Thread {
             if(on){
                 c = 9;
             }
-            String command = Integer.toString(c) +
-                    Integer.toString(x) + Integer.toString(y);
+            String xs = Integer.toString(x), ys = Integer.toString(y);
+            if(x < 10)
+                xs = "0" + xs;
+            if(y < 10)
+                ys = "0" + ys;
+            String command = Integer.toString(c) + xs + ys;
             command += "a";
             message = command.getBytes();
             System.out.println(command);
