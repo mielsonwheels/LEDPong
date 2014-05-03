@@ -1,13 +1,18 @@
 package com.ledpong.LEDPongController;
 
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
-import android.os.SystemClock;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
+import java.util.Vector;
 
 /*
  * This is the thread that handles client connections.
@@ -15,39 +20,81 @@ import java.util.UUID;
  * between pong clients and the pong server.
  */
 public class PongServer extends Thread {
-    private final BluetoothSocket mmSocket;
+    private final BluetoothSocket arduinoSocket;
+    private BluetoothServerSocket listenSocket;
     private final BluetoothDevice mmDevice;
     private InputStream mmInStream;
     private OutputStream mmOutStream;
+    private Vector<ClientHandlerThread> threads;
+    private int players = 1;
     private boolean quit;
+    public Handler myHandler;
 
     public PongServer(BluetoothDevice arduino) {
         BluetoothSocket tmp = null;
+        BluetoothServerSocket tmp2 = null;
         mmDevice = arduino;
         UUID uuid = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");//hardcode this bitch
         try{
             tmp = mmDevice.createRfcommSocketToServiceRecord(uuid);
+            tmp2 = BluetoothAdapter.getDefaultAdapter().listenUsingInsecureRfcommWithServiceRecord("Pong Server",
+                    UUID.fromString("84837563-fd99-455f-9719-65019b492ce9"));
         } catch (IOException e){
             e.printStackTrace();
         }
-        mmSocket = tmp;
+        arduinoSocket = tmp;
+        listenSocket = tmp2;
         quit = false;
     }
 
     public void run(){
+        Looper.prepare();
+        myHandler = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                String message = (String) msg.obj;
+                String player = message.substring(0,0);
+                char direction = message.charAt(1);
+                try {
+                    if (direction == 'l') sendLeft(Integer.getInteger(player));
+                    if (direction == 'r') sendRight(Integer.getInteger(player));
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+        };
         try {
-            mmSocket.connect();
-            mmInStream = mmSocket.getInputStream();
-            mmOutStream = mmSocket.getOutputStream();
+            arduinoSocket.connect();
+            while(!arduinoSocket.isConnected());
+
+            mmInStream = arduinoSocket.getInputStream();
+            mmOutStream = arduinoSocket.getOutputStream();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         while(!quit){
             //keep thread alive until we don't need it anymore
             //This is where where we listen for connections on master socket
             //once we get the right number of players, we close master socket
             //and start handling the game
+
+            BluetoothSocket socket = null;
+            if(players < 4){
+                try {
+                    socket = listenSocket.accept();
+                    System.out.println("socket accepted");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if(socket != null){
+                    ClientHandlerThread t = new ClientHandlerThread(socket, ++players, myHandler);
+                    t.start();
+                   // threads.add(t);
+                }
+            } else {
+                Looper.loop();
+            }
         }
     }
 
@@ -112,7 +159,7 @@ public class PongServer extends Thread {
     public void cancel() {
         quit = true;
         try {
-            if(mmSocket != null) mmSocket.close();
+            if(arduinoSocket != null) arduinoSocket.close();
             if(mmInStream != null) mmInStream.close();
             if(mmOutStream != null) mmOutStream.close();
         } catch (IOException e){

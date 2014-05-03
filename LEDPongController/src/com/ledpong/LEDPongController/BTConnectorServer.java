@@ -4,13 +4,10 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 
 import java.io.IOException;
 import java.util.Set;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.view.View;
 import android.widget.*;
 
@@ -20,7 +17,7 @@ public class BTConnectorServer extends Activity {
     private Set<BluetoothDevice> pairedDevices;
     private BluetoothDevice mmDevice;
     private PongServer arduinoThread;
-    private int REQUEST_ENABLE_BT = 1;
+    private int REQUEST_ENABLE_BT = 0;
     protected boolean arduinoFound = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +34,9 @@ public class BTConnectorServer extends Activity {
         if (!myBluetoothAdapter.isEnabled()) {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+            while(REQUEST_ENABLE_BT != RESULT_OK);
         }
+
         // get paired devices
         pairedDevices = myBluetoothAdapter.getBondedDevices();
 
@@ -54,6 +53,17 @@ public class BTConnectorServer extends Activity {
                     Toast.LENGTH_LONG).show();
             finish();
         }
+        myBluetoothAdapter.setName("Pong Server");
+
+        //wait for adapter to turn on
+        while(myBluetoothAdapter.getState() != BluetoothAdapter.STATE_ON);
+
+        //make ourselves discoverable
+        Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+        discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 60);
+        startActivity(discoverableIntent);
+
+        //start main server thread
         arduinoThread = new PongServer(mmDevice);
         arduinoThread.start();
     }
