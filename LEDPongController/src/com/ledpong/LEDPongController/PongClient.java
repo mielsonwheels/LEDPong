@@ -37,10 +37,13 @@ public class PongClient extends Thread {
     public void run(){
         try {
             mmSocket.connect();
-            while(!mmSocket.isConnected());
+            while(!mmSocket.isConnected()){
+                System.out.println("Waiting to connect...");
+            }
             mmInStream = mmSocket.getInputStream();
             mmOutStream = mmSocket.getOutputStream();
             player = mmInStream.read();
+            System.out.printf("Client is player %d\n", player);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -55,8 +58,10 @@ public class PongClient extends Thread {
 
     public void sendLeft() throws IOException {
         try {
-            String command = Integer.toString(player) + "l";
-            mmOutStream.write(command.getBytes());
+            byte[] command = new byte[2];
+            command[0] = (byte) player;
+            command[1] = (byte) 'l';
+            mmOutStream.write(command);
         } catch (IOException e) {
             throw e;
         }
@@ -64,8 +69,10 @@ public class PongClient extends Thread {
 
     public void sendRight() throws IOException {
         try {
-            String command = Integer.toString(player) + "r";
-            mmOutStream.write(command.getBytes());
+            byte[] command = new byte[2];
+            command[0] = (byte) player;
+            command[1] = (byte) 'r';
+            mmOutStream.write(command);
         } catch (IOException e) {
             throw e;
         }

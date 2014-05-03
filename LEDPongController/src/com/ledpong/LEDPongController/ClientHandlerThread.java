@@ -15,6 +15,7 @@ public class ClientHandlerThread extends Thread {
     private int player;
     private InputStream inStream;
     private OutputStream outStream;
+    private boolean quit;
     BluetoothSocket serverSocket;
     Handler parentHandler;
 
@@ -22,23 +23,21 @@ public class ClientHandlerThread extends Thread {
         serverSocket = sock;
         player = _player;
         parentHandler = h;
+        quit = false;
     }
 
     @Override
     public void run() {
         try {
-            serverSocket.connect();
-            while (!serverSocket.isConnected()) ;
             inStream = serverSocket.getInputStream();
             outStream = serverSocket.getOutputStream();
             outStream.write((byte) player);
             byte[] buf = new byte[1024];
-            while(true){
+            while(!quit){
                 inStream.read(buf, 0, 2);
                 System.out.println("Message received");
                 Message m = Message.obtain();
-                String s = new String(buf, "UTF-8");
-                m.obj = s;
+                m.obj = buf;
                 parentHandler.sendMessage(m);
             }
         } catch(IOException e){
@@ -54,5 +53,6 @@ public class ClientHandlerThread extends Thread {
         } catch (IOException e){
             e.printStackTrace();
         }
+        quit = true;
     }
 }

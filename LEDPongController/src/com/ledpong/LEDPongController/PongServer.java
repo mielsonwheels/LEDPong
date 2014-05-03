@@ -22,12 +22,11 @@ import java.util.Vector;
 public class PongServer extends Thread {
     private final BluetoothSocket arduinoSocket;
     private BluetoothServerSocket listenSocket;
+    private ListenThread listenThread;
     private final BluetoothDevice mmDevice;
     private InputStream mmInStream;
     private OutputStream mmOutStream;
     private Vector<ClientHandlerThread> threads;
-    private int players = 1;
-    private boolean quit;
     public Handler myHandler;
 
     public PongServer(BluetoothDevice arduino) {
@@ -44,7 +43,6 @@ public class PongServer extends Thread {
         }
         arduinoSocket = tmp;
         listenSocket = tmp2;
-        quit = false;
     }
 
     public void run(){
@@ -52,50 +50,37 @@ public class PongServer extends Thread {
         myHandler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
-                String message = (String) msg.obj;
-                String player = message.substring(0,0);
-                char direction = message.charAt(1);
+                byte[] message = (byte[]) msg.obj;
                 try {
-                    if (direction == 'l') sendLeft(Integer.getInteger(player));
-                    if (direction == 'r') sendRight(Integer.getInteger(player));
+                    char direction = (char) message[1];
+                    int player = (int) message[0];
+                    System.out.printf("Message received. Dir: %c, Player: %d", direction, player);
+                    if (direction == 'l') sendLeft(player);
+                    if (direction == 'r') sendRight(player);
                 }
                 catch(IOException e){
+                    e.printStackTrace();
+                }
+                catch (NullPointerException e){
+                    System.out.println("substring fucked up");
                     e.printStackTrace();
                 }
             }
         };
         try {
             arduinoSocket.connect();
-            while(!arduinoSocket.isConnected());
-
+            while(!arduinoSocket.isConnected()){
+                System.out.println("Waiting to connect arduino...");
+            }
             mmInStream = arduinoSocket.getInputStream();
             mmOutStream = arduinoSocket.getOutputStream();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while(!quit){
-            //keep thread alive until we don't need it anymore
-            //This is where where we listen for connections on master socket
-            //once we get the right number of players, we close master socket
-            //and start handling the game
-
-            BluetoothSocket socket = null;
-            if(players < 4){
-                try {
-                    socket = listenSocket.accept();
-                    System.out.println("socket accepted");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if(socket != null){
-                    ClientHandlerThread t = new ClientHandlerThread(socket, ++players, myHandler);
-                    t.start();
-                   // threads.add(t);
-                }
-            } else {
-                Looper.loop();
-            }
-        }
+        ListenThread t = new ListenThread(listenSocket, myHandler);
+        listenThread = t;
+        listenThread.start();
+        Looper.loop();
     }
 
     public void sendLeft(int player) throws IOException {
@@ -156,12 +141,20 @@ public class PongServer extends Thread {
         }
     }
 
+    public void sendReset(){
+        try{
+            if(mmOutStream != null) mmOutStream.write("88888a".getBytes());
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public void cancel() {
-        quit = true;
         try {
             if(arduinoSocket != null) arduinoSocket.close();
             if(mmInStream != null) mmInStream.close();
             if(mmOutStream != null) mmOutStream.close();
+            listenThread.cancel();
         } catch (IOException e){
             e.printStackTrace();
         }

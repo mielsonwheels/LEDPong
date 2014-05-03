@@ -84,6 +84,12 @@ public class BTConnectorServer extends Activity {
         }
     }
 
+    public void resetButton(View v){
+        arduinoThread.sendReset();
+        //arduinoThread.cancel();
+        //arduinoThread = new PongServer(mmDevice);
+        //this.recreate();
+    }
     @Override
     protected void onDestroy() {
         // TODO Auto-generated method stub
