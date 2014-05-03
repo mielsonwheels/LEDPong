@@ -1,16 +1,18 @@
 #ifndef Player_h
 #define Player_h
 
-const int PADDLE_SIZE = 5;
+const int PADDLE_SIZE = 3;
 void setLed(long int x,long int y, boolean on); //declaration
 
 class Player
 {
 public:
-  Player(int pNum) : playerNum(pNum)
+  Player(int pNum) : playerNum(pNum) 
   { 
-    //playerNum = PLAYERNUMBER++;
+   // memset(this, 0, sizeof(this));
     lost = false;
+    memset(xCoords,0,sizeof(int)*PADDLE_SIZE);
+    memset(yCoords,0,sizeof(int)*PADDLE_SIZE);
     switch(playerNum)
     {
       case 1:
