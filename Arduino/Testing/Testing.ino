@@ -351,8 +351,7 @@ void clearDisplay()
 
 void setPlayers(String number)
 {
-  switch(
-  getPlayer(number))
+  switch(getPlayer(number))
   {
     case 1:
       PTwo->lose();
