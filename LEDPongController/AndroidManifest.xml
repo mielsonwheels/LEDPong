@@ -8,7 +8,8 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
         <activity android:name=".BTConnectorServer"
-                  android:label="@string/app_name">
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait">
             <intent-filter>
             </intent-filter>
         </activity>
@@ -18,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".BTConnectorClient"/>
-        <activity android:name=".Animator"/>
+        <activity android:name=".BTConnectorClient" android:screenOrientation="portrait"/>
+        <activity android:name=".Animator" android:screenOrientation="portrait"/>
     </application>
 </manifest>

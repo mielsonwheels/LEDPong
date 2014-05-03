@@ -135,24 +135,12 @@ public class AnimatorCanvas extends View{
         }
     }
 
-    private int calcRow(float touchX){
-        float x = cellWidth;
-        for(int i = 0; i < 24; i++){
-            if(touchX > x && touchX < x + cellWidth)
-                return i;
-            x += cellWidth;
-        }
-        return 23;
+    private int calcRow(float touchX) {
+        return (int)(touchX / cellWidth);
     }
 
     private int calcColumn(float touchY){
-        float y = cellHeight;
-        for(int i = 0; i < 24; i++){
-            if(touchY > y && touchY < y + cellHeight)
-                return i;
-            y += cellHeight;
-        }
-        return 23;
+        return (int)(touchY / cellHeight);
     }
 
     @Override
