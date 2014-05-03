@@ -1,16 +1,18 @@
 //#include <LiquidCrystal.h>
 #include <LedControl.h>
 #include "Player.h"
-#include "Ball.h"
+#include "Mball.h"
+#include "Environment.h"
 
 int MODE = -1;
+boolean balloff= true;
 long int X = -1, Y = -1;
 const int LED_TURNON_MODE = 1;
 const int LED_TURNOFF_MODE = 9;
 const int MULTIPLAYER_MODE = 2;
 const int SET_MODE = 3;
 const int SET_PLAYERS_MODE = 4;
-
+int gamedelay;
 const int CMD_UP = 10;
 const int CMD_DOWN = 11;
 
@@ -19,14 +21,16 @@ const int INTENSITY = 0;
 
 LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
 LedControl lc1 = LedControl(A3,11,A1,1);
-
+long int StartTime;
 Player *POne;
 Player *PTwo;
 Player *PThree;
 Player *PFour;
+Environment *envi;
+Environment *envi1;
+MBall *balltest;
+MBall *balltest1;
 
-Ball *BALL;
-const long int BALLTIMER = 500; //milliseconds
 
 boolean MATRIX[24][24] = {
   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -60,24 +64,52 @@ boolean MATRIX[24][24] = {
 void setup()
 {
   //Initialize all Devices
+
   for(int i = 0; i < DEVICES; i++)
   {
     lc.shutdown(i,false);
     lc.setIntensity(i,INTENSITY);
     lc.clearDisplay(i);
+    delay(100);
+    
   }
-  
   lc1.shutdown(0,false);
   lc1.setIntensity(0,INTENSITY);
   lc1.clearDisplay(0);
-
+  delay(100);
+  StartTime=0;
+  gamedelay=250;
   POne = new Player(1);
   PTwo = new Player(2);
   PThree = new Player(3);
   PFour = new Player(4);
-  BALL = new Ball(BALLTIMER);
-  
+  envi= new Environment();
+  balltest= new MBall();
+  balltest->update();
+  envi->paddle_count=0;
+  envi->x_max=23;
+  envi->y_max=23;
+  envi->register_paddle(POne);
+  envi->register_paddle(PTwo);
+  envi->register_paddle(PFour);
+  envi->register_paddle(PThree);
+  envi->register_ball(balltest);
+  //-----------second ball-------
+  envi1= new Environment();
+  balltest1= new MBall();
+  balltest1->update();
+  envi1->paddle_count=0;
+  envi1->x_max=23;
+  envi1->y_max=23;
+  envi1->register_paddle(POne);
+  envi1->register_paddle(PTwo);
+  envi1->register_paddle(PFour);
+  envi1->register_paddle(PThree);
+  envi1->register_ball(balltest1);
+  digitalWrite(3,HIGH);
+  pinMode(3,OUTPUT);
   Serial.begin(9600);
+  delay(100);
 }
 
 String getStringFromSerial() //returns 5 digit String of digits
@@ -89,6 +121,7 @@ String getStringFromSerial() //returns 5 digit String of digits
   {
     //val = Serial.parseInt();
     stringVal = Serial.readStringUntil('a');
+    
     val = atol(stringVal.c_str());
     if(val > 9999 && val < 999999) //five / six digits is acceptable
     {
@@ -103,16 +136,18 @@ String getStringFromSerial() //returns 5 digit String of digits
 
 void setXYValues(String val)
 {
-  char* x = new char[2];
+  char* x = new char[3];
   x[0] = val[1];
   x[1] = val[2];
-  char* y = new char[2];
+  x[2] = '\0';
+  char* y = new char[3];
   y[0] = val[3];
   y[1] = val[4];
+  y[2]= '\0';
   X = atol(x);
   Y = atol(y);
-  delete x;
-  delete y;
+  delete[] x;
+  delete[] y;
 }
 
 long int getPlayer(String val)
@@ -122,11 +157,12 @@ long int getPlayer(String val)
 
 long int getCommand(String val)
 {
-  char* x = new char[2];
+  char* x = new char[3];
   x[0] = val[2];
   x[1] = val[3];
+  x[3] = '\0';
   long int value = atol(x);
-  delete x;
+  delete[] x;
   return value;
 }
 
@@ -274,34 +310,6 @@ void printRow(int row, boolean val[24])
   }
 }
 
-void ballTest() {
-  int Max = 23;
-  int xPos = 5;
-  int yPos = 0;
-  int vx = 3;
-  int vy = 2;
-  while (true) {
-    setLed(xPos, yPos, false);
-    setLed(Max - xPos, Max - yPos, false);
-    setLed(yPos, xPos, false);
-    setLed(Max - yPos, Max - xPos, false);
-    xPos += vx;
-    yPos += vy;
-    if (xPos > Max || xPos < 0) {
-      xPos -= vx;
-      vx *= -1; 
-    }
-    if (yPos > Max || yPos < 0) {
-      yPos -= vy;
-      vy *= -1; 
-    }
-    setLed(xPos, yPos, true);
-    setLed(Max - xPos, Max - yPos, true);
-    setLed(yPos, xPos, true);
-    setLed(Max - yPos, Max - xPos, true);
-    delay(90);
-  } 
-}
 
 void demoTest()
 {
@@ -343,7 +351,8 @@ void clearDisplay()
 
 void setPlayers(String number)
 {
-  switch(getPlayer(number))
+  switch(
+  getPlayer(number))
   {
     case 1:
       PTwo->lose();
@@ -364,7 +373,6 @@ void setPlayers(String number)
 
 void playerLost(String number)
 {
-  Serial.println(number);
   switch(getPlayer(number))
   {
     case 1:
@@ -384,48 +392,65 @@ void playerLost(String number)
   }
 }
 
-void checkCollision()
+void clear_ball(Environment* envi)
 {
-  if(BALL->xPos <= 0 && BALL->yPos >= 23) // bottom left corner PLAYER ONE LOST
+  long int x=envi->ball->x;
+  long int y=envi->ball->y;
+  if ( x==0 || x==23 || y==0 || y==23)
   {
-    
+    // dont do anything cause im a paddle
   }
-  else if(BALL->xPos <= 0 && BALL->yPos <= 0) // top left corner PLAYER FOUR LOST
+  else
   {
-    
+    setLed(x,y,false);
   }
-  else if(BALL->xPos >= 23 && BALL->yPos <= 0) // top right corner PLAYER TWO LOST
-  {
-    
-  }
-  else if(BALL->xPos >= 23 && BALL->yPos >= 23) // bottom right PLAYER THREE LOST
-  {
-    
-  }
+  
+}
+void update_screen(Environment* envi)
+{
+  long int x=(envi->ball)->x;
+  long int y=(envi->ball)->y;
+  setLed(x,y,true);
 }
 
 void loop()
 {
-  //while(true) setLed(2,1,true);
   String number = getStringFromSerial(); //also Sets MODE //uncomment this line
+  //game code
+  if(abs(millis() - StartTime) > gamedelay && balloff==false)
+  {
+    clear_ball(envi);
+    envi->tick();
+    update_screen(envi);
+    clear_ball(envi1);
+    envi1->tick();
+    update_screen(envi1);
+    StartTime = millis();
+    if( gamedelay > 5)
+    {
+      gamedelay=gamedelay-1;
+    }
+  }
+  
   int player = -1;
   if(number != "-1")
   {
     switch(MODE)
     {
       case 1: //LED_POSITION
+        balloff= true;
+        clear_ball(envi);
+        clear_ball(envi1);
         setXYValues(number);
-        Serial.println(number);
-        Serial.print("x = ");
-        Serial.print(X);
-        Serial.print(" y = ");
-        Serial.println(Y);
         setLed(X,Y,true);
         break;
       case 2: //MULTIPLAYER
         multiPlayerLoop(number);
         break;
       case 3: //DEMO
+        balloff= true;
+        clear_ball(envi);
+        clear_ball(envi1);
         demoTest();
         break;
       case 4: //SET PLAYERS
@@ -434,11 +459,25 @@ void loop()
       case 5: //LOSE PLAYER
         playerLost(number);
         break;
+      case 6:// TURN OFF BALLS
+        balloff= true;
+        clear_ball(envi);
+        clear_ball(envi1);
+        break;// TURN ON BALLS 
+      case 7:
+        balloff= false;
+        break;
+        case 8: // RESET THE GAME 
+        digitalWrite(3,LOW);
+        break;
       case 9: //TURNOFFLED
         setXYValues(number);
         setLed(X,Y,false);
         break;
       case 10:
+        balloff= true;
+        clear_ball(envi);
+        clear_ball(envi1);
         clearDisplay();
         break;
       default:
@@ -446,3 +485,4 @@ void loop()
     }
   }
 }
+
