@@ -4,6 +4,9 @@
 #include "Player.h"
 #include "Mball.h"
 #include "Environment.h"
+
+#define TWOBALLS 1
+
 // inital values used for setting up the ics
 int MODE = -1;
 boolean balloff= false;
@@ -96,6 +99,7 @@ void setup()
   envi->register_paddle(PThree);
   envi->register_ball(balltest);
   //-----------second ball-------
+  #if TWOBALLS
   envi1= new Environment();
   balltest1= new MBall();
   balltest1->update();
@@ -107,6 +111,7 @@ void setup()
   envi1->register_paddle(PFour);
   envi1->register_paddle(PThree);
   envi1->register_ball(balltest1);
+  #endif
   Serial.begin(9600);
   delay(100);
 }
@@ -435,9 +440,11 @@ void loop()
     clear_ball(envi);
     envi->tick();
     update_screen(envi);
+    #if TWOBALLS
     clear_ball(envi1);
     envi1->tick();
     update_screen(envi1);
+    #endif
     StartTime = millis();
     if( gamedelay > 40)
     {
@@ -455,7 +462,9 @@ void loop()
         {
           balloff= true;
           clear_ball(envi);
+          #if TWOBALLS
           clear_ball(envi1);
+          #endif
         }
         setXYValues(number);
         setLed(X,Y,true);
@@ -468,7 +477,9 @@ void loop()
         {
           balloff= true;
           clear_ball(envi);
+          #if TWOBALLS
           clear_ball(envi1);
+          #endif
         }
         demoTest();
         break;
@@ -483,7 +494,9 @@ void loop()
         {
           balloff= true;
           clear_ball(envi);
+          #if TWOBALLS
           clear_ball(envi1);
+          #endif
         }
         break;// TURN ON BALLS 
       case 7:
@@ -501,7 +514,9 @@ void loop()
         {
           balloff= true;
           clear_ball(envi);
+          #if TWOBALLS
           clear_ball(envi1);
+          #endif
         }
         clearDisplay();
         break;
