@@ -1,11 +1,12 @@
 //#include <LiquidCrystal.h>
 #include <LedControl.h>
+#include <avr/wdt.h>
 #include "Player.h"
 #include "Mball.h"
 #include "Environment.h"
-
+// inital values used for setting up the ics
 int MODE = -1;
-boolean balloff= true;
+boolean balloff= false;
 long int X = -1, Y = -1;
 const int LED_TURNON_MODE = 1;
 const int LED_TURNOFF_MODE = 9;
@@ -17,7 +18,7 @@ const int CMD_UP = 10;
 const int CMD_DOWN = 11;
 
 const int DEVICES = 8;
-const int INTENSITY = 0;
+const int INTENSITY = 12;
 
 LedControl lc = LedControl(12,11,10,DEVICES); //default is (12,11,10,1)
 LedControl lc1 = LedControl(A3,11,A1,1);
@@ -106,8 +107,6 @@ void setup()
   envi1->register_paddle(PFour);
   envi1->register_paddle(PThree);
   envi1->register_ball(balltest1);
-  digitalWrite(3,HIGH);
-  pinMode(3,OUTPUT);
   Serial.begin(9600);
   delay(100);
 }
@@ -313,6 +312,8 @@ void printRow(int row, boolean val[24])
 
 void demoTest()
 {
+  for(int k = 0; k < 2; k++)
+  {
    for(int i = 0; i < 24; i++)
    {
      for(int j = 0; j < 24; j++)
@@ -337,6 +338,7 @@ void demoTest()
      for(int j = 23; j >= 0; j--)
        setLed(j,i,false);
    }
+  }
 }
 
 void clearDisplay()
@@ -405,6 +407,13 @@ void clear_ball(Environment* envi)
   }
   
 }
+void software_reboot()
+{
+  wdt_enable(WDTO_15MS);
+  while(1)
+  {
+  }
+}
 void update_screen(Environment* envi)
 {
   long int x=(envi->ball)->x;
@@ -416,6 +425,11 @@ void loop()
 {
   String number = getStringFromSerial(); //also Sets MODE //uncomment this line
   //game code
+  if ( envi->paddles[0]->lost== true && envi->paddles[1]->lost== true && envi->paddles[2]->lost== true && envi->paddles[3]->lost== true)
+  {
+    software_reboot();
+  }
+  // game loop for running 4 player pong ball speeds up as the game proceeds 
   if(abs(millis() - StartTime) > gamedelay && balloff==false)
   {
     clear_ball(envi);
@@ -425,7 +439,7 @@ void loop()
     envi1->tick();
     update_screen(envi1);
     StartTime = millis();
-    if( gamedelay > 5)
+    if( gamedelay > 40)
     {
       gamedelay=gamedelay-1;
     }
@@ -437,9 +451,12 @@ void loop()
     switch(MODE)
     {
       case 1: //LED_POSITION
-        balloff= true;
-        clear_ball(envi);
-        clear_ball(envi1);
+        if(!balloff)
+        {
+          balloff= true;
+          clear_ball(envi);
+          clear_ball(envi1);
+        }
         setXYValues(number);
         setLed(X,Y,true);
         break;
@@ -447,9 +464,12 @@ void loop()
         multiPlayerLoop(number);
         break;
       case 3: //DEMO
-        balloff= true;
-        clear_ball(envi);
-        clear_ball(envi1);
+        if(!balloff)
+        {
+          balloff= true;
+          clear_ball(envi);
+          clear_ball(envi1);
+        }
         demoTest();
         break;
       case 4: //SET PLAYERS
@@ -459,24 +479,30 @@ void loop()
         playerLost(number);
         break;
       case 6:// TURN OFF BALLS
-        balloff= true;
-        clear_ball(envi);
-        clear_ball(envi1);
+        if(!balloff)
+        {
+          balloff= true;
+          clear_ball(envi);
+          clear_ball(envi1);
+        }
         break;// TURN ON BALLS 
       case 7:
         balloff= false;
         break;
-        case 8: // RESET THE GAME 
-        digitalWrite(3,LOW);
+      case 8: // RESET THE GAME 
+        software_reboot();
         break;
       case 9: //TURNOFFLED
         setXYValues(number);
         setLed(X,Y,false);
         break;
       case 10:
-        balloff= true;
-        clear_ball(envi);
-        clear_ball(envi1);
+        if(!balloff)
+        {
+          balloff= true;
+          clear_ball(envi);
+          clear_ball(envi1);
+        }
         clearDisplay();
         break;
       default:
