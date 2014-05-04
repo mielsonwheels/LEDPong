@@ -11,7 +11,9 @@ import android.widget.Toast;
 import java.util.Set;
 
 /**
- * Created by Miles on 4/25/2014.
+ * Created by Miles on 4/25/2014. This is the main drawing
+ * activity. You can use this activity to connect to the
+ * LED Matrix, and draw on it, live.
  */
 public class Animator extends Activity {
     private BluetoothAdapter myBluetoothAdapter;
@@ -22,6 +24,11 @@ public class Animator extends Activity {
     private int REQUEST_ENABLE_BT = 1;
     protected boolean arduinoFound = false;
 
+   /**
+    *  Within the constructor we initialize the bluetooth adapter,
+    *  create a thread that handles the connection, and pass the
+    *  connection handling thread to the canvas.
+    */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // take an instance of BluetoothAdapter - Bluetooth radio

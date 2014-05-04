@@ -11,6 +11,11 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 
+/**
+ * This class is almost a copy of the BTConnectorServer class,
+ * only missing the reset button & functionality. It also doesn't
+ * open up a server socket.
+ */
 public class BTConnectorClient extends Activity {
 
     private BluetoothAdapter myBluetoothAdapter;

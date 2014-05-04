@@ -14,10 +14,11 @@ import java.io.OutputStream;
 import java.util.UUID;
 import java.util.Vector;
 
-/*
+/**
  * This is the thread that handles client connections.
  * This includes connection from server to arduino, and
- * between pong clients and the pong server.
+ * between pong clients and the pong server. It also
+ * can handle passing led turnon commands to the arduino.
  */
 public class PongServer extends Thread {
     private final BluetoothSocket arduinoSocket;
@@ -45,16 +46,25 @@ public class PongServer extends Thread {
         listenSocket = tmp2;
     }
 
+    /**
+     * The run function sets up a message handler, which parses messages
+     * coming in from the client threads. It also sets up the listen server,
+     * which waits for incoming connections.
+     */
     public void run(){
         Looper.prepare();
+
+        //The message handle, this captures messages from the client threads and
+        //handles them.
         myHandler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 byte[] message = (byte[]) msg.obj;
                 try {
+                    //messages are (player#)(l or r)
+                    //they are always two bytes
                     char direction = (char) message[1];
                     int player = (int) message[0];
-                    System.out.printf("Message received. Dir: %c, Player: %d", direction, player);
                     if (direction == 'l') sendLeft(player);
                     if (direction == 'r') sendRight(player);
                 }
@@ -62,7 +72,6 @@ public class PongServer extends Thread {
                     e.printStackTrace();
                 }
                 catch (NullPointerException e){
-                    System.out.println("substring fucked up");
                     e.printStackTrace();
                 }
             }
@@ -70,7 +79,9 @@ public class PongServer extends Thread {
         try {
             arduinoSocket.connect();
             while(!arduinoSocket.isConnected()){
-                System.out.println("Waiting to connect arduino...");
+                //wait for the connection...
+                //since everything is asynchronous crashes still happen if you
+                //go to fast
             }
             mmInStream = arduinoSocket.getInputStream();
             mmOutStream = arduinoSocket.getOutputStream();
@@ -83,6 +94,7 @@ public class PongServer extends Thread {
         Looper.loop();
     }
 
+//ARDUINO COMMUNICATION FUNCTIONS BELOW HERE
     public void sendLeft(int player) throws IOException {
         try {
             byte[] message;
@@ -134,7 +146,6 @@ public class PongServer extends Thread {
             String command = Integer.toString(c) + xs + ys;
             command += "a";
             message = command.getBytes();
-            System.out.println(command);
             if (mmOutStream != null) mmOutStream.write(message);
         } catch(IOException e) {
             throw e;
@@ -149,6 +160,7 @@ public class PongServer extends Thread {
         }
     }
 
+    //Close all connections everywhere
     public void cancel() {
         try {
             if(arduinoSocket != null) arduinoSocket.close();

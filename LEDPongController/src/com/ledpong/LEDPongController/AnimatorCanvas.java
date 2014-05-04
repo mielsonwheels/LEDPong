@@ -13,7 +13,10 @@ import java.io.IOException;
 import java.util.Vector;
 
 /**
- * Created by Miles on 4/25/2014.
+ * Created by Miles on 4/25/2014. This class is a custom
+ * view that handles the grid that you see in the animate
+ * function. It's dynamic, and handles the correct cell size
+ * based on the size of view.
  */
 public class AnimatorCanvas extends View{
     private boolean[][] ledMatrix;
@@ -61,22 +64,32 @@ public class AnimatorCanvas extends View{
         eraseMode = !eraseMode;
     }
 
+    /**
+     * calculate the size of the cells whenever we're redrawn
+     */
     @Override
     protected void onSizeChanged(int w, int h, int oldh, int oldw){
         cellWidth = ((w - (getPaddingLeft()+getPaddingRight())) / 24);
         cellHeight = ((h - (getPaddingBottom()+getPaddingTop())) / 24);
     }
 
+    /**
+     * This function handles drawing the canvas & what LEDs are lit up.
+     */
     @Override
     protected void onDraw(Canvas canvas){
         float startX;
         float startY = 0;
-        canvas.drawColor(Color.BLACK);
+        canvas.drawColor(Color.BLACK);  //clear the screen
+
+        //This horrific for loop draws the grid
         for(int i = 0; i < 24; i++){
             startX = 0;
             for(int j = 0; j < 24; j++){
                 canvas.drawLine(startX + cellWidth, startY, startX+cellWidth, startY+cellHeight, linePaint);
                 canvas.drawLine(startX, startY+cellHeight, startX+cellWidth, startY+cellHeight, linePaint);
+
+                //if the LED is set, we draw a green square to show that it is lit.
                 if(ledMatrix[i][j]){
                     canvas.drawRect(startX,startY,
                             (startX+cellWidth),(startY+cellHeight),squarePaint);
@@ -85,16 +98,20 @@ public class AnimatorCanvas extends View{
             }
             startY += cellHeight;
         }
+
+        //draw the the edge of the grid
         canvas.drawLine(0,0,selfWidth,0,linePaint);
         canvas.drawLine(0,0,0,selfHeight,linePaint);
         canvas.drawLine(0,selfHeight,selfWidth,selfHeight,linePaint);
         canvas.drawLine(selfWidth,0,selfWidth,selfHeight,linePaint);
     }
 
+    //this function never actually used
     public void saveFrame(View view){
         frames.add(ledMatrix);
     }
 
+    //toggle the LED on or off, depending on if we're erasing or not
     public void toggleLed(int x, int y){
         if(x < 0) x = 0;
         if(y < 0) y = 0;
@@ -109,6 +126,7 @@ public class AnimatorCanvas extends View{
         invalidate();
     }
 
+    //not actually used.
     public boolean getLed(int x, int y){
         if(x < 0) x = 0;
         if(x > 23) x = 23;
@@ -117,10 +135,12 @@ public class AnimatorCanvas extends View{
         return ledMatrix[x][y];
     }
 
+    //not actually used
     public Vector<boolean[][]> getFrames(){
         return frames;
     }
 
+    //go through and set every LED to false; we also send a clearLED command to the arduino
     public void clearFrame(){
         for(int i = 0; i < 24; i++){
             for(int j = 0; j < 24; j++){
@@ -135,6 +155,8 @@ public class AnimatorCanvas extends View{
         }
     }
 
+    //Rows are (where you touched) / width of the cell
+    //Columns are the same, but just with Y and height
     private int calcRow(float touchX) {
         return (int)(touchX / cellWidth);
     }
@@ -143,6 +165,10 @@ public class AnimatorCanvas extends View{
         return (int)(touchY / cellHeight);
     }
 
+    /**The touch handler. Here we get the X and Y where you touch,
+     * and update our internal representation of the matrix and
+     * send the LED that got touched.
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float touchX = event.getX();
@@ -152,7 +178,6 @@ public class AnimatorCanvas extends View{
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
-            //case MotionEvent.ACTION_UP:
                 toggleLed(x,y);
                 break;
             default:
@@ -167,6 +192,10 @@ public class AnimatorCanvas extends View{
         return true;
     }
 
+    /**
+     * Simply used to pass the thread handling the connection to the arduino
+     * into this class.
+     */
     public void setThread(PongServer thread){
         arduinoThread = thread;
     }

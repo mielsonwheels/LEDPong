@@ -9,7 +9,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Created by Miles on 5/2/2014.
+ * Created by Miles on 5/2/2014. This thread handles an individual connection
+ * between a client and the server, on the server side. It keeps track of
+ * the player who this thread is receiving from.
  */
 public class ClientHandlerThread extends Thread {
     private int player;
@@ -26,6 +28,10 @@ public class ClientHandlerThread extends Thread {
         quit = false;
     }
 
+    /**
+     * This run function just sits here and receives from the client. It
+     * also sends the player number before receiving and data.
+     */
     @Override
     public void run() {
         try {

@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
+<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/animateButton1"
-            android:id="@+id/button" android:layout_gravity="left|bottom" android:singleLine="false"/>
-    <Button
-            android:layout_width="121dp"
-            android:layout_height="wrap_content"
-            android:text="@string/animateButton2"
-            android:id="@+id/button2" android:layout_gravity="right|bottom" android:onClick="clear"/>
     <view android:layout_width="fill_parent"
           android:layout_height="435dp"
           class="com.ledpong.LEDPongController.AnimatorCanvas" android:id="@+id/canvas"
-          android:layout_gravity="center_horizontal|top"/>
-    <ToggleButton
-            android:layout_width="103dp"
+          android:layout_gravity="center_horizontal|top"
+          android:layout_alignParentTop="true"
+          android:layout_alignParentLeft="true" android:layout_alignParentRight="true"
+          android:layout_above="@+id/button"/>
+    <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/toggleButton" android:layout_gravity="center_horizontal|bottom"
-            android:onClick="eraseMode" android:text="Erase" android:textOff="Erase: OFF" android:textOn="Erase: ON"/>
-</FrameLayout>
+            android:text="@string/animateButton2"
+            android:id="@+id/button" android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
+            android:onClick="clear"/>
+    <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New ToggleButton"
+            android:id="@+id/toggleButton" android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" android:textOff="Erase" android:textOn="Erase"
+            android:onClick="eraseMode"/>
+</RelativeLayout>

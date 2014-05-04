@@ -9,8 +9,9 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 /**
- * Created by Miles on 4/24/2014. A thread that handles
- * the connection between the phones.
+ * Created by Miles on 4/24/2014. This is the thread that handles the connection
+ * from a client phone to the server. This is executed client side, and therefore
+ * is far more simple than pongServer needs to be.
  */
 public class PongClient extends Thread {
     private final BluetoothSocket mmSocket;

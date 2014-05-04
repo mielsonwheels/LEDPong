@@ -9,7 +9,8 @@ import java.util.Vector;
 
 
 /**
- * Created by Miles on 5/3/2014.
+ * Created by Miles on 5/3/2014. We needed another thread to handle listening for incoming
+ * connections. The reason why is explained in the MainMenu class.
  */
 public class ListenThread extends Thread {
     private BluetoothServerSocket listenSocket;

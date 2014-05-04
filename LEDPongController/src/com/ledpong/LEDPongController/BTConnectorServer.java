@@ -11,6 +11,12 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 
+/**
+ * This class is the activity for the phone that acts as the server.
+ * We initialize the bluetooth adapter, open a listen socket with the
+ * specified UUID (randomly generated online, then hardcoded).
+ * We also add a reset button.
+ */
 public class BTConnectorServer extends Activity {
 
     private BluetoothAdapter myBluetoothAdapter;
