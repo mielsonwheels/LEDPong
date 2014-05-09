@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 import java.io.IOException;
 import java.util.Vector;
@@ -27,7 +26,7 @@ public class AnimatorCanvas extends View{
     private float selfHeight;
     private Paint linePaint;
     private Paint squarePaint;
-    private Canvas drawCanvas;
+    private Paint erasePaint;
     private boolean eraseMode = false;
     PongServer arduinoThread;
 
@@ -38,6 +37,8 @@ public class AnimatorCanvas extends View{
         linePaint.setColor(Color.CYAN);
         squarePaint = new Paint();
         squarePaint.setColor(Color.GREEN);
+        erasePaint = new Paint();
+        erasePaint.setColor(Color.BLACK);
         this.clearFrame();
     }
 
@@ -48,6 +49,8 @@ public class AnimatorCanvas extends View{
         linePaint.setColor(Color.CYAN);
         squarePaint = new Paint();
         squarePaint.setColor(Color.GREEN);
+        erasePaint = new Paint();
+        erasePaint.setColor(Color.BLACK);
         this.clearFrame();
     }
 
@@ -58,13 +61,13 @@ public class AnimatorCanvas extends View{
         linePaint.setColor(Color.CYAN);
         squarePaint = new Paint();
         squarePaint.setColor(Color.GREEN);
+        erasePaint = new Paint();
+        erasePaint.setColor(Color.BLACK);
         this.clearFrame();
     }
 
     public void toggleErase(){
         eraseMode = !eraseMode;
-        if(eraseMode) squarePaint.setColor(Color.BLACK);
-        else squarePaint.setColor(Color.GREEN);
     }
 
     /**
@@ -74,6 +77,8 @@ public class AnimatorCanvas extends View{
     protected void onSizeChanged(int w, int h, int oldh, int oldw){
         cellWidth = ((w - (getPaddingLeft()+getPaddingRight())) / 24);
         cellHeight = ((h - (getPaddingBottom()+getPaddingTop())) / 24);
+        selfWidth = w;
+        selfHeight = h;
     }
 
     /**
@@ -83,20 +88,21 @@ public class AnimatorCanvas extends View{
     protected void onDraw(Canvas canvas){
         float startX = 0;
         float startY = 0;
-        canvas.drawColor(Color.BLACK);  //clear the screen
+        //canvas.drawColor(Color.BLACK);  //clear the screen
 
         for(int i = 0; i < 24; i++){
-            canvas.drawLine(0, startY, selfWidth, startY, linePaint);
-            canvas.drawLine(startX, 0, startX, selfHeight, linePaint);
+            canvas.drawLine(0, startY+cellHeight, cellWidth*24, startY+cellHeight, linePaint);
+            canvas.drawLine(startX+cellWidth, 0, startX+cellWidth, cellHeight*24, linePaint);
+            startX += cellWidth;
+            startY += cellHeight;
         }
 
-        //This horrific for loop draws the grid
+        startY = 0;
+
+        //This horrific for loop draws the squares
         for(int i = 0; i < 24; i++){
             startX = 0;
             for(int j = 0; j < 24; j++){
-                //canvas.drawLine(startX + cellWidth, startY, startX+cellWidth, startY+cellHeight, linePaint);
-                //canvas.drawLine(startX, startY+cellHeight, startX+cellWidth, startY+cellHeight, linePaint);
-
                 //if the LED is set, we draw a green square to show that it is lit.
                 if(ledMatrix[i][j]){
                     canvas.drawRect(startX,startY,
@@ -106,7 +112,6 @@ public class AnimatorCanvas extends View{
             }
             startY += cellHeight;
         }
-
         //draw the the edge of the grid
         canvas.drawLine(0,0,selfWidth,0,linePaint);
         canvas.drawLine(0,0,0,selfHeight,linePaint);
@@ -131,7 +136,6 @@ public class AnimatorCanvas extends View{
         else {
             ledMatrix[y][x] = true;
         }
-
         invalidate();
     }
 
@@ -193,7 +197,7 @@ public class AnimatorCanvas extends View{
                 return false;
         }
         invalidate();
-        try {
+       try {
            if(arduinoThread != null) arduinoThread.sendLed(x, y, eraseMode);
         } catch (IOException e) {
             e.printStackTrace();

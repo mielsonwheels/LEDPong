@@ -125,7 +125,7 @@ public class PongServer extends Thread {
             String command = Integer.toString(101234);
             command += "a";
             message = command.getBytes();
-            mmOutStream.write(message);
+            if(mmOutStream != null) mmOutStream.write(message);
         } catch(IOException e) {
             throw e;
         }
