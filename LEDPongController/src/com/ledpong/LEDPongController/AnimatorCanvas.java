@@ -27,6 +27,7 @@ public class AnimatorCanvas extends View{
     private float selfHeight;
     private Paint linePaint;
     private Paint squarePaint;
+    private Canvas drawCanvas;
     private boolean eraseMode = false;
     PongServer arduinoThread;
 
@@ -62,6 +63,8 @@ public class AnimatorCanvas extends View{
 
     public void toggleErase(){
         eraseMode = !eraseMode;
+        if(eraseMode) squarePaint.setColor(Color.BLACK);
+        else squarePaint.setColor(Color.GREEN);
     }
 
     /**
@@ -78,16 +81,21 @@ public class AnimatorCanvas extends View{
      */
     @Override
     protected void onDraw(Canvas canvas){
-        float startX;
+        float startX = 0;
         float startY = 0;
         canvas.drawColor(Color.BLACK);  //clear the screen
+
+        for(int i = 0; i < 24; i++){
+            canvas.drawLine(0, startY, selfWidth, startY, linePaint);
+            canvas.drawLine(startX, 0, startX, selfHeight, linePaint);
+        }
 
         //This horrific for loop draws the grid
         for(int i = 0; i < 24; i++){
             startX = 0;
             for(int j = 0; j < 24; j++){
-                canvas.drawLine(startX + cellWidth, startY, startX+cellWidth, startY+cellHeight, linePaint);
-                canvas.drawLine(startX, startY+cellHeight, startX+cellWidth, startY+cellHeight, linePaint);
+                //canvas.drawLine(startX + cellWidth, startY, startX+cellWidth, startY+cellHeight, linePaint);
+                //canvas.drawLine(startX, startY+cellHeight, startX+cellWidth, startY+cellHeight, linePaint);
 
                 //if the LED is set, we draw a green square to show that it is lit.
                 if(ledMatrix[i][j]){
@@ -123,6 +131,7 @@ public class AnimatorCanvas extends View{
         else {
             ledMatrix[y][x] = true;
         }
+
         invalidate();
     }
 
